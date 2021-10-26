@@ -1,12 +1,24 @@
 <template>
   <div id="app">
+    <app-nav-bar />
     <router-view />
+    <app-footer />
   </div>
 </template>
+<script>
+import AppNavBar from "@/components/AppNavBar.vue";
+import AppFooter from "@/components/AppFooter.vue";
+export default {
+  components: {
+    "app-nav-bar": AppNavBar,
+    "app-footer": AppFooter,
+  },
+};
+</script>
 
 <style lang="scss">
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: "Poppins", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;

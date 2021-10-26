@@ -4,5 +4,5 @@
   </div>
 </template>
 <script>
-export default { name: "Login" };
+export default { name: "Auth" };
 </script>

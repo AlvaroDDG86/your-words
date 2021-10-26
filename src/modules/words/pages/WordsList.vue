@@ -1,3 +1,3 @@
 <template>
-  <h3>Landing</h3>
+  <h5>List</h5>
 </template>

@@ -10,17 +10,18 @@ module.exports = {
   rules: {
     "no-console": process.env.NODE_ENV === "production" ? "warn" : "off",
     "no-debugger": process.env.NODE_ENV === "production" ? "warn" : "off",
-    'vue/multiline-html-element-content-newline': 'off',
-    'vue/html-closing-bracket-newline': 'off',
-    'vue/html-indent': 'off',
-    'vue/max-attributes-per-line': 'off',
-    'vue/mustache-interpolation-spacing': 'off',
-    'vue/no-v-html': 'off',
-    'vue/singleline-html-element-content-newline': 'off',
+    "vue/multiline-html-element-content-newline": "off",
+    "vue/html-closing-bracket-newline": "off",
+    "vue/html-indent": "off",
+    "vue/max-attributes-per-line": "off",
+    "vue/mustache-interpolation-spacing": "off",
+    "vue/no-v-html": "off",
+    "vue/singleline-html-element-content-newline": "off",
     "prettier/prettier": [
-      "error",{
-        "endOfLine": "auto"
-      }
+      "error",
+      {
+        endOfLine: "auto",
+      },
     ],
   },
   overrides: [

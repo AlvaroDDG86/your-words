@@ -1,14 +1,18 @@
-import Login from "@/modules/auth/Login";
-import LoginPage from "@/modules/auth/pages/login-page";
+import Auth from "@/modules/auth/Auth";
+import Login from "@/modules/auth/pages/Login";
+import Signup from "@/modules/auth/pages/Signup";
 
 export default {
-  path: "/login",
-  component: Login,
+  path: "/auth",
+  component: Auth,
   children: [
     {
-      path: "",
-      name: "LoginPage",
-      component: LoginPage,
+      path: "login",
+      component: Login,
+    },
+    {
+      path: "signup",
+      component: Signup,
     },
   ],
 };
