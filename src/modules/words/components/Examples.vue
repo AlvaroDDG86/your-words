@@ -1,7 +1,7 @@
 <template>
   <div class="bg-gray-100 mx-10 my-6 rounded-lg shadow-lg">
-    <h5 class="text-sm font-medium text-gray-900 block mb-2 pt-2">
-      Your examples for <span class="font-bold">'{{ word.word }}'</span>:
+    <h5 class="text-sm font-medium text-gray-900 block mb-2 pt-2 font-bold">
+      Your examples:
     </h5>
     <div
       class="
@@ -14,7 +14,7 @@
         font-sans
       "
     >
-      <div class="bg-white rounded shadow p-6 m-4 w-full lg:w-3/4 lg:max-w-lg">
+      <div class="bg-white rounded shadow p-6 m-4 w-full lg:w-3/4">
         <div class="mb-4">
           <div class="flex items-center border-b border-teal-500 py-2">
             <input
@@ -22,14 +22,14 @@
                 input
                 appearance-none
                 bg-transparent
-                border-none
                 w-full
                 text-gray-700
                 mr-3
                 py-1
+                rounded-md
                 px-2
                 leading-tight
-                focus:outline-none
+                focus:ring-pink500 focus:border-pink-500
               "
               v-model="exampleType"
               type="text"
@@ -54,7 +54,7 @@
               @click="addExample"
               type="button"
             >
-              Save
+              Add
             </button>
           </div>
         </div>
@@ -74,6 +74,7 @@
 <script>
 import Example from "@/modules/words/components/Example";
 export default {
+  name: "Examples",
   components: {
     Example,
   },

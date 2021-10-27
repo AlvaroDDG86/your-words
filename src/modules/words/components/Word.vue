@@ -1,5 +1,5 @@
 <template>
-  <div class="pt-10 border-b-2 border-gray-400 shadow-xl">
+  <div class="pt-10 border-b-1 border-gray-400 shadow-xl">
     <div class="text-pink-700 font-bold text-xl">
       definition of '{{ word.word }}'
     </div>
@@ -15,7 +15,7 @@
         <div
           :key="`phonetic-${indexPho}`"
           v-for="(phonetic, indexPho) in word.phonetics"
-          class="flex justify-center items-center"
+          class="flex justify-center items-center mt-2"
         >
           <span class="text-2xl mr-5">{{ phonetic.text }}</span>
           <audio :src="phonetic.audio" preload="auto" ref="audio" controls>
@@ -87,38 +87,11 @@
         </li>
       </ul>
     </div>
-    <Examples :word="word" :examples="[]" />
-    <div class="mx-10 my-6">
-      <label
-        for="annotation"
-        class="text-sm font-medium text-gray-900 block mb-2"
-        >Your annotations for
-        <span class="font-bold">'{{ word.word }}'</span>:</label
-      >
-      <textarea
-        id="annotation"
-        rows="4"
-        class="
-          bg-gray-50
-          border border-gray-300
-          text-gray-900
-          sm:text-sm
-          rounded-lg
-          focus:ring-blue-500 focus:border-blue-500
-          block
-          w-full
-        "
-        placeholder="Leave your annotations..."
-      ></textarea>
-    </div>
   </div>
 </template>
 <script>
-import Examples from "@/modules/words/components/Examples";
 export default {
-  components: {
-    Examples,
-  },
+  name: "Word",
   props: {
     word: {
       type: Object,

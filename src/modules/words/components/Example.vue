@@ -19,7 +19,7 @@
       "
       @click="removeExample"
     >
-      <v-icon name="trash-alt" class="bg-pink-800" />
+      <v-icon name="trash-alt" />
     </button>
   </div>
 </template>

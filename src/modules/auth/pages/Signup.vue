@@ -90,7 +90,7 @@
 </template>
 <script>
 export default {
-  name: "Login",
+  name: "Signup",
   data() {
     return {
       data: null,
