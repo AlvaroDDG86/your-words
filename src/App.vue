@@ -1,17 +1,19 @@
 <template>
-  <div id="app">
+  <div id="app" class="flex flex-col justify-between items-stretch">
     <app-nav-bar />
-    <router-view />
-    <app-footer />
+    <div class="flex-grow pt-10">
+      <router-view />
+    </div>
+    <!-- <app-footer /> -->
   </div>
 </template>
 <script>
 import AppNavBar from "@/components/AppNavBar.vue";
-import AppFooter from "@/components/AppFooter.vue";
+// import AppFooter from "@/components/AppFooter.vue";
 export default {
   components: {
     "app-nav-bar": AppNavBar,
-    "app-footer": AppFooter,
+    // "app-footer": AppFooter,
   },
 };
 </script>
