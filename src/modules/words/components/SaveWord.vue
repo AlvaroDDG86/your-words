@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-pink-600 text-white py-4 px-10 flex justify-end">
+  <div class="bg-pink-900 text-white py-4 px-10 flex justify-end">
     <button
       class="
         text-pink-900
@@ -12,13 +12,12 @@
       "
       @click="saveWord"
     >
-      <v-icon small x-small name="star" />
+      Add Word
     </button>
   </div>
 </template>
 <script>
 export default {
-  name: "AppFooter",
   methods: {
     saveWord() {
       console.log(true);

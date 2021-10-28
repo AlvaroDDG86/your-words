@@ -5,17 +5,13 @@
     </p>
     <button
       class="
-        flex-shrink-0
-        bg-teal-500
-        hover:bg-teal-700
-        border-teal-500
-        hover:border-teal-700
-        text-sm
-        border-4
-        bg-pink-800
+        bg-pink-900
         text-white
+        font-extrabold
+        text-sm
+        rounded-full
+        px-3
         py-1
-        px-2
       "
       @click="removeExample"
     >

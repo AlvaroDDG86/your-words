@@ -30,7 +30,11 @@
       class="py-4"
     >
       <h3 v-if="meaning.definitions.length > 0" class="text-3xl">
-        Definition {{ indexMean + 1 }}:
+        {{ indexMean + 1 }}. Definition (<span
+          v-if="meaning.partOfSpeech"
+          class="text-l text-pink-900"
+          >{{ meaning.partOfSpeech }}</span
+        >):
       </h3>
       <ul class="list-decimal">
         <li
@@ -44,7 +48,7 @@
           </div>
           <div
             v-if="definition.synonyms.length > 0"
-            class="flex justify-center items-center"
+            class="flex justify-start items-center"
           >
             <span class="text-5x1 text-gray-500 font-bold mr-10"
               >Synonyms:
@@ -54,23 +58,27 @@
                 bg-gray-100
                 p-1
                 flex flex-wrap
-                justify-center
+                justify-start
                 m-3
                 rounded-2xl
                 shadow-md
+                w-full
               "
             >
               <span
                 :key="`syn-${indexSyn}`"
                 v-for="(syn, indexSyn) in definition.synonyms"
-                class="py-1 px-1 rounded-2xl border-gray-400 bg-white m-1"
-                >{{ syn }}</span
+                class="py-1 px-1 text-pink-900 m-1"
+                >{{ syn
+                }}{{
+                  definition.synonyms.length - 1 === indexSyn ? "." : ","
+                }}</span
               >
             </div>
           </div>
           <div
             v-if="definition.antonyms.length > 0"
-            class="flex justify-center items-center"
+            class="flex justify-start items-center"
           >
             <span class="text-5x1 text-gray-500 font-bold mr-10"
               >Antonyms:
@@ -79,8 +87,11 @@
               <span
                 :key="`ant-${indexAnd}`"
                 v-for="(ant, indexAnd) in definition.antonyms"
-                class="py-1 px-1 rounded-2xl border-gray-400 bg-white m-1"
-                >{{ ant }}</span
+                class="py-1 px-1 border-pink-900 m-1"
+                >{{ ant
+                }}{{
+                  definition.antonyms.length - 1 === indexAnd ? "." : ","
+                }}</span
               >
             </div>
           </div>

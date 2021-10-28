@@ -56,10 +56,12 @@
           Search
         </button>
         <div class="absotule bottom-10 right-10">
-          <!-- <toggle-button
-            :value="true"
-            :labels="{ checked: 'Favo', unchecked: 'Bar' }"
-          /> -->
+          <span
+            :class="{ 'text-yellow-300': true }"
+            class="text-xl font-mono inline px-2 text-gray-300"
+          >
+            <v-icon name="star"
+          /></span>
         </div>
       </div>
     </div>

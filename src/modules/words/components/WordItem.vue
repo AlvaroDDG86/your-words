@@ -15,6 +15,7 @@
       max-h-36
       overflow-hidden
     "
+    @click="navigate"
   >
     <div class="m-3">
       <div class="flex justify-between">
@@ -55,6 +56,7 @@
   </div>
 </template>
 <script>
+import { mapActions } from "vuex";
 export default {
   name: "WordItem",
   props: {
@@ -69,6 +71,15 @@ export default {
     },
     firstDefinition() {
       return this.word.list[0].meanings[0].definitions[0].definition;
+    },
+  },
+  methods: {
+    ...mapActions("words", ["setWord"]),
+    navigate() {
+      this.setWord(this.word.id);
+      this.$nextTick(() => {
+        this.$router.push({ path: "new" });
+      });
     },
   },
 };

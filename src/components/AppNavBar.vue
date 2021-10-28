@@ -1,17 +1,5 @@
 <template>
-  <ul
-    class="
-      fixed
-      z-20
-      top-0
-      w-full
-      text-right
-      p-4
-      pr-4
-      font-semibold
-      bg-gray-100
-    "
-  >
+  <ul class="w-full text-right p-4 pr-4 font-semibold bg-gray-100">
     <router-link
       :to="{ path: link.path }"
       class="inline mx-2 text-pink-600 hover:text-pink-400 cursor-pointer"
@@ -37,10 +25,6 @@ export default {
       links: [
         {
           name: "Mi List",
-          path: "/words/list",
-        },
-        {
-          name: "Favourites",
           path: "/words/list",
         },
         {

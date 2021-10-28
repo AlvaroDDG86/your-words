@@ -37,18 +37,13 @@
             />
             <button
               class="
-                flex-shrink-0
-                bg-teal-500
-                hover:bg-teal-700
-                border-teal-500
-                hover:border-teal-700
-                text-sm
-                border-4
-                bg-pink-500
+                bg-pink-900
                 text-white
-                py-1
+                font-extrabold
+                text-sm
+                rounded-full
                 px-2
-                rounded
+                py-1
               "
               :disabled="exampleType === ''"
               @click="addExample"

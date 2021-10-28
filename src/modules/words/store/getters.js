@@ -1,15 +1,12 @@
 export default {
-  wordsList: (state) => [
-    ...state.wordsList,
-    ...state.wordsList,
-    ...state.wordsList,
-    ...state.wordsList,
-    ...state.wordsList,
-    ...state.wordsList,
-    ...state.wordsList,
-    ...state.wordsList,
-  ],
-  wordList: (state) => state.wordsList[0].list,
-  examples: (state) => state.wordsList[0].examples,
-  annotations: (state) => state.wordsList[0].annotations,
+  wordsList: (state) =>
+    state.wordsList.filter((item) => {
+      return (
+        item.list[0].word.includes(state.filterList.word) &&
+        (!state.filterList.onlyFavs ||
+          (state.filterList.onlyFavs && item.favourite))
+      );
+    }),
+  word: (state) => state.word,
+  filterList: (state) => state.filterList,
 };

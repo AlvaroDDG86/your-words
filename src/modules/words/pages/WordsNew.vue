@@ -1,14 +1,32 @@
 <template>
-  <div class="top-8 relative min-h-screen pb-10">
+  <div>
     <SearchWord />
-    <Word
-      :key="`word-${index}`"
-      v-for="(word, index) in wordList"
-      :word="word"
-      :index="index"
-    />
-    <Examples :examples="examples" />
-    <Annotation :annotations="annotations" />
+    <template v-if="word.list">
+      <div class="h-full">
+        <Word
+          :key="`word-${index}`"
+          v-for="(word, index) in word.list"
+          :word="word"
+          :index="index"
+        />
+      </div>
+      <Examples :examples="word.examples" />
+      <Annotation :annotations="word.annotations" />
+      <SaveWord />
+    </template>
+    <div
+      v-else
+      class="
+        flex
+        justify-center
+        items-center
+        font-xl font-bold
+        uppercase
+        h-screen
+      "
+    >
+      Search new Word
+    </div>
   </div>
 </template>
 <script>
@@ -16,7 +34,9 @@ import Word from "@/modules/words/components/Word";
 import SearchWord from "@/modules/words/components/SearchWord";
 import Examples from "@/modules/words/components/Examples";
 import Annotation from "@/modules/words/components/Annotation";
-import { mapGetters } from "vuex";
+import SaveWord from "@/modules/words/components/SaveWord";
+
+import { mapGetters, mapActions } from "vuex";
 export default {
   name: "WordsNew",
   components: {
@@ -24,12 +44,19 @@ export default {
     SearchWord,
     Examples,
     Annotation,
+    SaveWord,
   },
   data() {
     return {};
   },
   computed: {
-    ...mapGetters("words", ["wordList", "examples", "annotations"]),
+    ...mapGetters("words", ["word"]),
+  },
+  destroyed() {
+    this.setWord(null);
+  },
+  methods: {
+    ...mapActions("words", ["setWord"]),
   },
 };
 </script>
