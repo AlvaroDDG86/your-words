@@ -19,13 +19,17 @@
       class="
         flex
         justify-center
+        flex-col
         items-center
         font-xl font-bold
         uppercase
-        h-screen
+        pt-32
       "
     >
-      Search new Word
+      <h1 v-if="notFound" class="text-5xl text-gray-700 font-bold">
+        {{ notFound.word }}
+      </h1>
+      {{ notFound ? notFound.message : "Search new Word" }}
     </div>
   </div>
 </template>
@@ -46,11 +50,14 @@ export default {
     Annotation,
     SaveWord,
   },
+  created() {
+    window.scrollTo(0, 0);
+  },
   data() {
     return {};
   },
   computed: {
-    ...mapGetters("words", ["word"]),
+    ...mapGetters("words", ["word", "notFound"]),
   },
   destroyed() {
     this.setWord(null);

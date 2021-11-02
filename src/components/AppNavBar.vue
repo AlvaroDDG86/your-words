@@ -1,5 +1,17 @@
 <template>
-  <ul class="w-full text-right p-4 pr-4 font-semibold bg-gray-100">
+  <ul
+    class="
+      sticky
+      top-0
+      w-full
+      text-right
+      p-4
+      pr-4
+      font-semibold
+      bg-gray-100
+      z-20
+    "
+  >
     <router-link
       :to="{ path: link.path }"
       class="inline mx-2 text-pink-600 hover:text-pink-400 cursor-pointer"

@@ -1,6 +1,6 @@
 import Auth from "@/modules/auth/Auth";
 import Login from "@/modules/auth/pages/Login";
-import Signup from "@/modules/auth/pages/Signup";
+import Singup from "@/modules/auth/pages/Singup";
 
 export default {
   path: "/auth",
@@ -11,8 +11,8 @@ export default {
       component: Login,
     },
     {
-      path: "signup",
-      component: Signup,
+      path: "singup",
+      component: Singup,
     },
   ],
 };

@@ -1,5 +1,17 @@
 <template>
-  <div class="bg-pink-600 text-white py-4 px-10 flex justify-end">
+  <div
+    class="
+      fixed
+      bottom-0
+      w-full
+      bg-pink-600
+      text-white
+      py-4
+      px-10
+      flex
+      justify-end
+    "
+  >
     <button
       class="
         text-pink-900

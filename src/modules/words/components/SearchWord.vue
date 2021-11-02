@@ -1,11 +1,11 @@
 <template>
-  <div class="inset-x-auto w-full z-10">
+  <div class="inset-x-auto w-full">
     <div class="w-full mx-auto shadow-md rounded-md p-4 bg-white">
       <div class="flex gap-2 flex-col md:flex-row center">
         <div class="relative flex-1">
           <input
             id="word"
-            value=""
+            v-model="word"
             name="word"
             type="text"
             class="
@@ -41,7 +41,7 @@
           >
         </div>
       </div>
-      <div class="relative flex justify-center mt-6">
+      <div class="relative mt-6">
         <button
           class="
             bg-pink-900
@@ -52,15 +52,16 @@
             px-6
             py-3
           "
+          @click="searchWord"
         >
           Search
         </button>
-        <div class="absotule bottom-10 right-10">
+        <div class="absolute bottom-1 right-10 w-4 hover:cursor-pointer">
           <span
-            :class="{ 'text-yellow-300': true }"
-            class="text-xl font-mono inline px-2 text-gray-300"
+            :class="{ 'text-yellow-300': isFavourite }"
+            class="text-gray-300"
           >
-            <v-icon name="star"
+            <v-icon name="star" scale="3"
           /></span>
         </div>
       </div>
@@ -68,7 +69,22 @@
   </div>
 </template>
 <script>
+import { mapGetters } from "vuex";
 export default {
   name: "SearchWord",
+  data() {
+    return {
+      word: "",
+    };
+  },
+  methods: {
+    searchWord() {
+      this.$store.dispatch("words/setWord", null);
+      this.$store.dispatch("words/getWord", this.word);
+    },
+  },
+  computed: {
+    ...mapGetters("words", ["isFavourite"]),
+  },
 };
 </script>

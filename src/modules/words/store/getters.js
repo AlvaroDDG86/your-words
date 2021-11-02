@@ -8,5 +8,7 @@ export default {
       );
     }),
   word: (state) => state.word,
+  notFound: (state) => state.notFound,
   filterList: (state) => state.filterList,
+  isFavourite: (state) => state.word.favourite,
 };

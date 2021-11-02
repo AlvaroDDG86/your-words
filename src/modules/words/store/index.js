@@ -7,6 +7,7 @@ export default {
   namespaced: true,
   state: {
     wordsList: words,
+    notFound: null,
     word: {
       list: null,
       examples: null,
