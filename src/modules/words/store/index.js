@@ -16,7 +16,7 @@ export default {
     filterList: {
       onlyFavs: false,
       word: "",
-      order: "last",
+      order: "asc",
     },
   },
   getters,

@@ -10,11 +10,11 @@
       rows="4"
       class="
         bg-gray-50
-        border border-pink-300
+        border border-blue-300
         text-gray-900
         sm:text-sm
         rounded-lg
-        focus:ring-pink500 focus:border-pink-500
+        focus:ring-blue500 focus:border-blue-500
         block
         w-full
       "

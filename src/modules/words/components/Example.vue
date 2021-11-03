@@ -4,15 +4,7 @@
       {{ example }}
     </p>
     <button
-      class="
-        bg-pink-900
-        text-white
-        font-extrabold
-        text-sm
-        rounded-full
-        px-3
-        py-1
-      "
+      class="bg-blue-900 text-white font-extrabold text-sm rounded px-2 py-1"
       @click="removeExample"
     >
       <v-icon name="trash-alt" />

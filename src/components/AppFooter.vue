@@ -4,7 +4,7 @@
       fixed
       bottom-0
       w-full
-      bg-pink-600
+      bg-blue-600
       text-white
       py-4
       px-10
@@ -12,25 +12,54 @@
       justify-end
     "
   >
-    <button
+    <a
+      :key="`social-${index}`"
+      v-for="(button, index) in socialButtons"
+      :href="button.link"
+      target="_blank"
       class="
-        text-pink-900
+        text-blue-900
         bg-white
         font-extrabold
         text-lg
-        rounded-full
-        px-6
-        py-3
+        rounded
+        px-2
+        py-1
+        mx-1
+        transition-all
+        duration-200
+        hover:text-blue-100 hover:bg-blue-900
       "
-      @click="saveWord"
     >
-      <v-icon small x-small name="star" />
-    </button>
+      <v-icon small x-small :name="button.icon" />
+    </a>
   </div>
 </template>
 <script>
 export default {
   name: "AppFooter",
+  data() {
+    return {
+      socialButtons: [
+        {
+          icon: "brands/facebook",
+          link: "http://www.facebook.com",
+        },
+        {
+          icon: "brands/linkedin",
+          link: "http://www.linkedin.com",
+        },
+        {
+          icon: "brands/instagram",
+          link: "http://www.instagram.com",
+        },
+        {
+          icon: "brands/google",
+          link: "http://www.google.com",
+        },
+      ],
+    };
+  },
   methods: {
     saveWord() {
       console.log(true);

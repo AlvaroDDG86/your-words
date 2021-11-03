@@ -1,16 +1,16 @@
 <template>
   <div id="app">
-    <app-nav-bar />
+    <app-nav-bar-expand />
     <router-view />
     <app-footer />
   </div>
 </template>
 <script>
-import AppNavBar from "@/components/AppNavBar.vue";
+import AppNavBarExpand from "@/components/AppNavBarExpand.vue";
 import AppFooter from "@/components/AppFooter.vue";
 export default {
   components: {
-    "app-nav-bar": AppNavBar,
+    "app-nav-bar-expand": AppNavBarExpand,
     "app-footer": AppFooter,
   },
 };
@@ -23,6 +23,7 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  min-width: 400px;
 }
 
 #nav {

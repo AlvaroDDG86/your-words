@@ -1,6 +1,6 @@
 <template>
   <div class="container w-80 mx-auto my-20 px-6 py-6 shadow">
-    <h1 class="text-pink-600 font-bold font-sans text-4xl text-center">
+    <h1 class="text-blue-600 font-bold font-sans text-4xl text-center">
       Login
     </h1>
     <div class="h-0.5 bg-gray-200 w-36 mx-auto mt-2.5"></div>
@@ -19,7 +19,7 @@
             focus:ring-transparent
             rounded-sm
             bg-gray-100
-            text-pink-500
+            text-blue-500
           "
         />
         <label class="my-2" for="psw">Password</label>
@@ -35,7 +35,7 @@
             focus:ring-transparent
             rounded-sm
             bg-gray-100
-            text-pink-500
+            text-blue-500
           "
         />
       </div>
@@ -48,7 +48,7 @@
         </button>
         <button
           type="submit"
-          class="px-7 py-2 mx-2 font-semibold text-white bg-pink-600 rounded"
+          class="px-7 py-2 mx-2 font-semibold text-white bg-blue-600 rounded"
         >
           Submit
         </button>

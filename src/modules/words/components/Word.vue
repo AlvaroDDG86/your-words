@@ -1,6 +1,6 @@
 <template>
   <div class="pt-10 border-b-1 border-gray-400 shadow-xl">
-    <div class="text-pink-700 font-bold text-xl">
+    <div class="text-blue-700 font-bold text-xl">
       definition of '{{ word.word }}'
     </div>
     <h1 class="text-5xl font-bold py-4">
@@ -29,7 +29,7 @@
       v-for="(meaning, indexMean) in word.meanings"
       class="py-4"
     >
-      <h3 v-if="meaning.definitions.length > 0" class="text-pink-900 text-3xl">
+      <h3 v-if="meaning.definitions.length > 0" class="text-blue-900 text-3xl">
         {{ indexMean + 1 }}.
         <span>{{
           meaning.partOfSpeech ? meaning.partOfSpeech : "Definition"
@@ -68,7 +68,7 @@
               <span
                 :key="`syn-${indexSyn}`"
                 v-for="(syn, indexSyn) in definition.synonyms"
-                class="py-1 px-1 text-pink-900 m-1"
+                class="py-1 px-1 text-blue-900 m-1"
                 >{{ syn
                 }}{{
                   definition.synonyms.length - 1 === indexSyn ? "." : ","
@@ -98,7 +98,7 @@
               <span
                 :key="`ant-${indexAnd}`"
                 v-for="(ant, indexAnd) in definition.antonyms"
-                class="py-1 px-1 text-pink-900 m-1"
+                class="py-1 px-1 text-blue-900 m-1"
                 >{{ ant
                 }}{{
                   definition.antonyms.length - 1 === indexAnd ? "." : ","

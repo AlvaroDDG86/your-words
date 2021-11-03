@@ -16,6 +16,11 @@ import "vue-awesome/icons";
 import Icon from "vue-awesome/components/Icon";
 Vue.component("v-icon", Icon);
 
+// Vue-select
+import vSelect from "vue-select";
+Vue.component("v-select", vSelect);
+import "vue-select/dist/vue-select.css";
+
 import ToggleButton from "vue-js-toggle-button";
 Vue.use(ToggleButton);
 

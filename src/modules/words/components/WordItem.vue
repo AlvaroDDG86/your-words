@@ -2,24 +2,23 @@
   <div
     class="
       card
-      m-2
       cursor-pointer
-      border border-gray-400
+      border border-gray-200
       rounded-lg
-      hover:shadow-md hover:border-opacity-0
+      hover:shadow-xl hover:border-opacity-0
       transform
       hover:-translate-y-1
       transition-all
       duration-200
-      h-36
-      max-h-36
       overflow-hidden
+      break-inside
+      mb-2
     "
     @click="navigate"
   >
     <div class="m-3">
       <div class="flex justify-between">
-        <h2 class="text-lg mb-2 text-pink-700 font-bold uppercase">
+        <h2 class="text-2xl text-blue-700 font-bold uppercase">
           {{ title }}
         </h2>
         <span
@@ -52,6 +51,24 @@
       >
         {{ firstDefinition }}
       </p>
+      <div class="text-left mt-1">
+        <span
+          :key="`part-${index}`"
+          v-for="(part, index) in partsOfSpeech"
+          class="
+            bg-gray-200
+            rounded
+            text-gray-900
+            ml-2
+            px-4
+            uppercase
+            shadow-sm
+            font-bold
+          "
+        >
+          {{ part }}
+        </span>
+      </div>
     </div>
   </div>
 </template>
@@ -71,6 +88,16 @@ export default {
     },
     firstDefinition() {
       return this.word.list[0].meanings[0].definitions[0].definition;
+    },
+    partsOfSpeech() {
+      return [
+        ...new Set(
+          this.word.list
+            .map((word) => word.meanings.map((mean) => mean.partOfSpeech))
+            .flat()
+            .filter((part) => part)
+        ),
+      ];
     },
   },
   methods: {

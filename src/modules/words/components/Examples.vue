@@ -29,7 +29,7 @@
                 rounded-md
                 px-2
                 leading-tight
-                focus:ring-pink500 focus:border-pink-500
+                focus:ring-blue500 focus:border-blue-500
               "
               v-model="exampleType"
               type="text"
@@ -37,11 +37,11 @@
             />
             <button
               class="
-                bg-pink-900
+                bg-blue-900
                 text-white
                 font-extrabold
                 text-sm
-                rounded-full
+                rounded
                 px-2
                 py-1
               "

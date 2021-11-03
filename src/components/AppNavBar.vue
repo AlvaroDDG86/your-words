@@ -14,17 +14,11 @@
   >
     <router-link
       :to="{ path: link.path }"
-      class="inline mx-2 text-pink-600 hover:text-pink-400 cursor-pointer"
+      class="inline mx-2 text-blue-600 hover:text-blue-400 cursor-pointer"
       v-for="link in links"
       v-bind:key="link.name"
     >
       {{ link.name }}
-    </router-link>
-    <router-link
-      :to="{ path: '/auth/login' }"
-      class="inline mx-2 text-pink-600 hover:text-pink-400 cursor-pointer"
-    >
-      Logout
     </router-link>
   </ul>
 </template>
@@ -42,6 +36,10 @@ export default {
         {
           name: "New Word",
           path: "/words/new",
+        },
+        {
+          name: "Logout",
+          path: "/auth/login",
         },
       ],
     };

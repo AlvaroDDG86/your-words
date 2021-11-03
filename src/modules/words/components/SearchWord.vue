@@ -1,10 +1,11 @@
 <template>
   <div class="inset-x-auto w-full">
-    <div class="w-full mx-auto shadow-md rounded-md p-4 bg-white">
+    <div class="w-full mx-auto shadow-md p-4 bg-blue-900">
       <div class="flex gap-2 flex-col md:flex-row center">
         <div class="relative flex-1">
           <input
             id="word"
+            @keyup.enter="searchWord"
             v-model="word"
             name="word"
             type="text"
@@ -15,9 +16,9 @@
               rounded-md
               border border-1.5
               placeholder-transparent
-              border-pink-300
-              text-pink-900
-              focus:outline-none focus:border-pink-600 focus:border-2
+              border-blue-300
+              text-blue-900
+              focus:outline-none focus:border-blue-600 focus:border-2
               p-3
             "
             placeholder="Word to search"
@@ -30,12 +31,12 @@
               px-1
               -top-2.5
               bg-white
-              text-pink-600 text-sm
+              text-blue-600 text-sm
               transition-all
               peer-placeholder-shown:text-base
-              peer-placeholder-shown:text-pink-900
+              peer-placeholder-shown:text-blue-900
               peer-placeholder-shown:top-2
-              peer-focus:-top-2.5 peer-focus:text-pink-600 peer-focus:text-sm
+              peer-focus:-top-2.5 peer-focus:text-blue-600 peer-focus:text-sm
             "
             >Word or Expresion :</label
           >
@@ -44,19 +45,19 @@
       <div class="relative mt-6">
         <button
           class="
-            bg-pink-900
-            text-white
+            bg-white
+            text-blue-900
             font-extrabold
             text-lg
-            rounded-full
-            px-6
-            py-3
+            rounded
+            px-2
+            py-1
           "
           @click="searchWord"
         >
           Search
         </button>
-        <div class="absolute bottom-1 right-10 w-4 hover:cursor-pointer">
+        <div class="absolute bottom-0 right-10 w-4 hover:cursor-pointer">
           <span
             :class="{ 'text-yellow-300': isFavourite }"
             class="text-gray-300"
