@@ -51,41 +51,48 @@
         >Search Word or Expresion :</label
       >
     </div>
-    <button
-      class="
-        text-blue-900
-        bg-white
-        font-extrabold
-        text-sm
-        rounded
-        px-2
-        py-1
-        mt-1
-        lg:mt-0
-      "
-      @click="setFavFilter(!filterList.onlyFavs)"
-    >
-      <span
-        :class="{ 'text-yellow-300': filterList.onlyFavs }"
-        class="text-xl font-mono inline text-gray-300"
+    <div class="flex justify-between items-center">
+      <button
+        class="
+          text-blue-900
+          bg-white
+          font-extrabold
+          text-sm
+          rounded
+          px-2
+          py-1
+          mt-1
+          mr-2
+          lg:mt-0
+          w-32
+        "
+        @click="setFavFilter(!filterList.onlyFavs)"
       >
-        <v-icon name="star"
-      /></span>
-      {{ filterList.onlyFavs ? "All words" : "Only FAVS" }}
-    </button>
-    <v-select
-      class="w-60 bg-white mt-1 lg:mt-0 rounded"
-      v-model="filterList.order"
-      :options="orderOptions"
-      :reduce="(order) => order.code"
-      label="label"
-      :clearable="false"
-    >
-      <template v-slot:option="option" class="flex justify-around items-center">
-        <v-icon small x-small :name="option.icon" />
-        {{ option.label }}
-      </template>
-    </v-select>
+        <span
+          :class="{ 'text-yellow-300': filterList.onlyFavs }"
+          class="text-xl font-mono inline text-gray-300"
+        >
+          <v-icon name="star"
+        /></span>
+        {{ filterList.onlyFavs ? "All words" : "Only FAVS" }}
+      </button>
+      <v-select
+        class="w-60 bg-white mt-1 lg:mt-0 rounded"
+        v-model="filterList.order"
+        :options="orderOptions"
+        :reduce="(order) => order.code"
+        label="label"
+        :clearable="false"
+      >
+        <template
+          v-slot:option="option"
+          class="flex justify-around items-center"
+        >
+          <v-icon small x-small :name="option.icon" />
+          {{ option.label }}
+        </template>
+      </v-select>
+    </div>
   </div>
 </template>
 <script>

@@ -21,6 +21,21 @@ import vSelect from "vue-select";
 Vue.component("v-select", vSelect);
 import "vue-select/dist/vue-select.css";
 
+// Loader spinner
+import VueLoading from "vue-loading-overlay";
+import "vue-loading-overlay/dist/vue-loading.css";
+Vue.use(VueLoading, {
+  color: "#1855E4",
+  loader: "bars",
+  backgroundColor: "#C8D7FA",
+  height: 150,
+  width: 150,
+});
+
+// importing the helper
+import interceptorsSetup from "./helpers/interceptors";
+interceptorsSetup();
+
 import ToggleButton from "vue-js-toggle-button";
 Vue.use(ToggleButton);
 

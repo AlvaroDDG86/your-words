@@ -46,12 +46,17 @@
             mt-4
             sm:inline-block sm:mt-0
             text-teal-lighter
-            hover:text-
+            hover:text-blue-200 hover:bg-blue-900 hover:shadow-md
             text-white
+            transition-all
+            duration-200
             mr-4
             text-xl
             font-bold
             uppercase
+            px-2
+            py-1
+            rounded
           "
           v-for="link in links"
           v-bind:key="link.name"
@@ -76,6 +81,8 @@
             hover:border-transparent hover:text-teal hover:bg-blue-900
             mt-4
             sm:mt-0
+            transition-all
+            duration-200
           "
         >
           Logout

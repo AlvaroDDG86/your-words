@@ -1,7 +1,7 @@
 <template>
   <div class="h-full">
     <ListBar />
-    <div class="md:masonry-2-col lg:masonry-3-col p-4">
+    <div class="flex flex-wrap m-4">
       <WordItem
         :word="word"
         :key="`word-${index}`"

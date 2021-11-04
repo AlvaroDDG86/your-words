@@ -611,4 +611,377 @@ export default [
       },
     ],
   },
+  {
+    id: "7",
+    annotations: "",
+    examples: [],
+    favourite: true,
+    list: [
+      {
+        word: "in",
+        phonetic: "ɪn",
+        phonetics: [
+          {
+            text: "ɪn",
+            audio:
+              "//ssl.gstatic.com/dictionary/static/sounds/20200429/in--_gb_3.mp3",
+          },
+        ],
+        origin:
+          "Old English in (preposition), inn, inne (adverb), of Germanic origin; related to Dutch and German in (preposition), German ein (adverb), from an Indo-European root shared by Latin in and Greek en .",
+        meanings: [
+          {
+            partOfSpeech: "preposition",
+            definitions: [
+              {
+                definition:
+                  "expressing the situation of something that is or appears to be enclosed or surrounded by something else.",
+                example: "I'm living in London",
+                synonyms: [
+                  "inside",
+                  "within",
+                  "in the middle of",
+                  "within the bounds/confines of",
+                  "surrounded by",
+                  "enclosed by",
+                ],
+                antonyms: ["outside"],
+              },
+              {
+                definition:
+                  "expressing a period of time during which an event happens or a situation remains the case.",
+                example: "they met in 1885",
+                synonyms: [
+                  "during",
+                  "in the course of",
+                  "in the time of",
+                  "over",
+                ],
+                antonyms: [],
+              },
+              {
+                definition:
+                  "expressing the length of time before a future event is expected to happen.",
+                example: "I'll see you in fifteen minutes",
+                synonyms: [
+                  "after",
+                  "at the end of",
+                  "following",
+                  "subsequent to",
+                  "within",
+                  "in less than",
+                  "in under",
+                  "in no more than",
+                  "before a … is up",
+                ],
+                antonyms: [],
+              },
+              {
+                definition:
+                  "(often followed by a noun without a determiner) expressing a state or condition.",
+                example: "to be in love",
+                synonyms: [],
+                antonyms: [],
+              },
+              {
+                definition: "expressing inclusion or involvement.",
+                example: "I read it in a book",
+                synonyms: [],
+                antonyms: [],
+              },
+              {
+                definition: "indicating someone's occupation or profession.",
+                example: "she works in publishing",
+                synonyms: [],
+                antonyms: [],
+              },
+              {
+                definition: "indicating the language or medium used.",
+                example: "say it in French",
+                synonyms: [],
+                antonyms: [],
+              },
+              {
+                definition: "as an integral part of (an activity).",
+                example:
+                  "in planning public expenditure it is better to be prudent",
+                synonyms: [],
+                antonyms: [],
+              },
+              {
+                definition: "expressing a value as a proportion of (a whole).",
+                example: "a local income tax running at six pence in the pound",
+                synonyms: ["to", "per", "every", "each"],
+                antonyms: [],
+              },
+            ],
+          },
+          {
+            partOfSpeech: "adverb",
+            definitions: [
+              {
+                definition:
+                  "expressing movement with the result that someone or something becomes enclosed or surrounded by something else.",
+                example: "come in",
+                synonyms: [
+                  "inside",
+                  "indoors",
+                  "into the interior",
+                  "into the room/house/building",
+                  "within",
+                ],
+                antonyms: ["out"],
+              },
+              {
+                definition:
+                  "expressing the situation of being enclosed or surrounded by something.",
+                example: "we were locked in",
+                synonyms: [],
+                antonyms: [],
+              },
+              {
+                definition: "expressing arrival.",
+                example: "the train got in very late",
+                synonyms: [],
+                antonyms: [],
+              },
+              {
+                definition: "(of the tide) rising or at its highest level.",
+                synonyms: ["high", "at its highest level", "rising"],
+                antonyms: ["out", "low"],
+              },
+            ],
+          },
+          {
+            partOfSpeech: "adjective",
+            definitions: [
+              {
+                definition: "present at one's home or office.",
+                example: "we knocked at the door but there was no one in",
+                synonyms: [
+                  "present",
+                  "home",
+                  "at home",
+                  "inside",
+                  "indoors",
+                  "in the house/room",
+                ],
+                antonyms: ["out"],
+              },
+              {
+                definition: "fashionable.",
+                example: "pastels and light colours are in this year",
+                synonyms: [
+                  "fashionable",
+                  "in fashion",
+                  "in vogue",
+                  "voguish",
+                  "stylish",
+                  "in style",
+                  "popular",
+                  "(bang) up to date",
+                  "up to the minute",
+                  "modern",
+                  "modish",
+                  "trendsetting",
+                  "chic",
+                  "à la mode",
+                  "de rigueur",
+                  "trendy",
+                  "all the rage",
+                  "with it",
+                  "cool",
+                  "the in thing",
+                  "hot",
+                  "hip",
+                  "happening",
+                  "now",
+                  "swinging",
+                  "all the go",
+                ],
+                antonyms: ["unfashionable", "out"],
+              },
+              {
+                definition:
+                  "(of the ball in tennis and similar games) landing within the designated playing area.",
+                synonyms: [],
+                antonyms: [],
+              },
+              {
+                definition: "batting.",
+                example: "which side is in?",
+                synonyms: [],
+                antonyms: [],
+              },
+            ],
+          },
+          {
+            partOfSpeech: "noun",
+            definitions: [
+              {
+                definition:
+                  "a position of influence with someone powerful or famous.",
+                example: "she got an in with the promising new artist",
+                synonyms: [],
+                antonyms: [],
+              },
+            ],
+          },
+        ],
+      },
+      {
+        word: "in.",
+        phonetics: [{}],
+        meanings: [
+          {
+            partOfSpeech: "abbreviation",
+            definitions: [
+              { definition: "inch(es).", synonyms: [], antonyms: [] },
+            ],
+          },
+        ],
+      },
+      {
+        word: "in-",
+        phonetic: "ɪn",
+        phonetics: [{ text: "ɪn" }],
+        origin: "from Latin.",
+        meanings: [
+          {
+            partOfSpeech: "prefix",
+            definitions: [
+              {
+                definition: "(added to adjectives) not.",
+                example: "infertile",
+                synonyms: [],
+                antonyms: [],
+              },
+              {
+                definition: "(added to nouns) without; a lack of.",
+                example: "inappreciation",
+                synonyms: [],
+                antonyms: [],
+              },
+            ],
+          },
+        ],
+      },
+      {
+        word: "-in",
+        phonetic: "ɪn",
+        phonetics: [{ text: "ɪn" }],
+        origin: "alteration of -ine4.",
+        meanings: [
+          {
+            partOfSpeech: "suffix",
+            definitions: [
+              {
+                definition:
+                  "forming names of organic compounds, pharmaceutical products, proteins, etc.",
+                example: "insulin",
+                synonyms: [],
+                antonyms: [],
+              },
+            ],
+          },
+        ],
+      },
+      {
+        word: "in-",
+        phonetic: "ɪn",
+        phonetics: [{ text: "ɪn" }],
+        origin: "representing in or the Latin preposition in .",
+        meanings: [
+          {
+            partOfSpeech: "prefix",
+            definitions: [
+              {
+                definition: "in; into; towards; within.",
+                example: "induce",
+                synonyms: [],
+                antonyms: [],
+              },
+            ],
+          },
+        ],
+      },
+      {
+        word: "-in",
+        phonetic: "ɪn",
+        phonetics: [{ text: "ɪn" }],
+        meanings: [
+          {
+            partOfSpeech: "suffix",
+            definitions: [
+              {
+                definition:
+                  "denoting a gathering of people having a common purpose, typically as a form of protest.",
+                example: "sit-in",
+                synonyms: [],
+                antonyms: [],
+              },
+            ],
+          },
+        ],
+      },
+      {
+        word: "In",
+        phonetics: [{}],
+        meanings: [
+          {
+            partOfSpeech: "symbol",
+            definitions: [
+              {
+                definition: "the chemical element indium.",
+                synonyms: [],
+                antonyms: [],
+              },
+            ],
+          },
+        ],
+      },
+      {
+        word: "IN",
+        phonetics: [{}],
+        meanings: [
+          {
+            partOfSpeech: "abbreviation",
+            definitions: [
+              {
+                definition: "Indiana (in official postal use).",
+                synonyms: [],
+                antonyms: [],
+              },
+            ],
+          },
+        ],
+      },
+      {
+        word: "indium",
+        phonetic: "ˈɪndɪəm",
+        phonetics: [
+          {
+            text: "ˈɪndɪəm",
+            audio:
+              "//ssl.gstatic.com/dictionary/static/sounds/20200429/indium--_gb_1.mp3",
+          },
+        ],
+        origin:
+          "mid 19th century: from indigo (because there are two characteristic indigo lines in its spectrum) + -ium.",
+        meanings: [
+          {
+            partOfSpeech: "noun",
+            definitions: [
+              {
+                definition:
+                  "the chemical element of atomic number 49, a soft silvery-white metal occurring naturally in association with zinc and some other metals.",
+                synonyms: [],
+                antonyms: [],
+              },
+            ],
+          },
+        ],
+      },
+    ],
+  },
 ];

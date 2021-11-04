@@ -17,8 +17,16 @@
           v-for="(phonetic, indexPho) in word.phonetics"
           class="flex justify-center items-center mt-2"
         >
-          <span class="text-2xl mr-5">{{ phonetic.text }}</span>
-          <audio :src="phonetic.audio" preload="auto" ref="audio" controls>
+          <span v-if="phonetic.audio" class="text-2xl mr-5">{{
+            phonetic.text
+          }}</span>
+          <audio
+            v-if="phonetic.audio"
+            :src="phonetic.audio"
+            preload="auto"
+            ref="audio"
+            controls
+          >
             <p>Your browser does not support the <code>audio</code> element.</p>
           </audio>
         </div>

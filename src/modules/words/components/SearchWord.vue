@@ -37,12 +37,27 @@
               peer-placeholder-shown:text-blue-900
               peer-placeholder-shown:top-2
               peer-focus:-top-2.5 peer-focus:text-blue-600 peer-focus:text-sm
+              rounded
             "
             >Word or Expresion :</label
           >
         </div>
       </div>
-      <div class="relative mt-6">
+      <div class="flex justify-between items-center mt-6">
+        <button
+          class="
+            bg-white
+            text-blue-900
+            font-extrabold
+            text-lg
+            rounded
+            px-2
+            py-1
+          "
+          @click="$router.push('/words/list')"
+        >
+          <v-icon name="arrow-circle-left" /> List
+        </button>
         <button
           class="
             bg-white
@@ -57,7 +72,7 @@
         >
           Search
         </button>
-        <div class="absolute bottom-0 right-10 w-4 hover:cursor-pointer">
+        <div class="cursor-pointer">
           <span
             :class="{ 'text-yellow-300': isFavourite }"
             class="text-gray-300"
