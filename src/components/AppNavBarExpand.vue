@@ -1,7 +1,5 @@
 <template>
-  <nav
-    class="flex items-center justify-between flex-wrap bg-teal p-6 header__nav"
-  >
+  <nav class="flex items-center justify-between flex-wrap bg-teal p-6 bg-brand">
     <div class="flex items-center flex-no-shrink text-white mr-6">
       <span class="font-semibold text-white text-xl tracking-tight"
         >Your Words!</span
@@ -109,7 +107,7 @@ export default {
         },
         {
           name: "My profile",
-          path: "/auth/login",
+          path: "/auth/singup",
         },
       ],
     };
@@ -121,11 +119,3 @@ export default {
   },
 };
 </script>
-
-<style>
-.header__nav {
-  background-image: url("../assets/bg.svg");
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-</style>

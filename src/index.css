@@ -27,3 +27,9 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: rgb(0, 29, 156);
 }
+
+.bg-brand {
+  background-image: url("./assets/bg.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}

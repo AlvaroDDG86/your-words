@@ -1,8 +1,18 @@
 <template>
-  <div class="container w-80 mx-auto my-20 px-6 py-6 shadow">
-    <h1 class="text-blue-600 font-bold font-sans text-4xl text-center">
-      Login
-    </h1>
+  <div
+    class="
+      bg-brand
+      w-80
+      mx-auto
+      my-20
+      px-6
+      py-6
+      shadow-2xl
+      rounded-2xl
+      text-white
+    "
+  >
+    <h1 class="font-bold font-sans text-4xl text-center">Login</h1>
     <div class="h-0.5 bg-gray-200 w-36 mx-auto mt-2.5"></div>
     <form action="" method="post">
       <div class="flex flex-col my-5">
@@ -74,15 +84,21 @@
       <div class="text-center mt-3">
         <button
           type="reset"
-          class="px-7 py-2 mx-2 font-semibold text-gray-800 bg-gray-100 rounded"
+          class="px-3 py-2 mx-2 font-semibold text-gray-800 bg-gray-100 rounded"
         >
           Reset
         </button>
         <button
           type="submit"
-          class="px-7 py-2 mx-2 font-semibold text-white bg-blue-600 rounded"
+          class="px-3 py-2 mx-2 font-semibold text-gray-800 bg-blue-200 rounded"
         >
           Submit
+        </button>
+        <button
+          type="submit"
+          class="px-4 py-2 mx-2 font-semibold text-white bg-red-600 rounded"
+        >
+          <v-icon name="brands/google" />
         </button>
       </div>
     </form>
@@ -98,4 +114,3 @@ export default {
   },
 };
 </script>
-<style lang="sass" scoped></style>

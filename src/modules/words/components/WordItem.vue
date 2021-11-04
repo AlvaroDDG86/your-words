@@ -16,6 +16,7 @@
       xl:w-2/12
       w-11/12
       m-4
+      bg-gray-100
     "
     @click="navigate"
   >
