@@ -20,11 +20,6 @@
     "
     @click="navigate"
   >
-    <!-- bg-pink-200
-      sm:bg-pink-400
-      md:bg-pink-500
-      lg:bg-pink-700
-      xl:bg-pink-900 -->
     <div class="m-3">
       <div class="flex justify-between">
         <h2 class="text-2xl text-blue-700 font-bold uppercase">
