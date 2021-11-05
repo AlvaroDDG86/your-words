@@ -36,6 +36,9 @@ Vue.use(VueLoading, {
 import interceptorsSetup from "./helpers/interceptors";
 interceptorsSetup();
 
+// importing firebase config
+import "@/helpers/firebase.js";
+
 import ToggleButton from "vue-js-toggle-button";
 Vue.use(ToggleButton);
 

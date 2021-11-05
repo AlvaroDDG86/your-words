@@ -4,6 +4,10 @@ import LoginRoute from "@/modules/auth/router";
 import LandingRoute from "@/modules/landing/router";
 import WordsRoute from "@/modules/words/router";
 
+import firebase from "firebase/compat/app";
+import "firebase/compat/auth";
+import "firebase/compat/firestore";
+
 Vue.use(VueRouter);
 
 const routes = [
@@ -22,6 +26,16 @@ const routes = [
 
 const router = new VueRouter({
   routes,
+});
+
+router.beforeEach((to, from, next) => {
+  const requiresAuth = to.matched.some((x) => x.meta.requiresAuth);
+  if (requiresAuth) {
+    firebase.auth().onAuthStateChanged((user) => {
+      if (!user) next("/");
+      else next();
+    });
+  } else next();
 });
 
 export default router;

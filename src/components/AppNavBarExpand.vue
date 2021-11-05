@@ -1,7 +1,9 @@
 <template>
   <nav class="flex items-center justify-between flex-wrap bg-teal p-6 bg-brand">
     <div class="flex items-center flex-no-shrink text-white mr-6">
-      <span class="font-semibold text-white text-xl tracking-tight"
+      <span
+        @click="$router.replace('/')"
+        class="font-semibold text-white text-xl tracking-tight cursor-pointer"
         >Your Words!</span
       >
     </div>
@@ -35,7 +37,7 @@
       :class="open ? 'block' : 'hidden'"
       class="w-full flex-grow sm:flex sm:items-center sm:w-auto"
     >
-      <div class="text-sm sm:flex-grow">
+      <div v-if="user.loggedIn" class="text-sm sm:flex-grow">
         <router-link
           :to="{ path: link.path }"
           class="
@@ -63,8 +65,10 @@
         </router-link>
       </div>
       <div>
-        <router-link
+        <button
+          v-if="user.loggedIn"
           to="/auth/login"
+          @click="logout"
           class="
             no-underline
             inline-block
@@ -83,7 +87,31 @@
             duration-200
           "
         >
-          Logout
+          Logout {{ user.data.displayName }}
+        </button>
+        <router-link
+          v-else
+          to="/auth/login"
+          :style="backgroundImage"
+          class="
+            no-underline
+            inline-block
+            text-sm
+            px-2
+            py-1
+            leading-none
+            border
+            rounded
+            text-white
+            border-white
+            hover:border-transparent hover:text-teal hover:bg-blue-900
+            mt-4
+            sm:mt-0
+            transition-all
+            duration-200
+          "
+        >
+          Login
         </router-link>
       </div>
     </div>
@@ -91,6 +119,8 @@
 </template>
 
 <script>
+import firebase from "firebase/compat/app";
+import { mapGetters } from "vuex";
 export default {
   name: "AppNavbar",
   data() {
@@ -107,14 +137,36 @@ export default {
         },
         {
           name: "My profile",
-          path: "/auth/singup",
+          path: "/auth/profile",
         },
       ],
+      backgroundImage: {
+        backgroundImage: `url(${require("@/assets/avatar.png")})`,
+      },
     };
   },
   methods: {
     toggle() {
       this.open = !this.open;
+    },
+    logout() {
+      firebase
+        .auth()
+        .signOut()
+        .then(() => {
+          this.$router.replace("/");
+        });
+    },
+  },
+  computed: {
+    ...mapGetters("auth", ["user"]),
+  },
+  watch: {
+    $route: {
+      handler: function () {
+        this.open = false;
+      },
+      immediate: true,
     },
   },
 };

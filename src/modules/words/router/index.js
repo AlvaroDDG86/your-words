@@ -9,10 +9,16 @@ export default {
     {
       path: "new",
       component: WordsNew,
+      meta: {
+        requiresAuth: true,
+      },
     },
     {
       path: "list",
       component: WordsList,
+      meta: {
+        requiresAuth: true,
+      },
     },
   ],
 };

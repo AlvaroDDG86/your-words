@@ -4,7 +4,12 @@ import mutations from "./mutations";
 
 export default {
   namespaced: true,
-  state: {},
+  state: {
+    user: {
+      loggedIn: false,
+      data: null,
+    },
+  },
   getters,
   actions,
   mutations,
