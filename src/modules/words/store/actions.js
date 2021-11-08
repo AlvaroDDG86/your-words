@@ -12,7 +12,7 @@ export default {
   getWords({ commit }) {
     WordsServices.getWords().then((doc) => {
       if (doc.exists) {
-        commit(SET_WORDS, doc.data().wordList);
+        commit(SET_WORDS, doc.data().wordList || []);
       } else {
         // doc.data() will be undefined in this case
         console.log("No such document!");
