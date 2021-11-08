@@ -9,11 +9,10 @@
   </div>
 </template>
 <script>
+import { mapActions } from "vuex";
 export default {
   methods: {
-    saveWord() {
-      console.log(true);
-    },
+    ...mapActions("words", ["saveWord"]),
   },
 };
 </script>

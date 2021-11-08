@@ -16,4 +16,6 @@ firebase.initializeApp(firebaseConfig);
 firebase.auth().onAuthStateChanged((user) => {
   store.dispatch("auth/fetchUser", user);
 });
+const db = firebase.firestore();
+export { db };
 export default firebase;

@@ -8,6 +8,8 @@
     <textarea
       id="annotation"
       rows="4"
+      :value="annotations"
+      @change="updateVal"
       class="
         bg-gray-50
         border border-blue-300
@@ -26,9 +28,14 @@
 export default {
   name: "Annotation",
   props: {
-    word: {
-      type: Object,
+    annotations: {
+      type: String,
       require: true,
+    },
+  },
+  methods: {
+    updateVal(event) {
+      this.$emit("updateValue", event.target.value);
     },
   },
 };

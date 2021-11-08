@@ -11,7 +11,10 @@
         />
       </div>
       <Examples :examples="word.examples" />
-      <Annotation :annotations="word.annotations" />
+      <Annotation
+        :annotations="word.annotations"
+        @updateValue="word.annotations = $event"
+      />
       <SaveWord />
     </template>
     <div

@@ -6,7 +6,7 @@
           <input
             id="word"
             @keyup.enter="searchWord"
-            v-model="word"
+            v-model="wordSearch"
             name="word"
             type="text"
             class="
@@ -72,10 +72,11 @@
         >
           Search
         </button>
-        <div class="cursor-pointer">
+        <div v-if="word.list" class="cursor-pointer">
           <span
             :class="{ 'text-yellow-300': isFavourite }"
             class="text-gray-300"
+            @click="setFavourite(!isFavourite)"
           >
             <v-icon name="star" scale="3"
           /></span>
@@ -85,22 +86,23 @@
   </div>
 </template>
 <script>
-import { mapGetters } from "vuex";
+import { mapGetters, mapActions } from "vuex";
 export default {
   name: "SearchWord",
   data() {
     return {
-      word: "",
+      wordSearch: "",
     };
   },
   methods: {
+    ...mapActions("words", ["setFavourite"]),
     searchWord() {
       this.$store.dispatch("words/setWord", null);
-      this.$store.dispatch("words/getWord", this.word);
+      this.$store.dispatch("words/getWord", this.wordSearch);
     },
   },
   computed: {
-    ...mapGetters("words", ["isFavourite"]),
+    ...mapGetters("words", ["word", "isFavourite"]),
   },
 };
 </script>

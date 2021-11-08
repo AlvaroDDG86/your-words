@@ -71,7 +71,8 @@
           Submit
         </button>
         <button
-          type="submit"
+          type="button"
+          @click="submitGoogle"
           class="
             px-4
             py-2
@@ -96,6 +97,7 @@
 </template>
 <script>
 import firebase from "firebase/compat/app";
+import { mapActions } from "vuex";
 export default {
   name: "Login",
   data() {
@@ -108,6 +110,7 @@ export default {
     };
   },
   methods: {
+    ...mapActions("auth", ["loginGoogle"]),
     submit() {
       const loader = this.$loading.show();
       firebase
@@ -122,6 +125,21 @@ export default {
               loader.hide();
               this.$router.push("/words/list");
             });
+        })
+        .catch((err) => {
+          loader.hide();
+          this.error = err.message;
+        });
+    },
+    submitGoogle() {
+      const loader = this.$loading.show();
+      let provider = new firebase.auth.GoogleAuthProvider();
+      firebase
+        .auth()
+        .signInWithPopup(provider)
+        .then(() => {
+          loader.hide();
+          this.$router.push("/words/list");
         })
         .catch((err) => {
           loader.hide();

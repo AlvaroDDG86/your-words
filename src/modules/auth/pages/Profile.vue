@@ -1,9 +1,9 @@
 <template>
   <div>
     <h1>Profile</h1>
-    <p>
-      <span>{{ user }}</span>
-    </p>
+    <div>
+      <pre>{{ user }}</pre>
+    </div>
   </div>
 </template>
 <script>

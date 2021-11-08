@@ -110,7 +110,8 @@
           Submit
         </button>
         <button
-          type="submit"
+          type="button"
+          @click="submitGoogle"
           class="
             px-4
             py-2
@@ -163,6 +164,21 @@ export default {
               loader.hide();
               this.$router.push("/words/list");
             });
+        })
+        .catch((err) => {
+          loader.hide();
+          this.error = err.message;
+        });
+    },
+    submitGoogle() {
+      const loader = this.$loading.show();
+      let provider = new firebase.auth.GoogleAuthProvider();
+      firebase
+        .auth()
+        .signInWithPopup(provider)
+        .then(() => {
+          loader.hide();
+          this.$router.push("/words/list");
         })
         .catch((err) => {
           loader.hide();
