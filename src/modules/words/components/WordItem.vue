@@ -15,14 +15,15 @@
       lg:w-3/12
       xl:w-2/12
       w-11/12
-      m-4
+      m-1
+      lg:m-4
       bg-gray-100
     "
     @click="navigate"
   >
     <div class="m-3">
       <div class="flex justify-between">
-        <h2 class="text-2xl text-blue-700 font-bold uppercase">
+        <h2 class="text-xl lg:text-2xl text-blue-700 font-bold uppercase">
           {{ title }}
         </h2>
         <span
@@ -55,7 +56,7 @@
       >
         {{ firstDefinition }}
       </p>
-      <div class="text-left mt-1">
+      <div class="flex justify-start flex-wrap mt-1">
         <span
           :key="`part-${index}`"
           v-for="(part, index) in partsOfSpeech"
@@ -64,10 +65,12 @@
             rounded
             text-gray-900
             ml-2
+            mt-2
             px-4
             uppercase
             shadow-sm
             font-bold
+            text-xs
           "
         >
           {{ part }}

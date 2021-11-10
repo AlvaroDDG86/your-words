@@ -3,6 +3,7 @@
     <app-nav-bar-expand />
     <router-view />
     <app-footer />
+    <notifications />
   </div>
 </template>
 <script>

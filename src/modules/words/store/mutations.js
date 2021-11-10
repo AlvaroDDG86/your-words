@@ -5,6 +5,7 @@ import {
   SET_FAVOURITE,
   SET_NOT_FOUND_WORD,
   SET_FAV_FILTER,
+  SET_ID_WORD,
 } from "./mutations-types";
 export default {
   [SET_WORDS]: (state, words) => {
@@ -26,10 +27,13 @@ export default {
   [SET_NOT_FOUND_WORD]: (state, notFound) => {
     state.notFound = notFound;
   },
-  [SET_FAVOURITE]: (state, value) => {
-    state.word.favourite = value;
+  [SET_FAVOURITE]: (state, favourite) => {
+    state.word = { ...state.word, favourite };
   },
   [SET_FAV_FILTER]: (state, fav) => {
     state.filterList.onlyFavs = fav;
+  },
+  [SET_ID_WORD]: (state, id) => {
+    state.word = { ...state.word, id };
   },
 };

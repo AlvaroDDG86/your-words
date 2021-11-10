@@ -6,6 +6,7 @@ const WordsServices = {
     Object.keys(userJson).forEach((key) => {
       userJson[key] === undefined ? delete userJson[key] : {};
     });
+    // userJson.wordList = firstWords;
     await db.collection("users").doc(user.uid).set(userJson, { merge: true });
   },
 };

@@ -4,7 +4,7 @@
       bg-brand
       w-80
       mx-auto
-      my-6
+      my-4
       px-6
       py-6
       shadow-2xl

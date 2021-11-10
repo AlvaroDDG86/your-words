@@ -4,27 +4,43 @@ import { db } from "@/helpers/firebase";
 
 const WordsServices = {
   getWords() {
-    console.log(firebase.auth().currentUser.uid);
     const userData = db
       .collection("users")
-      .doc(firebase.auth().currentUser.uid);
+      .doc(firebase.auth().currentUser.uid)
+      .collection("wordList");
     return userData.get();
   },
   async saveWord(word) {
-    const userData = db
+    return db
       .collection("users")
-      .doc(firebase.auth().currentUser.uid);
-    userData.update({
-      wordList: firebase.firestore.FieldValue.arrayUnion(word),
-    });
+      .doc(firebase.auth().currentUser.uid)
+      .collection("wordList")
+      .add(word);
   },
   async removeWord(word) {
-    const userData = db
+    return db
       .collection("users")
-      .doc(firebase.auth().currentUser.uid);
-    userData.update({
-      wordList: firebase.firestore.FieldValue.arrayRemove(word),
-    });
+      .doc(firebase.auth().currentUser.uid)
+      .collection("wordList")
+      .doc(word.id)
+      .delete();
+  },
+  async updateWord(word) {
+    return db
+      .collection("users")
+      .doc(firebase.auth().currentUser.uid)
+      .collection("wordList")
+      .doc(word.id)
+      .set(
+        {
+          annotations: word.annotations,
+          favourite: word.favourite,
+          examples: [...word.examples],
+        },
+        {
+          merge: true,
+        }
+      );
   },
   getWord(word) {
     return axios

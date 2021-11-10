@@ -136,6 +136,7 @@
 </template>
 <script>
 import firebase from "firebase/compat/app";
+import { mapActions } from "vuex";
 export default {
   name: "Signup",
   data() {
@@ -150,6 +151,7 @@ export default {
     };
   },
   methods: {
+    ...mapActions("auth", ["setNewUser"]),
     submit() {
       const loader = this.$loading.show();
       firebase
@@ -162,6 +164,7 @@ export default {
             })
             .then(() => {
               loader.hide();
+              this.setNewUser();
               this.$router.push("/words/list");
             });
         })
@@ -178,6 +181,7 @@ export default {
         .signInWithPopup(provider)
         .then(() => {
           loader.hide();
+          this.setNewUser();
           this.$router.push("/words/list");
         })
         .catch((err) => {

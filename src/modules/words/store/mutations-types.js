@@ -4,3 +4,4 @@ export const SET_FAVOURITE = "SET_FAVOURITE";
 export const SET_NEW_WORD = "SET_NEW_WORD";
 export const SET_NOT_FOUND_WORD = "SET_NOT_FOUND_WORD";
 export const SET_FAV_FILTER = "SET_FAV_FILTER";
+export const SET_ID_WORD = "SET_ID_WORD";

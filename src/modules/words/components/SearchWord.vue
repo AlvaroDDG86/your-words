@@ -54,7 +54,7 @@
             px-2
             py-1
           "
-          @click="$router.push('/words/list')"
+          @click="$router.replace('/words/list')"
         >
           <v-icon name="arrow-circle-left" /> List
         </button>
@@ -70,7 +70,7 @@
           "
           @click="searchWord"
         >
-          Search
+          <v-icon name="search" /> Search
         </button>
         <div v-if="word.list" class="cursor-pointer">
           <span

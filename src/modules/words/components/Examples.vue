@@ -91,13 +91,11 @@ export default {
   },
   methods: {
     addExample() {
-      console.log(this.exampleType);
       this.examples.unshift(this.exampleType);
       this.exampleType = "";
     },
     removeExample(example) {
-      console.log(this.word, example);
-      // call the action
+      this.examples.splice(this.examples.indexOf(example), 1);
     },
   },
 };

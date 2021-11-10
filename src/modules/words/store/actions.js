@@ -5,19 +5,28 @@ import {
   SET_NEW_WORD,
   SET_NOT_FOUND_WORD,
   SET_FAV_FILTER,
+  SET_ID_WORD,
 } from "./mutations-types";
 import WordsServices from "../services";
 
 export default {
   getWords({ commit }) {
     WordsServices.getWords().then((doc) => {
-      if (doc.exists) {
-        commit(SET_WORDS, doc.data().wordList || []);
+      if (doc.docs) {
+        const list =
+          doc.docs.map((item) => {
+            const obj = item.data();
+            obj.id = item.id;
+            return obj;
+          }) || [];
+        commit(SET_WORDS, list);
       } else {
-        // doc.data() will be undefined in this case
-        console.log("No such document!");
+        commit(SET_WORDS, []);
       }
     });
+  },
+  clearList({ commit }) {
+    commit(SET_WORDS, []);
   },
   getWord({ commit }, word) {
     WordsServices.getWord(word).then((res) => {
@@ -29,13 +38,15 @@ export default {
     });
   },
   saveWord({ commit, state }) {
-    WordsServices.saveWord(state.word).then((res) => {
-      if (!res.error) {
-        commit();
-      } else {
-        commit(SET_NOT_FOUND_WORD, res);
-      }
+    return WordsServices.saveWord(state.word).then((res) => {
+      commit(SET_ID_WORD, res.id);
     });
+  },
+  removeWord({ state }) {
+    return WordsServices.removeWord(state.word);
+  },
+  updateWord({ state }) {
+    return WordsServices.updateWord(state.word);
   },
   setFavourite({ commit }, value) {
     commit(SET_FAVOURITE, value);

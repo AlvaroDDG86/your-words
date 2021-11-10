@@ -53,6 +53,7 @@
 <script>
 import TitleWithBox from "@/modules/words/components/TitleWithBox";
 import Audio from "@/modules/words/components/Audio";
+
 export default {
   name: "Word",
   components: {

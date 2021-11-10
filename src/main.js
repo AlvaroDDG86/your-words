@@ -39,8 +39,21 @@ interceptorsSetup();
 // importing firebase config
 import "@/helpers/firebase.js";
 
+// vue-js-modal
+import VModal from "vue-js-modal";
+Vue.use(VModal);
+
+// vue-notifications
+import Notifications from "vue-notification";
+Vue.use(Notifications);
+
+// toogle button
 import ToggleButton from "vue-js-toggle-button";
 Vue.use(ToggleButton);
+
+// vue-popove
+import Popover from "vue-js-popover";
+Vue.use(Popover);
 
 Vue.use(VueAxios, axios);
 

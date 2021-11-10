@@ -1,5 +1,19 @@
 <template>
-  <div class="flex mb-4 justify-between items-center max-w-full truncate">
+  <div
+    class="
+      flex
+      mb-4
+      justify-between
+      items-center
+      max-w-full
+      truncate
+      relative
+      h-8
+    "
+  >
+    <p class="text-left text-grey-darkest">
+      {{ example }}
+    </p>
     <button
       class="
         bg-blue-900
@@ -9,15 +23,14 @@
         rounded
         px-2
         py-1
-        mr-6
+        absolute
+        right-2
+        top-1
       "
       @click="removeExample"
     >
       <v-icon name="trash-alt" />
     </button>
-    <p class="text-left text-grey-darkest">
-      {{ example }}
-    </p>
   </div>
 </template>
 <script>

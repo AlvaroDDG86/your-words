@@ -1,12 +1,35 @@
 <template>
   <div class="flex flex-col justify-center items-center">
-    <p v-if="showButton" class="mt-4">
+    <p v-if="showButtonSignup" class="mt-4">
       Are you new here?
       <span
-        class="text-blue-700 cursor-pointer transition-all duration-200 text-lg"
-        @click="$router.replace('/auth/singup')"
+        class="
+          cursor-pointer
+          transition-all
+          duration-200
+          text-xl
+          font-bold
+          text-blue-600
+        "
+        @click="$router.replace('/auth/signup')"
       >
         Create account
+      </span>
+    </p>
+    <p v-else-if="showButtonLogin" class="mt-4">
+      Have you got an account?
+      <span
+        class="
+          cursor-pointer
+          transition-all
+          duration-200
+          text-xl
+          font-bold
+          text-blue-600
+        "
+        @click="$router.replace('/auth/login')"
+      >
+        Login
       </span>
     </p>
     <router-view />
@@ -17,13 +40,15 @@ export default {
   name: "Auth",
   data() {
     return {
-      showButton: false,
+      showButtonSignup: false,
+      showButtonLogin: false,
     };
   },
   watch: {
     $route: {
       handler: function (to) {
-        this.showButton = to.path.includes("login");
+        this.showButtonSignup = to.path.includes("login");
+        this.showButtonLogin = to.path.includes("signup");
       },
       immediate: true,
     },
