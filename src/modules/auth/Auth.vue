@@ -1,6 +1,15 @@
 <template>
-  <div class="flex flex-col justify-center items-center">
-    <p v-if="showButtonSignup" class="mt-4">
+  <div
+    class="
+      h-screen
+      flex flex-col
+      bg-gradient-to-tl
+      from-blue-900
+      via-blue-400
+      to-white
+    "
+  >
+    <p v-if="showButtonSignup" class="mt-4 dark:text-gray-200">
       Are you new here?
       <span
         class="
@@ -16,7 +25,7 @@
         Create account
       </span>
     </p>
-    <p v-else-if="showButtonLogin" class="mt-4">
+    <p v-else-if="showButtonLogin" class="mt-4 dark:text-gray-200">
       Have you got an account?
       <span
         class="

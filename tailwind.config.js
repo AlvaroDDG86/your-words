@@ -3,7 +3,7 @@ const colors = require("tailwindcss/colors");
 module.exports = {
   purge: { content: ["./public/**/*.html", "./src/**/*.vue"] },
   presets: [],
-  darkMode: false, // or 'media' or 'class'
+  darkMode: "class", // or 'media' or 'class'
   theme: {
     screens: {
       sm: "640px",
@@ -283,6 +283,7 @@ module.exports = {
       ],
     },
     fontSize: {
+      xxs: ["0.65rem", { lineHeight: "0.85rem" }],
       xs: ["0.75rem", { lineHeight: "1rem" }],
       sm: ["0.875rem", { lineHeight: "1.25rem" }],
       base: ["1rem", { lineHeight: "1.5rem" }],

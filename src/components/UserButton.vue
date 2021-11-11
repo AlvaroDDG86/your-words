@@ -24,9 +24,31 @@
       "
     ></button>
     <popover name="user" :pointer="true" :width="90">
-      <button class="font-bold text-blue-600" @click="logout">
-        <v-icon name="sign-out-alt" /> Logout
-      </button>
+      <div class="flex flex-col">
+        <button
+          class="
+            font-bold
+            text-blue-600
+            h-10
+            hover:bg-blue-500 hover:text-white
+          "
+          @click="toggle"
+        >
+          <span v-if="mode"><v-icon name="sun" /> Light</span>
+          <span v-else><v-icon name="moon" /> Dark</span>
+        </button>
+        <button
+          class="
+            font-bold
+            text-blue-600
+            h-10
+            hover:bg-blue-500 hover:text-white
+          "
+          @click="logout"
+        >
+          <v-icon name="sign-out-alt" /> Logout
+        </button>
+      </div>
     </popover>
   </div>
 </template>
@@ -35,6 +57,25 @@ import { mapActions } from "vuex";
 import firebase from "firebase/compat/app";
 export default {
   name: "UserButton",
+  data() {
+    return {
+      mode: false,
+    };
+  },
+  mounted() {
+    if (localStorage.darkMode) {
+      this.mode = localStorage.darkMode === "dark";
+      if (this.mode) document.querySelector("html").classList.toggle("dark");
+    }
+  },
+  watch: {
+    mode: {
+      handler: function (newValue) {
+        console.log(newValue);
+        localStorage.darkMode = newValue ? "dark" : "ligth";
+      },
+    },
+  },
   props: {
     image: {
       type: String,
@@ -51,6 +92,10 @@ export default {
           this.clearList();
           this.$router.push("/").catch(() => {});
         });
+    },
+    toggle() {
+      this.mode = !this.mode;
+      document.querySelector("html").classList.toggle("dark");
     },
   },
 };

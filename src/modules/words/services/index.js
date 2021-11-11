@@ -34,8 +34,10 @@ const WordsServices = {
       .set(
         {
           annotations: word.annotations,
+          translation: word.translation,
           favourite: word.favourite,
           examples: [...word.examples],
+          dateUpdate: word.dateUpdate,
         },
         {
           merge: true,

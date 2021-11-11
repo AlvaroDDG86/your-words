@@ -1,9 +1,23 @@
 export const OrderList = (list, kind) => {
   switch (kind) {
+    case "last":
+      return list.sort(function (a, b) {
+        return (
+          b.dateUpdate.toDate().getTime() - a.dateUpdate.toDate().getTime()
+        );
+      });
     case "new":
-      break;
+      return list.sort(function (a, b) {
+        return (
+          b.dateCreation.toDate().getTime() - a.dateCreation.toDate().getTime()
+        );
+      });
     case "old":
-      break;
+      return list.sort(function (a, b) {
+        return (
+          a.dateCreation.toDate().getTime() - b.dateCreation.toDate().getTime()
+        );
+      });
     case "desc":
       return list.sort(function (a, b) {
         if (a.list[0].word > b.list[0].word) {

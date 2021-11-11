@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="dark:bg-gray-800 transition-all duration-200">
     <SearchWord />
     <template v-if="word.list">
       <div class="h-full">
@@ -15,6 +15,10 @@
         :annotations="word.annotations"
         @updateValue="word.annotations = $event"
       />
+      <Translations
+        :translation="word.translation"
+        @updateValue="word.translation = $event"
+      />
       <SaveWord />
     </template>
     <div
@@ -27,9 +31,15 @@
         font-xl font-bold
         uppercase
         pt-32
+        transition-all
+        duration-200
+        dark:text-gray-300
       "
     >
-      <h1 v-if="notFound" class="text-5xl text-gray-700 font-bold">
+      <h1
+        v-if="notFound"
+        class="text-5xl text-gray-700 dark:text-gray-300 font-bold"
+      >
         {{ notFound.word }}
       </h1>
       {{ notFound ? notFound.message : "Search new Word" }}
@@ -41,6 +51,7 @@ import Word from "@/modules/words/components/Word";
 import SearchWord from "@/modules/words/components/SearchWord";
 import Examples from "@/modules/words/components/Examples";
 import Annotation from "@/modules/words/components/Annotation";
+import Translations from "@/modules/words/components/Translations";
 import SaveWord from "@/modules/words/components/SaveWord";
 
 import { mapGetters, mapActions } from "vuex";
@@ -52,6 +63,7 @@ export default {
     Examples,
     Annotation,
     SaveWord,
+    Translations,
   },
   created() {
     window.scrollTo(0, 0);

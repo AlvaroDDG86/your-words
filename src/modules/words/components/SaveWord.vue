@@ -1,64 +1,75 @@
 <template>
-  <div class="bg-blue-900 text-white py-4 px-10 flex justify-end">
-    <button
+  <div
+    :class="{ 'justify-between': word.id, 'justify-end': !word.id }"
+    class="bg-blue-900 text-white py-4 px-10 flex"
+  >
+    <InfoDate
       v-if="word.id"
-      class="text-blue-900 bg-white font-extrabold text-lg rounded px-2 py-1"
-      @click="$router.replace('/words/list')"
-    >
-      <v-icon name="arrow-circle-left" />
-      <span class="hidden md:inline-block ml-2">List</span>
-    </button>
-    <button
-      v-if="word.id"
-      class="
-        text-red-600
-        bg-white
-        font-extrabold
-        text-lg
-        rounded
-        px-2
-        py-1
-        ml-4
-      "
-      @click="$modal.show('delete')"
-    >
-      <v-icon name="trash-alt" />
-      <span class="hidden md:inline-block ml-2">Remove Word</span>
-    </button>
-    <button
-      v-if="word.id"
-      class="
-        text-blue-900
-        bg-white
-        font-extrabold
-        text-lg
-        rounded
-        px-2
-        py-1
-        ml-4
-      "
-      @click="saveUpdateWord"
-    >
-      <v-icon name="save" />
-      <span class="hidden md:inline-block ml-2">Save Word</span>
-    </button>
-    <button
-      v-else
-      class="
-        text-blue-900
-        bg-white
-        font-extrabold
-        text-lg
-        rounded
-        px-2
-        py-1
-        ml-4
-      "
-      @click="addNewWord"
-    >
-      <v-icon name="save" />
-      <span class="hidden md:inline-block ml-2">Add Word</span>
-    </button>
+      :created="word.dateCreation"
+      :updated="word.dateUpdate"
+      :id="_uid"
+    />
+    <div>
+      <button
+        v-if="word.id"
+        class="text-blue-900 bg-white font-extrabold text-lg rounded px-2 py-1"
+        @click="$router.replace('/words/list')"
+      >
+        <v-icon name="arrow-circle-left" />
+        <span class="hidden md:inline-block ml-2">List</span>
+      </button>
+      <button
+        v-if="word.id"
+        class="
+          text-red-600
+          bg-white
+          font-extrabold
+          text-lg
+          rounded
+          px-2
+          py-1
+          ml-4
+        "
+        @click="$modal.show('delete')"
+      >
+        <v-icon name="trash-alt" />
+        <span class="hidden md:inline-block ml-2">Remove Word</span>
+      </button>
+      <button
+        v-if="word.id"
+        class="
+          text-blue-900
+          bg-white
+          font-extrabold
+          text-lg
+          rounded
+          px-2
+          py-1
+          ml-4
+        "
+        @click="saveUpdateWord"
+      >
+        <v-icon name="save" />
+        <span class="hidden md:inline-block ml-2">Save Word</span>
+      </button>
+      <button
+        v-else
+        class="
+          text-blue-900
+          bg-white
+          font-extrabold
+          text-lg
+          rounded
+          px-2
+          py-1
+          ml-4
+        "
+        @click="addNewWord"
+      >
+        <v-icon name="save" />
+        <span class="hidden md:inline-block ml-2">Add Word</span>
+      </button>
+    </div>
     <modal
       name="delete"
       class="my-notification"
@@ -108,8 +119,12 @@
 </template>
 <script>
 import { mapGetters, mapActions } from "vuex";
+import InfoDate from "@/modules/words/components/InfoDate";
 export default {
   name: "SaveWord",
+  components: {
+    InfoDate,
+  },
   methods: {
     ...mapActions("words", [
       "saveWord",

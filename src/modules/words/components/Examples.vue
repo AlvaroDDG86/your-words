@@ -1,6 +1,29 @@
 <template>
-  <div class="bg-gray-100 mx-10 my-6 rounded-lg shadow-lg">
-    <h5 class="text-sm font-medium text-gray-900 block mb-2 pt-2 font-bold">
+  <div
+    class="
+      bg-gray-100
+      dark:bg-gray-600
+      mx-10
+      my-6
+      rounded-lg
+      shadow-lg
+      transition-all
+      duration-200
+    "
+  >
+    <h5
+      class="
+        text-s
+        dark:text-white
+        text-gray-900
+        block
+        mb-2
+        pt-2
+        transition-all
+        duration-200
+        font-bold
+      "
+    >
       Your examples:
     </h5>
     <div

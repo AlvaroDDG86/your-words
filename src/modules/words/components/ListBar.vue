@@ -103,16 +103,21 @@ export default {
   data() {
     return {
       orderOptions: [
-        // {
-        //   label: "Newest",
-        //   code: "new",
-        //   icon: "sort-amount-up",
-        // },
-        // {
-        //   label: "Oldest",
-        //   code: "old",
-        //   icon: "sort-amount-down",
-        // },
+        {
+          label: "Last update first",
+          code: "last",
+          icon: "sort-amount-up",
+        },
+        {
+          label: "Newest",
+          code: "new",
+          icon: "sort-amount-up",
+        },
+        {
+          label: "Oldest",
+          code: "old",
+          icon: "sort-amount-down",
+        },
         {
           label: "Alphabetical desc",
           code: "desc",

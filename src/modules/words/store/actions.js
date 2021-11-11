@@ -8,6 +8,7 @@ import {
   SET_ID_WORD,
 } from "./mutations-types";
 import WordsServices from "../services";
+import firebase from "firebase/compat/app";
 
 export default {
   getWords({ commit }) {
@@ -38,6 +39,8 @@ export default {
     });
   },
   saveWord({ commit, state }) {
+    state.word.dateCreation = firebase.firestore.Timestamp.fromDate(new Date());
+    state.word.dateUpdate = firebase.firestore.Timestamp.fromDate(new Date());
     return WordsServices.saveWord(state.word).then((res) => {
       commit(SET_ID_WORD, res.id);
     });
@@ -46,6 +49,7 @@ export default {
     return WordsServices.removeWord(state.word);
   },
   updateWord({ state }) {
+    state.word.dateUpdate = firebase.firestore.Timestamp.fromDate(new Date());
     return WordsServices.updateWord(state.word);
   },
   setFavourite({ commit }, value) {

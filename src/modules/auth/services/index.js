@@ -1,4 +1,6 @@
 import { db } from "@/helpers/firebase";
+import firebase from "firebase/app";
+import "firebase/auth";
 
 const WordsServices = {
   async setNewUser(user) {
@@ -8,6 +10,30 @@ const WordsServices = {
     });
     // userJson.wordList = firstWords;
     await db.collection("users").doc(user.uid).set(userJson, { merge: true });
+  },
+  deleteAccount() {
+    const user = firebase.auth().currentUser;
+
+    user
+      .delete()
+      .then(() => {
+        console.log("Successfully user deleted");
+      })
+      .catch((error) => {
+        console.log("Error deleting the user", error);
+      });
+  },
+  setNewPassword(newPassword) {
+    const user = firebase.auth().currentUser;
+
+    user
+      .updatePassword(newPassword)
+      .then(() => {
+        console.log("Successfully password reset");
+      })
+      .catch((error) => {
+        console.log("Error updating the password", error);
+      });
   },
 };
 

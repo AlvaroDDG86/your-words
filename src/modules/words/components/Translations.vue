@@ -1,22 +1,14 @@
 <template>
   <div class="mx-10 my-6">
     <label
-      for="annotation"
-      class="
-        text-s
-        font-medium
-        text-gray-900
-        dark:text-gray-200
-        block
-        mb-2
-        font-bold
-      "
-      >Your annotations:</label
+      for="translation"
+      class="text-s text-gray-900 dark:text-gray-200 block mb-2 font-bold"
+      >Translate to your languaje:</label
     >
     <textarea
-      id="annotation"
+      id="translation"
       rows="4"
-      :value="annotations"
+      :value="translation"
       @change="updateVal"
       class="
         bg-gray-50
@@ -28,7 +20,7 @@
         block
         w-full
       "
-      placeholder="Leave your annotations..."
+      placeholder="Your translation..."
     ></textarea>
   </div>
 </template>
@@ -36,7 +28,7 @@
 export default {
   name: "Annotation",
   props: {
-    annotations: {
+    translation: {
       type: String,
       require: true,
     },

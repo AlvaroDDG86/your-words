@@ -1,5 +1,5 @@
 <template>
-  <section v-if="user.data" class="pt-16 bg-blueGray-50">
+  <section v-if="user.data" class="pt-16">
     <div class="w-full px-4 mx-auto">
       <div
         class="
@@ -8,6 +8,7 @@
           min-w-0
           break-words
           bg-white
+          dark:bg-gray-400 dark:text-gray-200
           w-full
           mb-6
           shadow-xl

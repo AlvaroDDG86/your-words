@@ -1,5 +1,5 @@
 <template>
-  <div class="h-full">
+  <div class="h-full dark:bg-gray-800 transition-all duration-200">
     <ListBar />
     <div class="flex justify-center lg:justify-start flex-wrap m-2 lg:m-4">
       <WordItem
@@ -21,6 +21,41 @@
         Search and create new word
       </button>
     </div>
+    <button
+      v-popover:add.left
+      @click="$router.replace('/words/new')"
+      class="
+        fixed
+        bottom-28
+        right-12
+        bg-blue-600
+        text-white
+        w-14
+        h-14
+        rounded-full
+        shadow-xl
+        cursor-pointer
+        hover:bg-blue-800 hover:shadow-md
+        transition-all
+        duration-200
+      "
+    >
+      <v-icon name="plus" />
+      <popover name="add" event="hover">
+        <div
+          class="
+            text-black
+            dark:text-gray-300
+            text-xs
+            font-bold
+            transition-all
+            duration-200
+          "
+        >
+          Search or Add new word
+        </div>
+      </popover>
+    </button>
   </div>
 </template>
 <script>

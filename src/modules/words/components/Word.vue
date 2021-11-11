@@ -1,9 +1,37 @@
 <template>
-  <div class="pt-10 border-b-1 border-gray-400 shadow-xl px-8 lg:px-48">
-    <div class="text-blue-700 font-bold text-xl">
+  <div
+    class="
+      pt-10
+      border-b-1 border-gray-400
+      shadow-xl
+      px-8
+      lg:px-48
+      transition-all
+      duration-200
+    "
+  >
+    <div
+      class="
+        text-blue-700
+        dark:text-blue-400
+        font-bold
+        text-xl
+        transition-all
+        duration-200
+      "
+    >
       definition of '{{ word.word }}'
     </div>
-    <h1 class="text-5xl font-bold py-4">
+    <h1
+      class="
+        text-5xl
+        font-bold
+        py-4
+        dark:text-white
+        transition-all
+        duration-200
+      "
+    >
       {{ computedIndex }}. {{ word.word }}
       <small v-show="word.phonetic" class="font-light text-gray-500"
         >/{{ word.phonetic }}/</small
@@ -18,7 +46,15 @@
       v-for="(meaning, indexMean) in word.meanings"
       class="py-4"
     >
-      <h3 v-if="meaning.definitions.length > 0" class="text-blue-900 text-3xl">
+      <h3
+        v-if="meaning.definitions.length > 0"
+        class="
+          text-blue-900 text-3xl
+          dark:text-white
+          transition-all
+          duration-200
+        "
+      >
         {{ indexMean + 1 }}.
         <span>{{
           meaning.partOfSpeech ? meaning.partOfSpeech : "Definition"
@@ -29,7 +65,13 @@
         <li
           :key="`definition-${indexDef}`"
           v-for="(definition, indexDef) in meaning.definitions"
-          class="text-left font-medium"
+          class="
+            text-left
+            font-medium
+            dark:text-white
+            transition-all
+            duration-200
+          "
         >
           <span class="ml-4">{{ definition.definition }}</span>
           <div class="text-gray-400 ml-10 font-light italic">

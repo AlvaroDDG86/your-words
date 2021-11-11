@@ -18,14 +18,18 @@
       m-1
       lg:m-4
       bg-gray-100
+      dark:bg-gray-400
     "
     @click="navigate"
   >
     <div class="m-3">
-      <div class="flex justify-between">
-        <h2 class="text-xl lg:text-2xl text-blue-700 font-bold uppercase">
-          {{ title }}
-        </h2>
+      <div class="flex lg:justify-end justify-between">
+        <div class="block lg:hidden text-blue-800 dark:text-gray-100 text-xxs">
+          <span class="font-bold text-blue-500">Created: </span
+          >{{ word.dateCreation.toDate().toLocaleString() }}
+          <span class="font-bold text-blue-500 ml-2">Updated: </span
+          >{{ word.dateUpdate.toDate().toLocaleString() }}
+        </div>
         <span
           :class="{ 'text-yellow-300': word.favourite }"
           class="
@@ -49,12 +53,26 @@
           font-light font-mono
           text-sm text-gray-700
           hover:text-gray-900
+          dark:text-gray-100
           transition-all
           duration-200
           text-left
         "
       >
-        {{ firstDefinition }}
+        <span
+          class="
+            text-xl
+            lg:text-2xl
+            text-blue-700
+            dark:text-blue-600
+            transition-all
+            duration-200
+            font-bold
+            uppercase
+          "
+        >
+          {{ title }}: </span
+        >{{ firstDefinition }}
       </p>
       <div class="flex justify-start flex-wrap mt-1">
         <span
