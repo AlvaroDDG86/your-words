@@ -1,6 +1,6 @@
 <template>
   <div>
-    <pre class="text-indigo-400">{{ user.conf.grid }}</pre>
+    <!-- <pre class="text-indigo-400">{{ user.conf.grid }}</pre> -->
     <ListBar />
     <div class="grid grid-autofit gap-x-4 p-2">
       <WordItem
