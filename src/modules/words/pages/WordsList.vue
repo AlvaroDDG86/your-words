@@ -1,7 +1,7 @@
 <template>
-  <div class="h-full dark:bg-gray-800 transition-all duration-200">
+  <div>
     <ListBar />
-    <div class="flex justify-center lg:justify-start flex-wrap m-2 lg:m-4">
+    <div class="grid grid-autofit gap-x-4 p-2">
       <WordItem
         :word="word"
         :key="`word-${index}`"
@@ -10,9 +10,16 @@
     </div>
     <div
       v-if="wordsList.length === 0"
-      class="flex flex-col justify-center items-center"
+      class="
+        flex flex-col
+        justify-center
+        items-center
+        dark:text-gray-200
+        uppercase
+        pt-32
+      "
     >
-      <p>no words found</p>
+      <p>No words found</p>
       <button
         type="submit"
         @click="$router.replace('/words/new')"
@@ -22,11 +29,10 @@
       </button>
     </div>
     <button
-      v-popover:add.left
       @click="$router.replace('/words/new')"
       class="
         fixed
-        bottom-28
+        bottom-16
         right-12
         bg-blue-600
         text-white
@@ -38,23 +44,11 @@
         hover:bg-blue-800 hover:shadow-md
         transition-all
         duration-200
+        block
+        md:hidden
       "
     >
       <v-icon name="plus" />
-      <popover name="add" event="hover">
-        <div
-          class="
-            text-black
-            dark:text-gray-300
-            text-xs
-            font-bold
-            transition-all
-            duration-200
-          "
-        >
-          Search or Add new word
-        </div>
-      </popover>
     </button>
   </div>
 </template>
@@ -73,3 +67,8 @@ export default {
   },
 };
 </script>
+<style>
+.grid-autofit {
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+}
+</style>

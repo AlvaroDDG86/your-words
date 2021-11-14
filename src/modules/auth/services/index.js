@@ -11,6 +11,33 @@ const WordsServices = {
     // userJson.wordList = firstWords;
     await db.collection("users").doc(user.uid).set(userJson, { merge: true });
   },
+  async updateUser() {
+    const user = firebase.auth().currentUser;
+
+    user
+      .updateProfile({
+        dark: true,
+        grid: true,
+      })
+      .then(() => {
+        // Update successful
+        // ...
+      })
+      .catch((error) => {
+        // An error occurred
+        // ...
+        console.log(error);
+      });
+    // return db.collection("users").doc(firebase.auth().currentUser.uid).set(
+    //   {
+    //     dark: user.dark,
+    //     grid: user.grid,
+    //   },
+    //   {
+    //     merge: true,
+    //   }
+    // );
+  },
   deleteAccount() {
     const user = firebase.auth().currentUser;
 

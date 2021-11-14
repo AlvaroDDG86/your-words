@@ -1,69 +1,185 @@
 <template>
-  <div
-    class="
-      fixed
-      bottom-0
-      w-full
-      bg-blue-600
-      text-white
-      py-4
-      px-10
-      flex
-      justify-end
-    "
-  >
+  <footer class="bg-blue-600">
+    <div class="container mx-auto px-8">
+      <div class="w-full flex flex-col md:flex-row py-6">
+        <div class="flex-1 mb-6 text-black">
+          <a
+            class="
+              text-gray-200
+              no-underline
+              hover:no-underline
+              font-bold
+              text-2xl
+              lg:text-4xl
+            "
+            href="#"
+          >
+            YOUR WORDS
+          </a>
+        </div>
+        <div class="flex-1">
+          <p class="uppercase text-gray-200 font-bold md:mb-6">Links</p>
+          <ul class="list-reset mb-6">
+            <li class="mt-2 inline-block mr-2 md:block md:mr-0">
+              <a
+                href="#"
+                class="
+                  no-underline
+                  hover:underline
+                  text-gray-200
+                  hover:text-pink-500
+                "
+                >FAQ</a
+              >
+            </li>
+            <!-- <li class="mt-2 inline-block mr-2 md:block md:mr-0">
+              <a
+                href="#"
+                class="
+                  no-underline
+                  hover:underline
+                  text-gray-200
+                  hover:text-pink-500
+                "
+                >Help</a
+              >
+            </li> -->
+            <!-- <li class="mt-2 inline-block mr-2 md:block md:mr-0">
+              <a
+                href="#"
+                class="
+                  no-underline
+                  hover:underline
+                  text-gray-200
+                  hover:text-pink-500
+                "
+                >Support</a
+              >
+            </li> -->
+          </ul>
+        </div>
+        <div class="flex-1">
+          <p class="uppercase text-gray-200 font-bold md:mb-6">Legal</p>
+          <ul class="list-reset mb-6">
+            <li class="mt-2 inline-block mr-2 md:block md:mr-0">
+              <a
+                href="#"
+                class="
+                  no-underline
+                  hover:underline
+                  text-gray-200
+                  hover:text-pink-500
+                "
+                >Terms</a
+              >
+            </li>
+            <li class="mt-2 inline-block mr-2 md:block md:mr-0">
+              <a
+                href="#"
+                class="
+                  no-underline
+                  hover:underline
+                  text-gray-200
+                  hover:text-pink-500
+                "
+                >Privacy</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div class="flex-1">
+          <p class="uppercase text-gray-200 font-bold md:mb-6">Social</p>
+          <ul class="list-reset mb-6">
+            <li class="mt-2 inline-block mr-2 md:block md:mr-0">
+              <a
+                href="#"
+                class="
+                  no-underline
+                  hover:underline
+                  text-gray-200
+                  hover:text-pink-500
+                "
+                >Facebook</a
+              >
+            </li>
+            <li class="mt-2 inline-block mr-2 md:block md:mr-0">
+              <a
+                href="#"
+                class="
+                  no-underline
+                  hover:underline
+                  text-gray-200
+                  hover:text-pink-500
+                "
+                >Linkedin</a
+              >
+            </li>
+            <li class="mt-2 inline-block mr-2 md:block md:mr-0">
+              <a
+                href="#"
+                class="
+                  no-underline
+                  hover:underline
+                  text-gray-200
+                  hover:text-pink-500
+                "
+                >Twitter</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div class="flex-1">
+          <p class="uppercase text-gray-200 font-bold md:mb-6">Company</p>
+          <ul class="list-reset mb-6">
+            <li class="mt-2 inline-block mr-2 md:block md:mr-0">
+              <a
+                href="#"
+                class="
+                  no-underline
+                  hover:underline
+                  text-gray-200
+                  hover:text-pink-500
+                "
+                >Official Blog</a
+              >
+            </li>
+            <li class="mt-2 inline-block mr-2 md:block md:mr-0">
+              <a
+                href="#"
+                class="
+                  no-underline
+                  hover:underline
+                  text-gray-200
+                  hover:text-pink-500
+                "
+                >About Us</a
+              >
+            </li>
+            <li class="mt-2 inline-block mr-2 md:block md:mr-0">
+              <a
+                href="#"
+                class="
+                  no-underline
+                  hover:underline
+                  text-gray-200
+                  hover:text-pink-500
+                "
+                >Contact</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
     <a
-      :key="`social-${index}`"
-      v-for="(button, index) in socialButtons"
-      :href="button.link"
-      target="_blank"
-      class="
-        text-blue-900
-        bg-white
-        font-extrabold
-        text-lg
-        rounded
-        px-2
-        py-1
-        mx-1
-        transition-all
-        duration-200
-        hover:text-blue-100 hover:bg-blue-900
-      "
+      href="https://www.freepik.com/free-photos-vectors/background"
+      class="text-gray-200 font-bold"
+      >Background vector created by freepik - www.freepik.com</a
     >
-      <v-icon small x-small :name="button.icon" />
-    </a>
-  </div>
+  </footer>
 </template>
 <script>
 export default {
   name: "AppFooter",
-  data() {
-    return {
-      socialButtons: [
-        {
-          icon: "brands/facebook",
-          link: "http://www.facebook.com",
-        },
-        {
-          icon: "brands/linkedin",
-          link: "http://www.linkedin.com",
-        },
-        {
-          icon: "brands/instagram",
-          link: "http://www.instagram.com",
-        },
-        {
-          icon: "brands/google",
-          link: "http://www.google.com",
-        },
-      ],
-    };
-  },
-  methods: {
-    saveWord() {
-      console.log(true);
-    },
-  },
 };
 </script>

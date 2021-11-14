@@ -1,6 +1,6 @@
 <template>
-  <section v-if="user.data" class="pt-16">
-    <div class="w-full px-4 mx-auto">
+  <section v-if="user.data">
+    <div class="w-full px-2">
       <div
         class="
           relative
@@ -10,14 +10,23 @@
           bg-white
           dark:bg-gray-400 dark:text-gray-200
           w-full
-          mb-6
           shadow-xl
           rounded-lg
-          mt-16
         "
       >
         <div class="px-6">
-          <div class="flex flex-wrap justify-center">
+          <div
+            class="
+              mt-16
+              shadow-2xl
+              p-2
+              rounded-xl
+              bg-gray-100
+              dark:bg-gray-700
+              flex flex-wrap
+              justify-center
+            "
+          >
             <div class="relative w-full px-4 flex justify-center">
               <div
                 :style="{
@@ -29,67 +38,161 @@
                   align-middle
                   absolute
                   -m-16
-                  -ml-20
-                  lg:-ml-16
+                  -ml-16
                   w-40
                   h-40
                   max-w-200-px
                   border-4 border-blue-400
-                  bg-no-repeat bg-center bg-cover
+                  bg-black bg-no-repeat bg-center bg-cover
                 "
               ></div>
             </div>
-            <div class="w-full px-4 text-center mt-20">
-              <div class="flex justify-center py-4 lg:pt-4 pt-8">
-                <div
-                  class="
-                    mr-4
-                    p-3
-                    text-center
-                    cursor-pointer
-                    hover:text-blue-600 hover:shadow-xl
-                  "
-                  @click="goToWords(false)"
+            <div class="w-full px-4 text-center mt-32">
+              <h3
+                class="
+                  text-xl
+                  font-semibold
+                  leading-normal
+                  mb-2
+                  text-blueGray-700
+                "
+              >
+                {{ user.data.displayName }}
+              </h3>
+              <div
+                class="
+                  text-sm
+                  leading-normal
+                  mt-0
+                  mb-2
+                  text-blueGray-400
+                  font-bold
+                "
+              >
+                <i
+                  class="fas fa-map-marker-alt mr-2 text-lg text-blueGray-400"
+                ></i>
+                {{ user.data.email }}
+              </div>
+              <div class="mb-2 text-blueGray-600 mt-10">
+                <i class="fas fa-university mr-2 text-lg text-blueGray-400"></i>
+                <span class="font-bold text-blue-700 dark:text-blue-200"
+                  >Last login:</span
                 >
-                  <span
-                    class="
-                      text-xl
-                      font-bold
-                      block
-                      uppercase
-                      tracking-wide
-                      text-blueGray-600
-                    "
-                  >
-                    {{ wordsData.length }}
-                  </span>
-                  <span class="text-sm text-blueGray-400">Words</span>
-                </div>
-                <div
-                  class="
-                    mr-4
-                    p-3
-                    text-center
-                    cursor-pointer
-                    hover:text-blue-600 hover:shadow-xl
-                  "
-                  @click="goToWords(true)"
+                {{
+                  new Date(user.data.metadata.lastSignInTime).toLocaleString()
+                }}
+              </div>
+              <div class="mb-2 text-blueGray-600">
+                <i class="fas fa-briefcase mr-2 text-lg text-blueGray-400"></i>
+                <span class="font-bold text-blue-700 dark:text-blue-200"
+                  >User from:</span
                 >
-                  <span
-                    class="
-                      text-xl
-                      font-bold
-                      block
-                      uppercase
-                      tracking-wide
-                      text-blueGray-600
-                    "
-                  >
-                    {{ wordsData.favourites }}
-                  </span>
-                  <span class="text-sm text-blueGray-400">Favourites</span>
-                </div>
-                <div class="lg:mr-4 p-3 text-center">
+                {{ new Date(user.data.metadata.creationTime).toLocaleString() }}
+              </div>
+            </div>
+          </div>
+          <div
+            class="mt-6 shadow-2xl p-2 rounded-xl bg-gray-100 dark:bg-gray-700"
+          >
+            <h3 class="font-bold text-2xl flex justify-center items-center">
+              <v-icon name="cogs" class="mr-2" /> Setting:
+            </h3>
+            <div class="">
+              <div class="text-xl mb-2">Dark mode:</div>
+              <toggle-button
+                :width="75"
+                :height="27"
+                :switch-color="{
+                  checked: '#2559FF',
+                  unchecked: '#FFFB15',
+                }"
+                :color="{
+                  checked: '#111111',
+                  unchecked: '#111111',
+                }"
+                :value="user.data.dark"
+                :labels="{ checked: 'ON', unchecked: 'OFF' }"
+              />
+              <div class="text-xl mt-4 mb-2">Display collection:</div>
+              <toggle-button
+                :width="75"
+                :height="27"
+                :switch-color="{
+                  checked: '#CDD9FF',
+                  unchecked: '#CDD9FF',
+                }"
+                :color="{
+                  checked: '#111111',
+                  unchecked: '#111111',
+                }"
+                :value="user.data.grid"
+                :labels="{ checked: 'GRID', unchecked: 'CARDS' }"
+              />
+            </div>
+          </div>
+          <div
+            class="mt-6 shadow-2xl p-2 rounded-xl bg-gray-100 dark:bg-gray-700"
+          >
+            <h3 class="font-bold text-2xl flex justify-center items-center">
+              <v-icon name="th" class="mr-2" /> Collection:
+            </h3>
+            <div class="flex justify-center py-4 lg:pt-4 pt-8">
+              <div
+                class="
+                  mr-4
+                  p-3
+                  text-center
+                  cursor-pointer
+                  hover:text-blue-600 hover:shadow-xl
+                  w-20
+                  h-20
+                  rounded-lg
+                "
+                @click="goToWords(false)"
+              >
+                <span
+                  class="
+                    text-xl
+                    font-bold
+                    block
+                    uppercase
+                    tracking-wide
+                    text-blueGray-600
+                  "
+                >
+                  {{ wordsData.length }}
+                </span>
+                <span class="text-sm text-blueGray-400">Words</span>
+              </div>
+              <div
+                class="
+                  mr-4
+                  p-3
+                  text-center
+                  cursor-pointer
+                  hover:text-blue-600 hover:shadow-xl
+                  w-20
+                  h-20
+                  rounded-lg
+                "
+                @click="goToWords(true)"
+              >
+                <span
+                  class="
+                    text-xl
+                    font-bold
+                    block
+                    uppercase
+                    tracking-wide
+                    text-blueGray-600
+                  "
+                >
+                  {{ wordsData.favourites }}
+                </span>
+                <span class="text-sm text-blueGray-400">Favs</span>
+              </div>
+              <!-- <div class="lg:mr-4 p-3 text-center">
                   <span
                     class="
                       text-xl
@@ -103,47 +206,7 @@
                     89
                   </span>
                   <span class="text-sm text-blueGray-400">Learned</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="text-center mt-12">
-            <h3
-              class="
-                text-xl
-                font-semibold
-                leading-normal
-                mb-2
-                text-blueGray-700
-                mb-2
-              "
-            >
-              {{ user.data.displayName }}
-            </h3>
-            <div
-              class="
-                text-sm
-                leading-normal
-                mt-0
-                mb-2
-                text-blueGray-400
-                font-bold
-              "
-            >
-              <i
-                class="fas fa-map-marker-alt mr-2 text-lg text-blueGray-400"
-              ></i>
-              {{ user.data.email }}
-            </div>
-            <div class="mb-2 text-blueGray-600 mt-10">
-              <i class="fas fa-university mr-2 text-lg text-blueGray-400"></i>
-              Last login:
-              {{ new Date(user.data.metadata.lastSignInTime).toLocaleString() }}
-            </div>
-            <div class="mb-2 text-blueGray-600">
-              <i class="fas fa-briefcase mr-2 text-lg text-blueGray-400"></i>
-              User from:
-              {{ new Date(user.data.metadata.creationTime).toLocaleString() }}
+                </div> -->
             </div>
           </div>
           <div class="mt-10 py-10 border-t border-blueGray-200 text-center">
@@ -221,8 +284,12 @@ export default {
       };
     },
   },
+  created() {
+    this.getWords();
+  },
   methods: {
-    ...mapActions("words", ["setFavFilter"]),
+    ...mapActions("words", ["getWords", "setFavFilter"]),
+    ...mapActions("auth", ["updateUser"]),
     getImage(user) {
       return user.data && user.data.photoURL
         ? `url(${user.data.photoURL})`
@@ -231,6 +298,9 @@ export default {
     goToWords(fav) {
       this.setFavFilter(fav);
       this.$router.push("/words/list");
+    },
+    updateUser() {
+      this.updateUser(this.user);
     },
   },
 };

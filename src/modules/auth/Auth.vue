@@ -1,14 +1,5 @@
 <template>
-  <div
-    class="
-      h-screen
-      flex flex-col
-      bg-gradient-to-tl
-      from-blue-900
-      via-blue-400
-      to-white
-    "
-  >
+  <div class="dark:bg-gray-800 transition-all duration-200 p-6">
     <p v-if="showButtonSignup" class="mt-4 dark:text-gray-200">
       Are you new here?
       <span

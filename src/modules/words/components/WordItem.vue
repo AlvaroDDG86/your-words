@@ -12,13 +12,9 @@
       duration-200
       overflow-hidden
       break-inside
-      lg:w-3/12
-      xl:w-2/12
-      w-11/12
-      m-1
-      lg:m-4
       bg-gray-100
       dark:bg-gray-400
+      mb-2
     "
     @click="navigate"
   >

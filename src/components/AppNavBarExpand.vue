@@ -160,7 +160,7 @@ export default {
       open: false,
       links: [
         {
-          name: "Mi List",
+          name: "Collection",
           path: "/words/list",
         },
         {
@@ -168,7 +168,7 @@ export default {
           path: "/words/new",
         },
         {
-          name: "My profile",
+          name: "Profile",
           path: "/auth/profile",
         },
       ],

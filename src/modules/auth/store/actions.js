@@ -12,4 +12,7 @@ export default {
   setNewUser({ state }) {
     AuthService.setNewUser(state.user.data);
   },
+  updateUser({ state }) {
+    AuthService.updateUser(state.user.data);
+  },
 };
