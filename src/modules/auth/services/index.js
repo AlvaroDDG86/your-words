@@ -8,35 +8,25 @@ const WordsServices = {
     Object.keys(userJson).forEach((key) => {
       userJson[key] === undefined ? delete userJson[key] : {};
     });
-    // userJson.wordList = firstWords;
+    userJson.dark = false;
+    userJson.grid = false;
+
     await db.collection("users").doc(user.uid).set(userJson, { merge: true });
   },
-  async updateUser() {
-    const user = firebase.auth().currentUser;
-
-    user
-      .updateProfile({
-        dark: true,
-        grid: true,
-      })
-      .then(() => {
-        // Update successful
-        // ...
-      })
-      .catch((error) => {
-        // An error occurred
-        // ...
-        console.log(error);
-      });
-    // return db.collection("users").doc(firebase.auth().currentUser.uid).set(
-    //   {
-    //     dark: user.dark,
-    //     grid: user.grid,
-    //   },
-    //   {
-    //     merge: true,
-    //   }
-    // );
+  getUserConf(uid) {
+    const userData = db.collection("users").doc(uid);
+    return userData.get();
+  },
+  async updateUser(user) {
+    return db.collection("users").doc(user.data.uid).set(
+      {
+        dark: user.conf.dark,
+        grid: user.conf.grid,
+      },
+      {
+        merge: true,
+      }
+    );
   },
   deleteAccount() {
     const user = firebase.auth().currentUser;

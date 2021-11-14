@@ -8,6 +8,10 @@ export default {
     user: {
       loggedIn: false,
       data: null,
+      conf: {
+        dark: false,
+        grid: false,
+      },
     },
   },
   getters,

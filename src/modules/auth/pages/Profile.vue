@@ -99,10 +99,29 @@
               <v-icon name="cogs" class="mr-2" /> Setting:
             </h3>
             <div class="">
-              <div class="text-xl mb-2">Dark mode:</div>
+              <div class="text-xl mb-2">
+                Dark mode:
+                <span
+                  class="
+                    text-blue-600
+                    dark:text-blue-200
+                    text-bold
+                    flex
+                    justify-center
+                    items-center
+                  "
+                >
+                  <v-icon
+                    :name="user.conf.dark ? 'moon' : 'sun'"
+                    class="mr-2"
+                  />
+                  {{ user.conf.dark ? "ON" : "OFF" }}</span
+                >
+              </div>
               <toggle-button
                 :width="75"
                 :height="27"
+                :sync="true"
                 :switch-color="{
                   checked: '#2559FF',
                   unchecked: '#FFFB15',
@@ -111,13 +130,33 @@
                   checked: '#111111',
                   unchecked: '#111111',
                 }"
-                :value="user.data.dark"
-                :labels="{ checked: 'ON', unchecked: 'OFF' }"
+                :value="user.conf.dark"
+                :labels="{ checked: 'OFF', unchecked: 'ON' }"
+                @change="updateDarkMode"
               />
-              <div class="text-xl mt-4 mb-2">Display collection:</div>
+              <div class="text-xl mt-4 mb-2">
+                Display collection:
+                <span
+                  class="
+                    text-blue-600
+                    dark:text-blue-200
+                    text-bold
+                    flex
+                    justify-center
+                    items-center
+                  "
+                >
+                  <v-icon
+                    :name="user.conf.grid ? 'th' : 'table'"
+                    class="mr-2"
+                  />
+                  {{ user.conf.grid ? "GRID" : "TABLE" }}
+                </span>
+              </div>
               <toggle-button
                 :width="75"
                 :height="27"
+                :sync="true"
                 :switch-color="{
                   checked: '#CDD9FF',
                   unchecked: '#CDD9FF',
@@ -126,8 +165,9 @@
                   checked: '#111111',
                   unchecked: '#111111',
                 }"
-                :value="user.data.grid"
-                :labels="{ checked: 'GRID', unchecked: 'CARDS' }"
+                :value="user.conf.grid"
+                :labels="{ checked: 'TABLE', unchecked: 'GRID' }"
+                @change="updateGrid"
               />
             </div>
           </div>
@@ -284,11 +324,8 @@ export default {
       };
     },
   },
-  created() {
-    this.getWords();
-  },
   methods: {
-    ...mapActions("words", ["getWords", "setFavFilter"]),
+    ...mapActions("words", ["setFavFilter"]),
     ...mapActions("auth", ["updateUser"]),
     getImage(user) {
       return user.data && user.data.photoURL
@@ -299,8 +336,14 @@ export default {
       this.setFavFilter(fav);
       this.$router.push("/words/list");
     },
-    updateUser() {
-      this.updateUser(this.user);
+    updateDarkMode({ value }) {
+      console.log(this.user.conf.dark);
+      this.user.conf = { ...this.user.conf, dark: value };
+      this.updateUser();
+    },
+    updateGrid({ value }) {
+      this.user.conf = { ...this.user.conf, grid: value };
+      this.updateUser();
     },
   },
 };

@@ -7,12 +7,36 @@
   </div>
 </template>
 <script>
+import { mapActions, mapGetters } from "vuex";
 import AppNavBarExpand from "@/components/AppNavBarExpand.vue";
 import AppFooter from "@/components/AppFooter.vue";
 export default {
   components: {
     "app-nav-bar-expand": AppNavBarExpand,
     "app-footer": AppFooter,
+  },
+  computed: {
+    ...mapGetters("auth", ["user"]),
+  },
+  methods: {
+    ...mapActions("words", ["getWords"]),
+  },
+  watch: {
+    "user.loggedIn": {
+      handler: function (newValue) {
+        if (newValue) {
+          this.$store.dispatch("auth/getUserConf", this.user.data.uid);
+          this.$store.dispatch("words/getWords");
+        }
+      },
+    },
+    "user.conf.dark": {
+      handler: function (val) {
+        if (val) document.querySelector("html").classList.add("dark");
+        else document.querySelector("html").classList.remove("dark");
+      },
+      immediate: true,
+    },
   },
 };
 </script>
