@@ -324,6 +324,9 @@ export default {
       };
     },
   },
+  created() {
+    window.scrollTo(0, 0);
+  },
   methods: {
     ...mapActions("words", ["setFavFilter"]),
     ...mapActions("auth", ["updateUser"]),

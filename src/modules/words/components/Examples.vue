@@ -37,7 +37,7 @@
         font-sans
       "
     >
-      <div class="bg-white rounded shadow p-6 m-4 w-full lg:w-3/4">
+      <div class="bg-white rounded shadow p-6 m-4 w-full">
         <div class="mb-4">
           <div class="flex items-center border-b border-teal-500 py-2">
             <input

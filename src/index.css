@@ -37,3 +37,12 @@ body {
 .gradient {
   background: linear-gradient(90deg, #d53369 0%, #daae51 100%);
 }
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: transform 1s;
+}
+.fade-enter,
+.fade-leave-to {
+  transform: translateX(100%);
+}

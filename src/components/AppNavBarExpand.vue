@@ -1,5 +1,16 @@
 <template>
-  <nav class="flex items-center justify-between flex-wrap bg-teal p-6 bg-brand">
+  <nav
+    class="
+      flex
+      items-center
+      justify-between
+      flex-wrap
+      bg-teal
+      p-6
+      bg-brand
+      z-10
+    "
+  >
     <div class="flex items-center flex-no-shrink text-white mr-6">
       <span
         @click="goLanding()"

@@ -20,7 +20,7 @@
         class="
           peer
           h-10
-          w-96
+          w-full
           rounded-md
           border border-1.5
           placeholder-transparent
@@ -77,7 +77,7 @@
         {{ filterList.onlyFavs ? "All words" : "Only FAVS" }}
       </button>
       <v-select
-        class="w-60 bg-white mt-1 lg:mt-0 rounded"
+        class="w-56 bg-white mt-1 lg:mt-0 rounded"
         v-model="filterList.order"
         :options="orderOptions"
         :reduce="(order) => order.code"

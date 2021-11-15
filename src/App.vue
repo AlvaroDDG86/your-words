@@ -1,7 +1,9 @@
 <template>
   <div id="app">
     <app-nav-bar-expand />
-    <router-view />
+    <!-- <transition name="fade"> -->
+    <router-view :key="$route.path" />
+    <!-- </transition> -->
     <app-footer />
     <notifications />
   </div>
@@ -48,12 +50,10 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  min-width: 400px;
+  min-width: 350px;
 }
 
 #nav {
-  padding: 30px;
-
   a {
     font-weight: bold;
     color: #2c3e50;

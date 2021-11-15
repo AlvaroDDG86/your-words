@@ -2,13 +2,8 @@
   <div>
     <!-- <pre class="text-indigo-400">{{ user.conf.grid }}</pre> -->
     <ListBar />
-    <div class="grid grid-autofit gap-x-4 p-2">
-      <WordItem
-        :word="word"
-        :key="`word-${index}`"
-        v-for="(word, index) in wordsList"
-      />
-    </div>
+    <GridLayout v-if="user.conf.grid" :list="wordsList" />
+    <Table v-else :list="wordsList" />
     <div
       v-if="wordsList.length === 0"
       class="
@@ -55,13 +50,15 @@
 </template>
 <script>
 import { mapGetters } from "vuex";
-import WordItem from "@/modules/words/components/WordItem";
 import ListBar from "@/modules/words/components/ListBar";
+import Table from "@/modules/words/components/Table";
+import GridLayout from "@/modules/words/components/GridLayout";
 export default {
   name: "WordList",
   components: {
-    WordItem,
     ListBar,
+    Table,
+    GridLayout,
   },
   computed: {
     ...mapGetters("words", ["wordsList"]),
@@ -69,8 +66,3 @@ export default {
   },
 };
 </script>
-<style>
-.grid-autofit {
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-}
-</style>

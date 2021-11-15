@@ -26,6 +26,7 @@ const WordsServices = {
       .delete();
   },
   async updateWord(word) {
+    if (!word.translation) word.translation = ""; // catch undefined for words which don't have new field "translation"
     return db
       .collection("users")
       .doc(firebase.auth().currentUser.uid)
