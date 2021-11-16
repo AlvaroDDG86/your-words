@@ -55,6 +55,12 @@ Vue.use(ToggleButton);
 import Popover from "vue-js-popover";
 Vue.use(Popover);
 
+// vee-validate
+import VeeValidate from "vee-validate";
+Vue.use(VeeValidate, {
+  events: "change",
+});
+
 Vue.use(VueAxios, axios);
 
 Vue.config.productionTip = false;

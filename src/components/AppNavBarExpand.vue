@@ -79,31 +79,6 @@
         </router-link>
       </div>
       <UserButton v-if="user.loggedIn" :image="getImage(user)" />
-      <!-- <button
-        v-if="user.loggedIn"
-        to="/auth/login"
-        @click="logout"
-        v-popover:user
-        :style="{
-          backgroundImage: getImage(user),
-        }"
-        class="
-          no-underline
-          inline-block
-          leading-none
-          border
-          text-white
-          border-white
-          hover:border-transparent hover:text-teal hover:bg-blue-900
-          sm:mt-0
-          transition-all
-          duration-200
-          rounded-full
-          bg-no-repeat bg-center bg-cover
-          w-12
-          h-12
-        "
-      /> -->
       <div v-else>
         <router-link
           to="/auth/login"
@@ -142,16 +117,16 @@
             rounded
             text-black
             border-white
-            bg-yellow-200
+            bg-green-200
             font-bold
-            hover:border-transparent hover:text-teal hover:bg-yellow-600
+            hover:border-transparent hover:text-white hover:bg-green-600
             mt-4
             sm:mt-0
             transition-all
             duration-200
           "
         >
-          Register
+          New Account
         </router-link>
       </div>
     </div>

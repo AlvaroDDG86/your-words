@@ -40,6 +40,8 @@
                     uppercase
                     tracking-wider
                     text-center
+                    hidden
+                    sm:table-cell
                   "
                 >
                   Definition

@@ -250,24 +250,8 @@
             </div>
           </div>
           <div class="mt-10 py-10 border-t border-blueGray-200 text-center">
-            <div class="flex justify-center">
-              <a
-                href="javascript:void(0);"
-                class="
-                  font-normal
-                  text-white
-                  bg-blue-500
-                  m-4
-                  px-2
-                  py-1
-                  rounded
-                  shadow-lg
-                "
-              >
-                Contact Us
-              </a>
-              <a
-                href="javascript:void(0);"
+            <div class="flex flex-col md:flex-row justify-center">
+              <button
                 class="
                   font-normal
                   text-white
@@ -280,9 +264,23 @@
                 "
               >
                 Change password
-              </a>
-              <a
-                href="javascript:void(0);"
+              </button>
+              <button
+                @click="logout"
+                class="
+                  font-normal
+                  text-white
+                  bg-blue-900
+                  m-4
+                  px-2
+                  py-1
+                  rounded
+                  shadow-lg
+                "
+              >
+                Logout
+              </button>
+              <button
                 class="
                   font-normal
                   text-white
@@ -295,7 +293,7 @@
                 "
               >
                 Remove Account
-              </a>
+              </button>
             </div>
           </div>
         </div>
@@ -312,6 +310,7 @@
 </template>
 <script>
 import { mapActions, mapGetters } from "vuex";
+import firebase from "firebase/compat/app";
 export default {
   name: "Profile",
   computed: {
@@ -328,7 +327,7 @@ export default {
     window.scrollTo(0, 0);
   },
   methods: {
-    ...mapActions("words", ["setFavFilter"]),
+    ...mapActions("words", ["setFavFilter", "clearList"]),
     ...mapActions("auth", ["updateUser"]),
     getImage(user) {
       return user.data && user.data.photoURL
@@ -347,6 +346,14 @@ export default {
     updateGrid({ value }) {
       this.user.conf = { ...this.user.conf, grid: value };
       this.updateUser();
+    },
+    logout() {
+      firebase
+        .auth()
+        .signOut()
+        .then(() => {
+          this.clearList();
+        });
     },
   },
 };

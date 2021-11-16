@@ -1,6 +1,6 @@
 <template>
-  <div class="dark:bg-gray-800 transition-all duration-200 p-6">
-    <p v-if="showButtonSignup" class="mt-4 dark:text-gray-200">
+  <div class="transition-all duration-200 p-6">
+    <p v-if="showButtonSignup" class="mt-4">
       Are you new here?
       <span
         class="
@@ -16,7 +16,7 @@
         Create account
       </span>
     </p>
-    <p v-else-if="showButtonLogin" class="mt-4 dark:text-gray-200">
+    <p v-else-if="showButtonLogin" class="mt-4">
       Have you got an account?
       <span
         class="

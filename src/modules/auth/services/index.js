@@ -1,5 +1,5 @@
 import { db } from "@/helpers/firebase";
-import firebase from "firebase/app";
+import firebase from "firebase/compat/app";
 import "firebase/auth";
 
 const WordsServices = {
@@ -51,6 +51,9 @@ const WordsServices = {
       .catch((error) => {
         console.log("Error updating the password", error);
       });
+  },
+  recoveryPassword(email) {
+    return firebase.auth().sendPasswordResetEmail(email);
   },
 };
 

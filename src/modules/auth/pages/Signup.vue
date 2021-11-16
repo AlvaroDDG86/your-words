@@ -12,6 +12,25 @@
       text-white
     "
   >
+    <button
+      type="button"
+      @click="submitGoogle"
+      class="
+        w-full
+        px-4
+        py-2
+        mb-6
+        self-stretch
+        font-semibold
+        bg-white
+        rounded
+        flex
+        justify-center
+        items-center
+      "
+    >
+      <img class="w-7" :src="require('@/assets/icons8-google-48.png')" alt="" />
+    </button>
     <h1 class="font-bold font-sans text-4xl text-center">New Account</h1>
     <div class="h-0.5 bg-gray-200 w-36 mx-auto mt-2.5"></div>
     <form action="#" @submit.prevent="submit">
@@ -21,6 +40,7 @@
           type="email"
           id="email"
           name="email"
+          v-validate="'required|email'"
           v-model="form.email"
           class="
             mt-1
@@ -33,11 +53,17 @@
             text-blue-500
           "
         />
+        <span
+          v-show="errors.has('email')"
+          class="text-red-600 upercase font-bold"
+          >{{ errors.first("email") }}</span
+        >
         <label class="my-2" for="name">User Name</label>
         <input
           type="text"
           id="name"
           name="name"
+          v-validate="'required'"
           v-model="form.name"
           class="
             mt-1
@@ -50,12 +76,18 @@
             text-blue-500
           "
         />
+        <span
+          v-show="errors.has('name')"
+          class="text-red-600 upercase font-bold"
+          >{{ errors.first("name") }}</span
+        >
         <label class="my-2" for="psw">Password</label>
         <input
           type="password"
-          id="psw"
-          name="psw"
+          name="password"
           v-model="form.password"
+          v-validate="'required'"
+          ref="password"
           class="
             mt-1
             mb-3
@@ -67,11 +99,16 @@
             text-blue-500
           "
         />
-        <label class="my-2" for="psw">Repeat Password</label>
+        <span
+          v-show="errors.has('password')"
+          class="text-red-600 upercase font-bold"
+          >{{ errors.first("password") }}</span
+        >
+        <label class="my-2" for="psw">Password Confirmation</label>
         <input
           type="password"
-          id="psw-repeat"
-          name="psw-repeat"
+          v-validate="'required|confirmed:password'"
+          name="password_confirmation"
           v-model="form.repeatPassword"
           class="
             mt-1
@@ -84,6 +121,11 @@
             text-blue-500
           "
         />
+        <span
+          v-show="errors.has('password_confirmation')"
+          class="text-red-600 upercase font-bold"
+          >{{ errors.first("password_confirmation") }}</span
+        >
         <p class="text-left">
           By registering you agree to our
           <span class="text-bold cursor-pointer underline">Privacy Policy</span>
@@ -98,31 +140,16 @@
           type="submit"
           class="
             px-3
-            py-2
+            py-3
             my-2
             self-stretch
             font-semibold
-            text-gray-800
-            bg-white
+            text-white
+            bg-green-500
             rounded
           "
         >
           Submit
-        </button>
-        <button
-          type="button"
-          @click="submitGoogle"
-          class="
-            px-4
-            py-2
-            self-stretch
-            font-semibold
-            text-white
-            bg-red-600
-            rounded
-          "
-        >
-          <v-icon name="brands/google" />
         </button>
       </div>
     </form>
@@ -153,25 +180,29 @@ export default {
   methods: {
     ...mapActions("auth", ["setNewUser"]),
     submit() {
-      const loader = this.$loading.show();
-      firebase
-        .auth()
-        .createUserWithEmailAndPassword(this.form.email, this.form.password)
-        .then((data) => {
-          data.user
-            .updateProfile({
-              displayName: this.form.name,
+      this.$validator.validate().then((valid) => {
+        if (valid) {
+          const loader = this.$loading.show();
+          firebase
+            .auth()
+            .createUserWithEmailAndPassword(this.form.email, this.form.password)
+            .then((data) => {
+              data.user
+                .updateProfile({
+                  displayName: this.form.name,
+                })
+                .then(() => {
+                  loader.hide();
+                  this.setNewUser();
+                  this.$router.push("/words/list");
+                });
             })
-            .then(() => {
+            .catch((err) => {
               loader.hide();
-              this.setNewUser();
-              this.$router.push("/words/list");
+              this.error = err.message;
             });
-        })
-        .catch((err) => {
-          loader.hide();
-          this.error = err.message;
-        });
+        }
+      });
     },
     submitGoogle() {
       const loader = this.$loading.show();

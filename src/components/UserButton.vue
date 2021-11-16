@@ -59,7 +59,6 @@ export default {
         .signOut()
         .then(() => {
           this.clearList();
-          this.$router.push("/").catch(() => {});
         });
     },
   },
