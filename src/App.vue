@@ -1,9 +1,9 @@
 <template>
-  <div id="app">
+  <div id="app" class="m-0 xl:mx-24">
     <app-nav-bar-expand />
-    <!-- <transition name="fade"> -->
-    <router-view :key="$route.path" />
-    <!-- </transition> -->
+    <transition name="fade">
+      <router-view :key="$route.path" />
+    </transition>
     <app-footer />
     <notifications />
   </div>

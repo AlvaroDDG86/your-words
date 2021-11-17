@@ -53,6 +53,7 @@
     </div>
     <div class="flex justify-between items-center">
       <button
+        @click="$modal.show('letters')"
         class="
           text-blue-900
           bg-white
@@ -64,7 +65,27 @@
           mt-1
           mr-2
           lg:mt-0
-          w-32
+          md:w-32
+        "
+      >
+        <span class="text-xl font-mono inline text-gray-300">
+          <v-icon name="search-plus"
+        /></span>
+        <span class="hidden md:inline-block ml-2">By letters</span>
+      </button>
+      <button
+        class="
+          text-blue-900
+          bg-white
+          font-extrabold
+          text-sm
+          rounded
+          px-2
+          py-1
+          mt-1
+          mr-2
+          lg:mt-0
+          md:w-32
         "
         @click="setFavFilter(!filterList.onlyFavs)"
       >
@@ -74,7 +95,9 @@
         >
           <v-icon name="star"
         /></span>
-        {{ filterList.onlyFavs ? "All words" : "Only FAVS" }}
+        <span class="hidden md:inline-block ml-2">{{
+          filterList.onlyFavs ? "All words" : "Only FAVS"
+        }}</span>
       </button>
       <v-select
         class="w-56 bg-white mt-1 lg:mt-0 rounded"
@@ -93,6 +116,35 @@
         </template>
       </v-select>
     </div>
+    <modal name="letters" :adaptive="true" :height="'auto'">
+      <div class="mx-2">
+        <h2 class="text-2xl mt-4 text-black">Select letters to filter</h2>
+        <div class="grid grid-autofit gap-x-4 p-2">
+          <button
+            class="
+              rounded-xl
+              bg-blue-600
+              text-white
+              m-1
+              p-1
+              font-bold
+              shadow-xl
+              hover:shadow-sm
+            "
+            :key="`letter-${letter}`"
+            v-for="letter in letters.split(',')"
+          >
+            {{ letter }}
+          </button>
+        </div>
+        <button
+          @click="$modal.hide('letters')"
+          class="font-normal text-blue-500 m-4 px-2 py-1 rounded shadow-lg"
+        >
+          Close
+        </button>
+      </div>
+    </modal>
   </div>
 </template>
 <script>
@@ -129,6 +181,7 @@ export default {
           icon: "sort-alpha-up-alt",
         },
       ],
+      letters: "a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z",
     };
   },
   methods: {
@@ -139,3 +192,8 @@ export default {
   },
 };
 </script>
+<style scoped>
+.grid-autofit {
+  grid-template-columns: repeat(auto-fit, minmax(40px, 1fr));
+}
+</style>

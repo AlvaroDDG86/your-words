@@ -41,7 +41,8 @@
         transition-all
         duration-200
         block
-        md:hidden
+        lg:hidden
+        z-10
       "
     >
       <v-icon name="plus" />

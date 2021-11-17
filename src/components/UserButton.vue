@@ -1,7 +1,21 @@
 <template>
-  <div class="inline-block">
+  <div class="flex justify-center items-center">
     <button
-      v-popover:user
+      class="
+        font-bold
+        text-blue-600
+        h-10
+        bg-white
+        rounded-xl
+        shadow-xl
+        px-3
+        mr-4
+      "
+      @click="logout"
+    >
+      <v-icon name="sign-out-alt" /> Logout
+    </button>
+    <button
       :style="{
         backgroundImage: image,
       }"
@@ -23,21 +37,6 @@
         group
       "
     ></button>
-    <popover name="user" :pointer="true" :width="90">
-      <div class="flex flex-col">
-        <button
-          class="
-            font-bold
-            text-blue-600
-            h-10
-            hover:bg-blue-500 hover:text-white
-          "
-          @click="logout"
-        >
-          <v-icon name="sign-out-alt" /> Logout
-        </button>
-      </div>
-    </popover>
   </div>
 </template>
 <script>

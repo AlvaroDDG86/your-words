@@ -1,5 +1,6 @@
 <template>
   <nav
+    :class="{ animated: open }"
     class="
       flex
       items-center
@@ -14,11 +15,12 @@
     <div class="flex items-center flex-no-shrink text-white mr-6">
       <span
         @click="goLanding()"
+        :class="{ 'absolute w-full left-0 top-24 text-3xl': open }"
         class="font-semibold text-white text-xl tracking-tight cursor-pointer"
         >Your Words!</span
       >
     </div>
-    <div class="block sm:hidden">
+    <div class="block lg:hidden">
       <button
         @click="toggle"
         class="
@@ -26,40 +28,28 @@
           items-center
           px-3
           py-2
-          border
           rounded
-          text-teal-lighter
-          border-teal-light
-          text-white
-          hover:text-blue-200 hover:border-blue-200 hover:bg-blue-900
+          text-teal-lighter text-white
+          hover:text-blue-200 hover:bg-blue-900
         "
       >
-        <svg
-          class="fill-current h-3 w-3"
-          viewBox="0 0 20 20"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <title>Menu</title>
-          <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
-        </svg>
+        <v-icon :name="open ? 'times' : 'bars'" scale="2" />
       </button>
     </div>
     <div
-      :class="open ? 'block' : 'hidden'"
-      class="
-        w-full
-        sm:flex sm:items-center sm:w-auto
-        transition-all
-        duration-200
+      :class="
+        open ? 'menu-all flex justify-center items-center flex-col' : 'hidden'
       "
+      class="relative w-full lg:flex lg:items-center lg:w-auto"
     >
-      <div v-if="user.loggedIn" class="text-sm sm:flex-grow mr-0 sm:mr-6">
+      <div v-if="user.loggedIn" class="text-sm lg:flex-grow mr-0 lg:mr-6">
         <router-link
           :to="{ path: link.path }"
+          :class="{ 'my-8': open }"
           class="
             no-underline
             block
-            sm:inline-block sm:mt-0
+            lg:inline-block lg:mt-0
             text-teal-lighter
             hover:text-blue-200 hover:bg-blue-900 hover:shadow-md
             text-white
@@ -95,7 +85,7 @@
             border-white
             hover:border-transparent hover:text-teal hover:bg-blue-900
             mt-4
-            sm:mt-0
+            lg:mt-0
             font-bold
             transition-all
             duration-200
@@ -121,7 +111,7 @@
             font-bold
             hover:border-transparent hover:text-white hover:bg-green-600
             mt-4
-            sm:mt-0
+            lg:mt-0
             transition-all
             duration-200
           "
@@ -160,7 +150,16 @@ export default {
       ],
     };
   },
+  created() {
+    window.addEventListener("resize", this.myEventHandler);
+  },
+  destroyed() {
+    window.removeEventListener("resize", this.myEventHandler);
+  },
   methods: {
+    myEventHandler() {
+      this.open = false;
+    },
     toggle() {
       this.open = !this.open;
     },
@@ -186,3 +185,8 @@ export default {
   },
 };
 </script>
+<style>
+.menu-all {
+  height: calc(100vh - 78px);
+}
+</style>
