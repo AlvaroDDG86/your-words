@@ -24,7 +24,7 @@
         <img
           :class="{ 'max-h-40': open }"
           class="max-h-20"
-          :src="require('@/assets/Logo.png')"
+          src="@/assets/Logo.png"
           alt="Logo"
         />
       </div>
