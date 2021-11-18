@@ -42,10 +42,41 @@
                   w-40
                   h-40
                   max-w-200-px
-                  border-4 border-blue-400
+                  border-4 border-blue-600
                   bg-black bg-no-repeat bg-center bg-cover
                 "
-              ></div>
+              >
+                <label
+                  class="
+                    text-blue-600
+                    bg-white
+                    hover:text-white hover:bg-blue-600
+                    transition-all
+                    duration-200
+                    px-2
+                    py-1
+                    cursor-pointer
+                    rounded-full
+                    absolute
+                    bottom-1
+                    right-1
+                    z-10
+                  "
+                  for="picture"
+                >
+                  <v-icon
+                    :name="updateValue ? 'spinner' : 'pen'"
+                    :spin="!!updateValue"
+                  />
+                </label>
+                <input
+                  class="hidden"
+                  id="picture"
+                  type="file"
+                  accept="image/*"
+                  @change="onUpload"
+                />
+              </div>
             </div>
             <div class="w-full px-4 text-center mt-32">
               <h3
@@ -252,6 +283,7 @@
           <div class="mt-10 py-10 border-t border-blueGray-200 text-center">
             <div class="flex flex-col md:flex-row justify-center">
               <button
+                @click="$modal.show('new-password')"
                 class="
                   font-normal
                   text-white
@@ -299,27 +331,90 @@
         </div>
       </div>
     </div>
+    <modal
+      name="new-password"
+      class="my-notification"
+      :adaptive="true"
+      :height="'auto'"
+    >
+      <div>
+        <h2 class="text-2xl mt-4 text-black">Set new password</h2>
+        <div class="flex flex-col px-16">
+          <label class="my-2 text-gray-700" for="email">New password:</label>
+          <input
+            type="password"
+            id="password"
+            v-validate="'required'"
+            v-model="password"
+            name="password"
+            required
+            class="
+              mt-1
+              mb-3
+              shadow-md
+              border-none
+              focus:ring-transparent
+              rounded-sm
+              bg-gray-100
+              text-blue-500
+            "
+          />
+          <span
+            v-show="errors.has('password')"
+            class="text-red-600 upercase font-bold"
+            >{{ errors.first("password") }}</span
+          >
+          <div class="text-gray-700 text-sm uppercase">
+            {{ passwordMessage }}
+          </div>
+        </div>
+        <button
+          @click="closeModal"
+          class="font-normal text-blue-500 m-4 px-2 py-1 rounded shadow-lg"
+        >
+          Close
+        </button>
+        <button
+          @click="changePassword"
+          class="
+            font-normal
+            text-white
+            bg-blue-500
+            m-4
+            px-2
+            py-1
+            rounded
+            shadow-lg
+          "
+        >
+          Send
+        </button>
+      </div>
+    </modal>
   </section>
   <div v-else>No user logged</div>
-  <!-- <div>
-    <h1>Profile</h1>
-    <div>
-      <pre>{{ user }}</pre>
-    </div>
-  </div> -->
 </template>
 <script>
 import { mapActions, mapGetters } from "vuex";
+import WordsServices from "@/modules/auth/services/index";
 import firebase from "firebase/compat/app";
 export default {
   name: "Profile",
+  data() {
+    return {
+      password: "",
+      passwordMessage: "",
+      imageData: null,
+      updateValue: 0,
+    };
+  },
   computed: {
     ...mapGetters("auth", ["user"]),
-    ...mapGetters("words", ["wordsList"]),
+    ...mapGetters("words", ["wordFullList"]),
     wordsData() {
       return {
-        length: this.wordsList.length,
-        favourites: this.wordsList.filter((item) => item.favourite).length,
+        length: this.wordFullList.length,
+        favourites: this.wordFullList.filter((item) => item.favourite).length,
       };
     },
   },
@@ -328,7 +423,7 @@ export default {
   },
   methods: {
     ...mapActions("words", ["setFavFilter", "clearList"]),
-    ...mapActions("auth", ["updateUser"]),
+    ...mapActions("auth", ["updateUser", "setNewPassword"]),
     getImage(user) {
       return user.data && user.data.photoURL
         ? `url(${user.data.photoURL})`
@@ -339,13 +434,69 @@ export default {
       this.$router.push("/words/list");
     },
     updateDarkMode({ value }) {
-      console.log(this.user.conf.dark);
       this.user.conf = { ...this.user.conf, dark: value };
       this.updateUser();
     },
     updateGrid({ value }) {
       this.user.conf = { ...this.user.conf, grid: value };
       this.updateUser();
+    },
+    changePassword() {
+      if (this.password) {
+        WordsServices.setNewPassword(this.password)
+          .then(() => {
+            this.password = "";
+            this.passwordMessage = "You have set a new password";
+            setTimeout(() => {
+              this.closeModal();
+            }, 3000);
+          })
+          .catch((error) => {
+            this.passwordMessage = error.message;
+          });
+      }
+    },
+    closeModal() {
+      this.password = "";
+      this.passwordMessage = "";
+      this.$modal.hide("new-password");
+    },
+    async onUpload(event) {
+      this.imageData = event.target.files[0];
+      if (this.imageData.size > 500000) {
+        this.$notify({
+          title: "Error",
+          text: "Max size 500 KB",
+        });
+        return;
+      }
+      this.updateValue = 1;
+      const storageRef = WordsServices.uploadImg(this.imageData);
+      if (storageRef) {
+        storageRef.on(
+          "state_changed",
+          (sns) => {
+            this.updateValue = (sns.bytesTransferred / sns.totalBytes) * 100;
+          },
+          (err) => {
+            this.$notify({
+              title: "Error",
+              text: err,
+            });
+          },
+          async () => {
+            const imgUrl = await storageRef.snapshot.ref.getDownloadURL();
+            this.updateValue = 0;
+            WordsServices.updateImgProfile(imgUrl).catch((err) => {
+              this.updateValue = 0;
+              this.$notify({
+                title: "Error",
+                text: err,
+              });
+            });
+          }
+        );
+      }
     },
     logout() {
       firebase

@@ -28,14 +28,14 @@
       @click="$router.replace('/words/new')"
       class="
         fixed
-        bottom-16
+        bottom-32
         right-12
-        bg-blue-600
+        bg-green-600
         text-white
         w-14
         h-14
         rounded-full
-        shadow-xl
+        shadow-md
         cursor-pointer
         hover:bg-blue-800 hover:shadow-md
         transition-all

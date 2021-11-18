@@ -27,7 +27,7 @@
           >{{ word.dateUpdate.toDate().toLocaleString() }}
         </div>
         <span
-          :class="{ 'text-yellow-300': word.favourite }"
+          :class="{ 'text-green-600': word.favourite }"
           class="
             text-sm text-teal-800
             font-mono
@@ -41,7 +41,7 @@
             text-gray-300
           "
         >
-          <v-icon name="star"
+          <v-icon name="bookmark"
         /></span>
       </div>
       <p

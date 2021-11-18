@@ -74,11 +74,11 @@
         </button>
         <div v-if="word.list" class="cursor-pointer">
           <span
-            :class="{ 'text-yellow-300': isFavourite }"
+            :class="{ 'text-green-600': isFavourite }"
             class="text-gray-300"
             @click="setFavourite(!isFavourite)"
           >
-            <v-icon name="star" scale="3"
+            <v-icon name="bookmark" scale="3"
           /></span>
         </div>
       </div>

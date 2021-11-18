@@ -16,6 +16,7 @@ export default {
       onlyFavs: false,
       word: "",
       order: "last",
+      letters: [],
     },
   },
   getters,

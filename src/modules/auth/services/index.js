@@ -1,4 +1,4 @@
-import { db } from "@/helpers/firebase";
+import { db, storage } from "@/helpers/firebase";
 import firebase from "firebase/compat/app";
 import "firebase/auth";
 
@@ -43,14 +43,17 @@ const WordsServices = {
   setNewPassword(newPassword) {
     const user = firebase.auth().currentUser;
 
-    user
-      .updatePassword(newPassword)
-      .then(() => {
-        console.log("Successfully password reset");
-      })
-      .catch((error) => {
-        console.log("Error updating the password", error);
-      });
+    return user.updatePassword(newPassword);
+  },
+  uploadImg(imageData) {
+    const user = firebase.auth().currentUser;
+    return storage.ref(user.uid).put(imageData);
+  },
+  updateImgProfile(photoURL) {
+    const user = firebase.auth().currentUser;
+    return user.updateProfile({
+      photoURL,
+    });
   },
   recoveryPassword(email) {
     return firebase.auth().sendPasswordResetEmail(email);

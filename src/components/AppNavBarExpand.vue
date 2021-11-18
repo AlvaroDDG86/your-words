@@ -7,18 +7,27 @@
       justify-between
       flex-wrap
       bg-teal
-      p-6
+      px-6
+      py-4
       bg-brand
       z-10
     "
   >
     <div class="flex items-center flex-no-shrink text-white mr-6">
-      <span
+      <div
         @click="goLanding()"
-        :class="{ 'absolute w-full left-0 top-24 text-3xl': open }"
+        :class="{
+          'absolute w-full top-24 flex justify-center items-center': open,
+        }"
         class="font-semibold text-white text-xl tracking-tight cursor-pointer"
-        >Your Words!</span
       >
+        <img
+          :class="{ 'max-h-40': open }"
+          class="max-h-20"
+          :src="require('@/assets/Logo.png')"
+          alt="Logo"
+        />
+      </div>
     </div>
     <div class="block lg:hidden">
       <button

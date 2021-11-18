@@ -54,9 +54,12 @@
     <div class="flex justify-between items-center">
       <button
         @click="$modal.show('letters')"
+        :class="
+          filterList.letters.length > 0
+            ? 'text-white bg-blue-600'
+            : 'text-blue-900 bg-white'
+        "
         class="
-          text-blue-900
-          bg-white
           font-extrabold
           text-sm
           rounded
@@ -66,6 +69,8 @@
           mr-2
           lg:mt-0
           md:w-32
+          transition-all
+          duration-200
         "
       >
         <span class="text-xl font-mono inline text-gray-300">
@@ -85,19 +90,17 @@
           mt-1
           mr-2
           lg:mt-0
-          md:w-32
+          md:w-36
         "
         @click="setFavFilter(!filterList.onlyFavs)"
       >
         <span
-          :class="{ 'text-yellow-300': filterList.onlyFavs }"
+          :class="{ 'text-green-600': filterList.onlyFavs }"
           class="text-xl font-mono inline text-gray-300"
         >
-          <v-icon name="star"
+          <v-icon name="bookmark"
         /></span>
-        <span class="hidden md:inline-block ml-2">{{
-          filterList.onlyFavs ? "All words" : "Only FAVS"
-        }}</span>
+        <span class="hidden md:inline-block ml-2"> Marked words </span>
       </button>
       <v-select
         class="w-56 bg-white mt-1 lg:mt-0 rounded"
@@ -121,14 +124,19 @@
         <h2 class="text-2xl mt-4 text-black">Select letters to filter</h2>
         <div class="grid grid-autofit gap-x-4 p-2">
           <button
+            @click="setLetterMethod(letter)"
+            :class="
+              filterList.letters.indexOf(letter) > -1
+                ? 'text-white bg-blue-600 shadow-sm'
+                : 'text-gray-700 bg-gray-200 shadow-2xl'
+            "
             class="
               rounded-xl
-              bg-blue-600
-              text-white
+              transition-all
+              duration-200
               m-1
               p-1
               font-bold
-              shadow-xl
               hover:shadow-sm
             "
             :key="`letter-${letter}`"
@@ -185,7 +193,10 @@ export default {
     };
   },
   methods: {
-    ...mapActions("words", ["setFavFilter"]),
+    ...mapActions("words", ["setFavFilter", "setLetter"]),
+    setLetterMethod(letter) {
+      this.setLetter(letter);
+    },
   },
   computed: {
     ...mapGetters("words", ["filterList"]),

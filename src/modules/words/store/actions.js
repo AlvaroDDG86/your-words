@@ -62,4 +62,12 @@ export default {
   setFavFilter({ commit }, fav) {
     commit(SET_FAV_FILTER, fav);
   },
+  setLetter({ state }, letter) {
+    const index = state.filterList.letters.indexOf(letter);
+    if (index === -1) {
+      state.filterList.letters.push(letter);
+    } else {
+      state.filterList.letters.splice(index, 1);
+    }
+  },
 };

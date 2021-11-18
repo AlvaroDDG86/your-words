@@ -16,6 +16,7 @@
       <v-icon name="sign-out-alt" /> Logout
     </button>
     <button
+      @click="$router.replace('/auth/profile')"
       :style="{
         backgroundImage: image,
       }"

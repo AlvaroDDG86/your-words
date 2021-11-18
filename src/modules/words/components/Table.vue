@@ -58,7 +58,7 @@
                     text-center
                   "
                 >
-                  Fav
+                  Marked
                 </th>
               </tr>
             </thead>
@@ -102,7 +102,7 @@
                     sm:table-cell sm:max-w-sm
                     md:max-w-xl
                     lg:max-w-4xl
-                    xl:max-w-full
+                    xl:max-w-7xl
                     text-gray-900
                     dark:text-gray-200
                     group-hover:text-gray-900
@@ -114,7 +114,7 @@
                 </td>
                 <td class="px-6 py-4 whitespace-nowrap">
                   <span
-                    :class="{ 'text-yellow-300': word.favourite }"
+                    :class="{ 'text-green-600': word.favourite }"
                     class="
                       text-sm text-teal-800
                       font-mono
@@ -124,7 +124,7 @@
                       text-gray-300
                     "
                   >
-                    <v-icon name="star"
+                    <v-icon name="bookmark"
                   /></span>
                 </td>
               </tr>
