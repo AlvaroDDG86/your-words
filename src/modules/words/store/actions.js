@@ -6,6 +6,7 @@ import {
   SET_NOT_FOUND_WORD,
   SET_FAV_FILTER,
   SET_ID_WORD,
+  SET_TRANSLATE,
 } from "./mutations-types";
 import WordsServices from "../services";
 import firebase from "firebase/compat/app";
@@ -35,6 +36,14 @@ export default {
         commit(SET_NEW_WORD, res);
       } else {
         commit(SET_NOT_FOUND_WORD, res);
+      }
+    });
+  },
+  getTranslate({ commit, state }) {
+    const word = state.word.list[0].word;
+    WordsServices.getTranslate(word).then((res) => {
+      if (!res.error) {
+        commit(SET_TRANSLATE, res.translations.map((tr) => tr.text).join(","));
       }
     });
   },

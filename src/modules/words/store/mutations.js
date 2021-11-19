@@ -6,6 +6,7 @@ import {
   SET_NOT_FOUND_WORD,
   SET_FAV_FILTER,
   SET_ID_WORD,
+  SET_TRANSLATE,
 } from "./mutations-types";
 export default {
   [SET_WORDS]: (state, words) => {
@@ -35,5 +36,13 @@ export default {
   },
   [SET_ID_WORD]: (state, id) => {
     state.word = { ...state.word, id };
+  },
+  [SET_TRANSLATE]: (state, translation) => {
+    state.word = {
+      ...state.word,
+      translation: state.word.translation
+        ? `${state.word.translation}, ${translation}`
+        : translation,
+    };
   },
 };

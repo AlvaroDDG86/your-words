@@ -63,6 +63,26 @@ const WordsServices = {
         };
       });
   },
+  getTranslate(word) {
+    const lang = "ES";
+    const url = `https://api-free.deepl.com/v2/translate?auth_key=5c0df8ad-8137-94e7-f839-44c1200ba2e0:fx&text=${word}&target_lang=${lang}`;
+    return axios
+      .post(url)
+      .then((response) => {
+        if (response.status === 200) {
+          return response.data;
+        }
+      })
+      .catch(() => {
+        return {
+          error: "NOT_FOUND",
+          message:
+            "Sorry, we couldn't find definitions for the word you were looking for.",
+          status: 404,
+          word: word,
+        };
+      });
+  },
 };
 
 export default WordsServices;

@@ -22,9 +22,16 @@
       "
       placeholder="Your translation..."
     ></textarea>
+    <button
+      @click="getTranslate"
+      class="text-white bg-blue-600 px-4 py-2 cursor-pointer rounded-xl mt-2"
+    >
+      Translate
+    </button>
   </div>
 </template>
 <script>
+import { mapActions } from "vuex";
 export default {
   name: "Annotation",
   props: {
@@ -34,6 +41,7 @@ export default {
     },
   },
   methods: {
+    ...mapActions("words", ["getTranslate"]),
     updateVal(event) {
       this.$emit("updateValue", event.target.value);
     },
