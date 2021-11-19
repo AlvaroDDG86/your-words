@@ -1,5 +1,10 @@
 import axios from "axios";
 import firebase from "firebase/compat/app";
+import {
+  API_DICTIONARY,
+  API_TRANSLATE,
+  APIKEY_TRANSLATE,
+} from "@/helpers/constants";
 import { db } from "@/helpers/firebase";
 
 const WordsServices = {
@@ -47,7 +52,7 @@ const WordsServices = {
   },
   getWord(word) {
     return axios
-      .get(`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`)
+      .get(`${API_DICTIONARY}${word}`)
       .then((response) => {
         if (response.status === 200) {
           return response.data;
@@ -63,9 +68,8 @@ const WordsServices = {
         };
       });
   },
-  getTranslate(word) {
-    const lang = "ES";
-    const url = `https://api-free.deepl.com/v2/translate?auth_key=5c0df8ad-8137-94e7-f839-44c1200ba2e0:fx&text=${word}&target_lang=${lang}`;
+  getTranslate(word, lang) {
+    const url = `${API_TRANSLATE}?auth_key=${APIKEY_TRANSLATE}&text=${word}&target_lang=${lang}`;
     return axios
       .post(url)
       .then((response) => {

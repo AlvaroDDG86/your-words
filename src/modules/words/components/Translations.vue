@@ -26,12 +26,12 @@
       @click="getTranslate"
       class="text-white bg-blue-600 px-4 py-2 cursor-pointer rounded-xl mt-2"
     >
-      Translate
+      Translate <span class="font-bold">({{ user.conf.lang }})</span>
     </button>
   </div>
 </template>
 <script>
-import { mapActions } from "vuex";
+import { mapActions, mapGetters } from "vuex";
 export default {
   name: "Annotation",
   props: {
@@ -45,6 +45,9 @@ export default {
     updateVal(event) {
       this.$emit("updateValue", event.target.value);
     },
+  },
+  computed: {
+    ...mapGetters("auth", ["user"]),
   },
 };
 </script>

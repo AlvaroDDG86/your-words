@@ -22,6 +22,7 @@ const WordsServices = {
       {
         dark: user.conf.dark,
         grid: user.conf.grid,
+        lang: user.conf.lang,
       },
       {
         merge: true,

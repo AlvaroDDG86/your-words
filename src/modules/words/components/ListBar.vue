@@ -157,41 +157,11 @@
 </template>
 <script>
 import { mapGetters, mapActions } from "vuex";
+import { ORDER_OPTIONS, LETTERS } from "@/helpers/constants";
+
 // icon: "brands/vuejs",
 export default {
   name: "ListBar",
-  data() {
-    return {
-      orderOptions: [
-        {
-          label: "Last update first",
-          code: "last",
-          icon: "sort-amount-up",
-        },
-        {
-          label: "Newest",
-          code: "new",
-          icon: "sort-amount-up",
-        },
-        {
-          label: "Oldest",
-          code: "old",
-          icon: "sort-amount-down",
-        },
-        {
-          label: "Alphabetical desc",
-          code: "desc",
-          icon: "sort-alpha-up",
-        },
-        {
-          label: "Alphabetical asc",
-          code: "asc",
-          icon: "sort-alpha-up-alt",
-        },
-      ],
-      letters: "a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z",
-    };
-  },
   methods: {
     ...mapActions("words", ["setFavFilter", "setLetter"]),
     setLetterMethod(letter) {
@@ -200,6 +170,12 @@ export default {
   },
   computed: {
     ...mapGetters("words", ["filterList"]),
+    orderOptions() {
+      return ORDER_OPTIONS;
+    },
+    letters() {
+      return LETTERS;
+    },
   },
 };
 </script>

@@ -16,12 +16,14 @@ export default {
         const userConf = {
           dark: data.dark,
           grid: data.grid,
+          lang: data.lang,
         };
         commit(SET_USER_CONF, userConf);
       } else {
         commit(SET_USER_CONF, {
           dark: false,
           grid: false,
+          lang: "EN",
         });
       }
     });

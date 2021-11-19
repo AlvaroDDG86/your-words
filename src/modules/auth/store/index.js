@@ -11,6 +11,7 @@ export default {
       conf: {
         dark: false,
         grid: false,
+        lang: "EN",
       },
     },
   },

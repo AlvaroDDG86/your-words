@@ -39,9 +39,10 @@ export default {
       }
     });
   },
-  getTranslate({ commit, state }) {
+  getTranslate({ commit, state, rootState }) {
     const word = state.word.list[0].word;
-    WordsServices.getTranslate(word).then((res) => {
+    const lang = rootState.auth.user.conf.lang;
+    WordsServices.getTranslate(word, lang).then((res) => {
       if (!res.error) {
         commit(SET_TRANSLATE, res.translations.map((tr) => tr.text).join(","));
       }

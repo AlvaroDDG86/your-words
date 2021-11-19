@@ -131,6 +131,40 @@
             </h3>
             <div class="">
               <div class="text-xl mb-2">
+                Translate languaje:
+                <span
+                  class="
+                    text-blue-600
+                    dark:text-blue-200
+                    text-bold
+                    flex
+                    justify-center
+                    items-center
+                  "
+                >
+                  <v-icon name="language" scale="2" class="mr-2" />
+                  {{ user.conf.lang }}</span
+                >
+              </div>
+              <div class="flex justify-center">
+                <v-select
+                  class="w-56 bg-white mt-1 lg:mt-0 rounded"
+                  v-model="user.conf.lang"
+                  :options="translateOptions"
+                  :reduce="(order) => order.code"
+                  label="label"
+                  :clearable="false"
+                  @input="updateUser"
+                >
+                  <template
+                    v-slot:option="option"
+                    class="flex justify-around items-center"
+                  >
+                    {{ option.label }}
+                  </template>
+                </v-select>
+              </div>
+              <div class="text-xl mb-2">
                 Dark mode:
                 <span
                   class="
@@ -398,6 +432,7 @@
 import { mapActions, mapGetters } from "vuex";
 import WordsServices from "@/modules/auth/services/index";
 import firebase from "firebase/compat/app";
+import { TRANSLATE_OPTIONS } from "@/helpers/constants";
 export default {
   name: "Profile",
   data() {
@@ -416,6 +451,9 @@ export default {
         length: this.wordFullList.length,
         favourites: this.wordFullList.filter((item) => item.favourite).length,
       };
+    },
+    translateOptions() {
+      return TRANSLATE_OPTIONS;
     },
   },
   created() {
