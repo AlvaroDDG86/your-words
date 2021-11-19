@@ -1,21 +1,9 @@
 <template>
-  <footer class="bg-blue-600">
+  <footer class="bg-brand">
     <div class="container mx-auto px-8">
       <div class="w-full flex flex-col md:flex-row py-6">
-        <div class="flex-1 mb-6 text-black">
-          <a
-            class="
-              text-gray-200
-              no-underline
-              hover:no-underline
-              font-bold
-              text-2xl
-              lg:text-4xl
-            "
-            href="#"
-          >
-            YOUR WORDS
-          </a>
+        <div class="flex-1 mb-6 flex justify-center">
+          <img class="max-h-20" src="@/assets/Logo_white2.png" alt="Logo" />
         </div>
         <div class="flex-1">
           <p class="uppercase text-gray-200 font-bold md:mb-6">Links</p>

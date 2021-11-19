@@ -35,13 +35,13 @@ body {
 }
 
 .bg-brand {
-  background-image: url("./assets/bg.svg");
+  background-image: url("./assets/bg_2.svg");
   background-repeat: no-repeat;
   background-size: cover;
 }
 
 .gradient {
-  background: linear-gradient(90deg, #ffffff 0%, #0057f8 100%);
+  background: linear-gradient(90deg, #7b84ff 0%, #0057f8 100%);
 }
 
 .fade-enter-active,

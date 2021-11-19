@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-blue-600">
+  <div style="background: #0f2b48">
     <div class="pt-24">
       <div
         class="
@@ -127,21 +127,15 @@
           ></div>
         </div>
         <div class="flex flex-wrap">
-          <div class="w-5/6 sm:w-1/2 p-6">
+          <div
+            class="w-5/6 sm:w-1/2 p-6 flex flex-col justify-center items-center"
+          >
             <h3 class="text-3xl text-gray-800 font-bold leading-none mb-3">
               Search verbs, names, adjetives...
             </h3>
             <p class="text-gray-600 mb-8">
               Each time you search a word, I'll show you all the meanings, and
-              its audios
-              <br />
-              <br />
-
-              Images from:
-
-              <a class="text-pink-500 underline" href="https://undraw.co/"
-                >undraw.co</a
-              >
+              its audios.
             </p>
           </div>
           <div class="w-full sm:w-1/2 p-6">
@@ -158,23 +152,51 @@
               alt="personalization"
             />
           </div>
-          <div class="w-full sm:w-1/2 p-6 mt-6">
+          <div
+            class="
+              w-full
+              sm:w-1/2
+              p-6
+              mt-6
+              flex flex-col
+              justify-center
+              items-center
+            "
+          >
             <div class="align-middle">
               <h3 class="text-3xl text-gray-800 font-bold leading-none mb-3">
                 Once you have searched a word...
               </h3>
               <p class="text-gray-600 mb-8">
-                Save your annotations, examples and transcriptions to your own
-                languaje!. Incredible, it's it?
+                Save your annotations and examples. Incredible, it's it?.
+                <!-- <br />
                 <br />
-                <br />
-                Images from:
+                Images from: -->
 
-                <a class="text-pink-500 underline" href="https://undraw.co/"
+                <!-- <a class="text-pink-500 underline" href="https://undraw.co/"
                   >undraw.co</a
-                >
+                > -->
               </p>
             </div>
+          </div>
+        </div>
+        <div class="flex flex-wrap">
+          <div
+            class="w-5/6 sm:w-1/2 p-6 flex flex-col justify-center items-center"
+          >
+            <h3 class="text-3xl text-gray-800 font-bold leading-none mb-3">
+              Translate into your languaje
+            </h3>
+            <p class="text-gray-600 mb-8">
+              When you have seeked a word, you can translate clicking the
+              button, or add you own traductions, of course, both!.
+            </p>
+          </div>
+          <div class="w-full sm:w-1/2 p-6">
+            <img
+              :src="require('@/assets/undraw_Add_post_re_174w.png')"
+              alt="personalization"
+            />
           </div>
         </div>
       </div>
@@ -690,6 +712,7 @@
       </div>
       <h3 class="my-4 text-3xl leading-tight">Create an account or login.</h3>
       <button
+        @click="$router.replace('/auth/signup')"
         class="
           mx-auto
           lg:mx-0
@@ -710,7 +733,7 @@
           ease-in-out
         "
       >
-        Action!
+        Create a new account!
       </button>
     </section>
   </div>

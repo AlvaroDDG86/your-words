@@ -13,18 +13,12 @@
       z-10
     "
   >
-    <div class="flex items-center flex-no-shrink text-white mr-6">
-      <div
-        @click="goLanding()"
-        :class="{
-          'absolute w-full top-24 flex justify-center items-center': open,
-        }"
-        class="font-semibold text-white text-xl tracking-tight cursor-pointer"
-      >
+    <div class="relative flex items-center flex-no-shrink text-white mr-6">
+      <div @click="goLanding()" class="cursor-pointer">
         <img
-          :class="{ 'max-h-40': open }"
+          :class="{ 'mx-h-20 sm:max-h-40': open }"
           class="max-h-20"
-          src="@/assets/Logo.png"
+          src="@/assets/Logo_white2.png"
           alt="Logo"
         />
       </div>
@@ -81,6 +75,7 @@
       <div v-else>
         <router-link
           to="/auth/login"
+          :class="{ 'text-3xl ': open }"
           class="
             no-underline
             inline-block
@@ -105,6 +100,7 @@
         </router-link>
         <router-link
           to="/auth/signup"
+          :class="{ 'text-3xl': open }"
           class="
             no-underline
             inline-block
