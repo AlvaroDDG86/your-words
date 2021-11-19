@@ -23,7 +23,8 @@
                     font-medium
                     uppercase
                     tracking-wider
-                    text-center
+                    text-left
+                    md:text-center
                     sticky
                     top-0
                   "
@@ -56,6 +57,8 @@
                     uppercase
                     tracking-wider
                     text-center
+                    hidden
+                    sm:table-cell
                   "
                 >
                   Marked
@@ -77,8 +80,14 @@
                 "
               >
                 <td class="px-6 py-4 whitespace-nowrap">
-                  <div class="flex items-center">
-                    <div class="ml-4">
+                  <div
+                    class="
+                      flex flex-col
+                      items-start
+                      md:flex-row md:items-center
+                    "
+                  >
+                    <div class="ml-0 md:ml-4">
                       <div
                         class="
                           text-xl text-blue-700
@@ -88,8 +97,24 @@
                           font-bold
                         "
                       >
-                        {{ word.list[0].word }}
+                        <span
+                          :class="{ 'text-green-600': word.favourite }"
+                          class="
+                            text-sm text-teal-800
+                            font-mono
+                            bg-teal-100
+                            inline
+                            px-2
+                            text-gray-300
+                            sm:hidden
+                          "
+                        >
+                          <v-icon name="bookmark" /></span
+                        >{{ word.list[0].word }}
                       </div>
+                    </div>
+                    <div class="sm:hidden max-w-sm md:max-w-md truncate">
+                      {{ word.list[0].meanings[0].definitions[0].definition }}
                     </div>
                   </div>
                 </td>
@@ -112,7 +137,7 @@
                 >
                   {{ word.list[0].meanings[0].definitions[0].definition }}
                 </td>
-                <td class="px-6 py-4 whitespace-nowrap">
+                <td class="px-6 py-4 whitespace-nowrap hidden sm:table-cell">
                   <span
                     :class="{ 'text-green-600': word.favourite }"
                     class="
