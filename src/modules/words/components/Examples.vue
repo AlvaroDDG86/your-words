@@ -3,7 +3,8 @@
     class="
       bg-gray-100
       dark:bg-gray-600
-      mx-10
+      mx-2
+      sm:mx-10
       my-6
       rounded-lg
       shadow-lg

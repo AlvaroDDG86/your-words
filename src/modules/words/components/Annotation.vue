@@ -1,5 +1,5 @@
 <template>
-  <div class="mx-10 my-6">
+  <div class="mx-2 sm:mx-10 my-6">
     <label
       for="annotation"
       class="

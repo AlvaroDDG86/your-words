@@ -4,7 +4,8 @@
       pt-10
       border-b-1 border-gray-400
       shadow-xl
-      px-8
+      px-4
+      sm:px-8
       lg:px-48
       transition-all
       duration-200
@@ -61,7 +62,7 @@
         }}</span
         >:
       </h3>
-      <ul class="list-decimal m-6">
+      <ul class="list-decimal m-2 sm:m-6">
         <li
           :key="`definition-${indexDef}`"
           v-for="(definition, indexDef) in meaning.definitions"

@@ -1,5 +1,5 @@
 <template>
-  <div class="mx-10 my-6">
+  <div class="mx-2 sm:mx-10 my-6">
     <label
       for="translation"
       class="text-s text-gray-900 dark:text-gray-200 block mb-2 font-bold"
