@@ -16,7 +16,7 @@
     </p>
     <button
       class="
-        bg-blue-900
+        bg-blue-600
         text-white
         font-extrabold
         text-sm

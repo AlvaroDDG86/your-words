@@ -18,16 +18,23 @@ const WordsServices = {
     return userData.get();
   },
   async updateUser(user) {
-    return db.collection("users").doc(user.data.uid).set(
-      {
-        dark: user.conf.dark,
-        grid: user.conf.grid,
-        lang: user.conf.lang,
-      },
-      {
-        merge: true,
-      }
-    );
+    return db
+      .collection("users")
+      .doc(user.data.uid)
+      .set(
+        {
+          dark: user.conf.dark,
+          grid: user.conf.grid,
+          lang: user.conf.lang,
+          audio: {
+            times: user.conf.audio.times,
+            seconds: user.conf.audio.seconds,
+          },
+        },
+        {
+          merge: true,
+        }
+      );
   },
   deleteAccount() {
     const user = firebase.auth().currentUser;

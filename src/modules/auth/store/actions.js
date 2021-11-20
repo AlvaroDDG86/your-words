@@ -17,6 +17,10 @@ export default {
           dark: data.dark,
           grid: data.grid,
           lang: data.lang,
+          audio: {
+            times: data.audio.times,
+            seconds: data.audio.seconds,
+          },
         };
         commit(SET_USER_CONF, userConf);
       } else {
@@ -24,6 +28,10 @@ export default {
           dark: false,
           grid: false,
           lang: "EN",
+          audio: {
+            times: 2,
+            seconds: 2,
+          },
         });
       }
     });

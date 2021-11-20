@@ -59,3 +59,11 @@ export const ORDER_OPTIONS = [
 ];
 
 export const LETTERS = "a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z";
+
+export const AUDIO_OPTIONS = [
+  { code: "1", label: "1" },
+  { code: "2", label: "2" },
+  { code: "3", label: "3" },
+  { code: "4", label: "4" },
+  { code: "5", label: "5" },
+];

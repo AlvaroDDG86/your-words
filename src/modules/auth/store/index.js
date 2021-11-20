@@ -12,6 +12,10 @@ export default {
         dark: false,
         grid: false,
         lang: "EN",
+        audio: {
+          times: 2,
+          seconds: 2,
+        },
       },
     },
   },
