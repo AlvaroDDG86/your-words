@@ -11,7 +11,7 @@
         flex flex-col
         justify-center
         items-center
-        dark:text-gray-200
+        text-gray-200
         uppercase
         pt-32
       "

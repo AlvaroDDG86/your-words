@@ -8,6 +8,7 @@
           min-w-0
           break-words
           bg-white
+          text-gray-800
           dark:bg-gray-400 dark:text-gray-200
           w-full
           shadow-xl

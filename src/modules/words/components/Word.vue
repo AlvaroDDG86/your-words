@@ -34,7 +34,7 @@
       "
     >
       {{ computedIndex }}. {{ word.word }}
-      <small v-show="word.phonetic" class="font-light text-gray-500"
+      <small v-show="word.phonetic" class="font-light text-gray-600"
         >/{{ word.phonetic }}/</small
       >
     </h1>
@@ -75,7 +75,7 @@
           "
         >
           <span class="ml-4">{{ definition.definition }}</span>
-          <div class="text-gray-400 ml-10 font-light italic">
+          <div class="text-gray-600 ml-10 font-light italic">
             {{ definition.example }}
           </div>
           <TitleWithBox

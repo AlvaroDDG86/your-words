@@ -1,8 +1,8 @@
 <template>
   <div
     class="
-      bg-gray-100
-      dark:bg-gray-600
+      bg-gray-200
+      dark:bg-gray-800
       mx-2
       sm:mx-10
       my-6

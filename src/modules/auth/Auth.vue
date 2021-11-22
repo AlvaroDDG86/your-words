@@ -1,5 +1,13 @@
 <template>
-  <div class="transition-all duration-200 p-6">
+  <div
+    class="
+      transition-all
+      duration-200
+      p-6
+      text-gray-200
+      bg-opacity-20 bg-blue-900
+    "
+  >
     <p v-if="showButtonSignup" class="mt-4">
       Are you new here?
       <span
@@ -9,7 +17,7 @@
           duration-200
           text-xl
           font-bold
-          text-blue-600
+          text-blue-400
         "
         @click="$router.replace('/auth/signup')"
       >
@@ -25,7 +33,7 @@
           duration-200
           text-xl
           font-bold
-          text-blue-600
+          text-blue-400
         "
         @click="$router.replace('/auth/login')"
       >

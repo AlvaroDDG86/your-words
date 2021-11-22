@@ -2,7 +2,7 @@
   <div class="dark:bg-gray-800 transition-all duration-200">
     <SearchWord />
     <template v-if="word.list">
-      <div class="h-full">
+      <div class="h-full bg-gray-300 dark:bg-gray-800">
         <Word
           :key="`word-${index}`"
           v-for="(word, index) in word.list"
@@ -33,13 +33,10 @@
         pt-32
         transition-all
         duration-200
-        dark:text-gray-300
+        text-gray-200
       "
     >
-      <h1
-        v-if="notFound"
-        class="text-5xl text-gray-700 dark:text-gray-300 font-bold"
-      >
+      <h1 v-if="notFound" class="text-5xl text-gray-200 font-bold">
         {{ notFound.word }}
       </h1>
       {{ notFound ? notFound.message : "Search new Word" }}

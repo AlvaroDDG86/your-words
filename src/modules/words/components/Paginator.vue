@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="text-gray-700 dark:text-white uppercase">
+    <div class="text-white uppercase">
       Showing {{ filterList.paginator.total }} of
       {{ wordFullList.length }} items
     </div>

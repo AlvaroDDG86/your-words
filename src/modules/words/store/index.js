@@ -19,7 +19,7 @@ export default {
       letters: [],
       paginator: {
         currentPage: 1,
-        length: 7,
+        length: 20,
         total: 0,
       },
     },
