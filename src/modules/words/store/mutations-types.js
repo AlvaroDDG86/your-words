@@ -6,3 +6,4 @@ export const SET_NOT_FOUND_WORD = "SET_NOT_FOUND_WORD";
 export const SET_FAV_FILTER = "SET_FAV_FILTER";
 export const SET_ID_WORD = "SET_ID_WORD";
 export const SET_TRANSLATE = "SET_TRANSLATE";
+export const SET_PAGE = "SET_PAGE";

@@ -15,8 +15,17 @@ export default {
         return state.filterList.letters.indexOf(firstLetter) > -1;
       });
     }
-
-    return OrderList(listFiltered, state.filterList.order);
+    const startFrom =
+      state.filterList.paginator.currentPage === 1
+        ? state.filterList.paginator.currentPage
+        : state.filterList.paginator.currentPage *
+            state.filterList.paginator.length -
+          state.filterList.paginator.length;
+    const returnList = OrderList(listFiltered, state.filterList.order);
+    state.filterList.paginator.total = returnList.length;
+    return state.filterList.paginator.total > state.filterList.paginator.length
+      ? returnList.splice(startFrom, state.filterList.paginator.length)
+      : returnList;
   },
   wordFullList: (state) => state.wordsList,
   word: (state) => state.word,

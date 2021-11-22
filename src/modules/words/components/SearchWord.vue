@@ -1,6 +1,6 @@
 <template>
   <div class="inset-x-auto w-full">
-    <div class="w-full mx-auto shadow-md p-4 bg-blue-900">
+    <div class="w-full mx-auto shadow-md p-4 bg-brand">
       <div class="flex gap-2 flex-col md:flex-row center">
         <div class="relative flex-1">
           <input

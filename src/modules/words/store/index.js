@@ -17,6 +17,11 @@ export default {
       word: "",
       order: "last",
       letters: [],
+      paginator: {
+        currentPage: 1,
+        length: 7,
+        total: 0,
+      },
     },
   },
   getters,

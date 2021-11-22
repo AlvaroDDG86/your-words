@@ -2,6 +2,7 @@
   <div>
     <!-- <pre class="text-indigo-400">{{ user.conf.grid }}</pre> -->
     <ListBar />
+    <Paginator v-if="wordsList.length > 0" />
     <GridLayout v-if="user.conf.grid" :list="wordsList" />
     <Table v-else :list="wordsList" />
     <div
@@ -54,15 +55,17 @@ import { mapGetters } from "vuex";
 import ListBar from "@/modules/words/components/ListBar";
 import Table from "@/modules/words/components/Table";
 import GridLayout from "@/modules/words/components/GridLayout";
+import Paginator from "@/modules/words/components/Paginator";
 export default {
   name: "WordList",
   components: {
     ListBar,
     Table,
     GridLayout,
+    Paginator,
   },
   computed: {
-    ...mapGetters("words", ["wordsList"]),
+    ...mapGetters("words", ["wordsList", "wordFullList"]),
     ...mapGetters("auth", ["user"]),
   },
 };

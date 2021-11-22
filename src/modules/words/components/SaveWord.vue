@@ -1,7 +1,7 @@
 <template>
   <div
     :class="{ 'justify-between': word.id, 'justify-end': !word.id }"
-    class="bg-blue-900 text-white py-4 px-10 flex"
+    class="bg-brand text-white py-4 px-10 flex"
   >
     <InfoDate
       v-if="word.id"

@@ -1,7 +1,7 @@
 <template>
   <div
     class="
-      bg-blue-900
+      bg-brand
       text-white
       py-4
       px-10

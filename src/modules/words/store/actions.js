@@ -7,6 +7,7 @@ import {
   SET_FAV_FILTER,
   SET_ID_WORD,
   SET_TRANSLATE,
+  SET_PAGE,
 } from "./mutations-types";
 import WordsServices from "../services";
 import firebase from "firebase/compat/app";
@@ -55,7 +56,8 @@ export default {
       commit(SET_ID_WORD, res.id);
     });
   },
-  removeWord({ state }) {
+  removeWord({ state, commit }) {
+    commit(SET_PAGE, 1);
     return WordsServices.removeWord(state.word);
   },
   updateWord({ state }) {
@@ -70,14 +72,18 @@ export default {
     commit(SET_NOT_FOUND_WORD, null);
   },
   setFavFilter({ commit }, fav) {
+    commit(SET_PAGE, 1);
     commit(SET_FAV_FILTER, fav);
   },
   setLetter({ state }, letter) {
     const index = state.filterList.letters.indexOf(letter);
     if (index === -1) {
-      state.filterList.letters.push(letter);
+      state.filterList.letters = [...state.filterList.letters, letter];
     } else {
       state.filterList.letters.splice(index, 1);
     }
+  },
+  setPage({ commit }, page) {
+    commit(SET_PAGE, page);
   },
 };

@@ -3,6 +3,8 @@
     <div
       @click="$router.replace('/auth/profile')"
       class="
+        hidden
+        sm:block
         text-sm
         absolute
         top-3
