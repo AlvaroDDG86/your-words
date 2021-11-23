@@ -57,6 +57,8 @@ Vue.use(Popover);
 
 // vee-validate
 import VeeValidate from "vee-validate";
+
+import "./registerServiceWorker";
 Vue.use(VeeValidate, {
   events: "change",
 });
