@@ -39,7 +39,7 @@
               mx-auto
               lg:mx-0
               hover:underline
-              bg-pink-600
+              bg-red-600
               text-gray-100
               font-bold
               rounded-full
@@ -173,7 +173,7 @@
                 <br />
                 Images from: -->
 
-                <!-- <a class="text-pink-500 underline" href="https://undraw.co/"
+                <!-- <a class="text-red-500 underline" href="https://undraw.co/"
                   >undraw.co</a
                 > -->
               </p>
@@ -717,7 +717,7 @@
           mx-auto
           lg:mx-0
           hover:underline
-          bg-pink-600
+          bg-red-600
           text-gray-200
           font-bold
           rounded-full

@@ -141,6 +141,10 @@ export default {
       open: false,
       links: [
         {
+          name: "Dashboard",
+          path: "/auth/dashboard",
+        },
+        {
           name: "Collection",
           path: "/words/list",
         },

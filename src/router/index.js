@@ -25,6 +25,7 @@ const routes = [
 ];
 
 const router = new VueRouter({
+  mode: "history",
   routes,
 });
 
@@ -37,11 +38,14 @@ router.beforeEach((to, from, next) => {
     });
   } else {
     const user = firebase.auth().currentUser;
+    console.log(user);
     if (
       user &&
-      (to.fullPath === "/auth/login" || to.fullPath === "/auth/signup")
+      (to.fullPath === "/auth/login" ||
+        to.fullPath === "/auth/signup" ||
+        to.fullPath === "/landing")
     ) {
-      next("/");
+      next("/auth/dashboard");
     } else {
       next();
     }
