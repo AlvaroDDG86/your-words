@@ -1,6 +1,5 @@
 <template>
   <div>
-    <!-- <pre class="text-indigo-400">{{ user.conf.grid }}</pre> -->
     <ListBar />
     <Paginator v-if="wordsList.length > 0" />
     <GridLayout v-if="user.conf.grid" :list="wordsList" />

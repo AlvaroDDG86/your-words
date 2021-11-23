@@ -30,6 +30,7 @@ const WordsServices = {
             times: user.conf.audio.times,
             seconds: user.conf.audio.seconds,
           },
+          pagination: user.conf.pagination,
         },
         {
           merge: true,

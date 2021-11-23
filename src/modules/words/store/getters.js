@@ -17,7 +17,7 @@ export default {
     }
     const startFrom =
       state.filterList.paginator.currentPage === 1
-        ? state.filterList.paginator.currentPage
+        ? state.filterList.paginator.currentPage - 1
         : state.filterList.paginator.currentPage *
             state.filterList.paginator.length -
           state.filterList.paginator.length;

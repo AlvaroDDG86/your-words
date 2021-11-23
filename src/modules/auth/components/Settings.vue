@@ -41,6 +41,42 @@
         </div>
       </div>
       <div class="py-2 mb-5 shadow-xl">
+        <div class="text-xl">
+          Pagination size:
+          <span
+            class="
+              text-blue-600
+              dark:text-blue-200
+              text-bold
+              flex
+              justify-center
+              items-center
+            "
+          >
+            <v-icon name="list-ol" class="mr-2" />
+            {{ user.conf.pagination }}</span
+          >
+        </div>
+        <div class="flex justify-center">
+          <v-select
+            class="w-56 bg-white mt-1 lg:mt-0 rounded"
+            v-model="user.conf.pagination"
+            :options="paginationOptions"
+            :reduce="(order) => order.code"
+            label="label"
+            :clearable="false"
+            @input="updateUser"
+          >
+            <template
+              v-slot:option="option"
+              class="flex justify-around items-center"
+            >
+              {{ option.label }}
+            </template>
+          </v-select>
+        </div>
+      </div>
+      <div class="py-2 mb-5 shadow-xl">
         <div class="text-xl">Audio Settings:</div>
         <div class="flex flex-col md:flex-row justify-evenly items-center">
           <div class="flex flex-col items-center justify-center">
@@ -180,7 +216,11 @@
 </template>
 <script>
 import { mapGetters, mapActions } from "vuex";
-import { TRANSLATE_OPTIONS, AUDIO_OPTIONS } from "@/helpers/constants";
+import {
+  TRANSLATE_OPTIONS,
+  AUDIO_OPTIONS,
+  PAGINATION_OPTIONS,
+} from "@/helpers/constants";
 
 export default {
   computed: {
@@ -190,6 +230,9 @@ export default {
     },
     audioOptions() {
       return AUDIO_OPTIONS;
+    },
+    paginationOptions() {
+      return PAGINATION_OPTIONS;
     },
     times() {
       return this.user.conf.audio.times == 1

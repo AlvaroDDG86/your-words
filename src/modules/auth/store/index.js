@@ -16,6 +16,7 @@ export default {
           times: 2,
           seconds: 2,
         },
+        pagination: 20,
       },
     },
   },

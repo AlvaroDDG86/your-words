@@ -67,3 +67,10 @@ export const AUDIO_OPTIONS = [
   { code: "4", label: "4" },
   { code: "5", label: "5" },
 ];
+
+export const PAGINATION_OPTIONS = [
+  { code: "10", label: "10" },
+  { code: "20", label: "20" },
+  { code: "50", label: "50" },
+  { code: "100", label: "100" },
+];

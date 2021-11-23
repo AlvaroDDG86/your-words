@@ -9,10 +9,11 @@ export default {
       commit(SET_USER, null);
     }
   },
-  getUserConf({ commit }, uid) {
+  getUserConf({ commit, rootState }, uid) {
     AuthService.getUserConf(uid).then((doc) => {
       if (doc) {
         const data = doc.data();
+        rootState.words.filterList.paginator.length = data.pagination;
         const userConf = {
           dark: data.dark,
           grid: data.grid,
@@ -21,6 +22,7 @@ export default {
             times: data.audio.times,
             seconds: data.audio.seconds,
           },
+          pagination: data.pagination,
         };
         commit(SET_USER_CONF, userConf);
       } else {
@@ -32,6 +34,7 @@ export default {
             times: 2,
             seconds: 2,
           },
+          pagination: 20,
         });
       }
     });
@@ -44,7 +47,12 @@ export default {
   setNewUser({ state }) {
     AuthService.setNewUser(state.user.data);
   },
-  updateUser({ state }) {
-    AuthService.updateUser(state.user);
+  async updateUser({ state, rootState }) {
+    const res = await AuthService.updateUser(state.user);
+    console.log(res);
+    rootState.words.filterList.paginator.length = parseInt(
+      state.user.conf.pagination
+    );
+    rootState.words.filterList.paginator.currentPage = 1;
   },
 };
