@@ -37,18 +37,7 @@ router.beforeEach((to, from, next) => {
       else next();
     });
   } else {
-    const user = firebase.auth().currentUser;
-    console.log(user);
-    if (
-      user &&
-      (to.fullPath === "/auth/login" ||
-        to.fullPath === "/auth/signup" ||
-        to.fullPath === "/landing")
-    ) {
-      next("/auth/dashboard");
-    } else {
-      next();
-    }
+    next();
   }
 });
 

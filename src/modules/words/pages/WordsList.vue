@@ -42,7 +42,6 @@
         duration-200
         block
         lg:hidden
-        z-10
       "
     >
       <v-icon name="plus" />

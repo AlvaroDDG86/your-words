@@ -1,5 +1,5 @@
 <template>
-  <div class="py-2 flex flex-col sm:px-6 lg:px-8 min-w-full">
+  <div class="relative py-2 flex flex-col sm:px-6 lg:px-8 min-w-full">
     <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
       <div class="align-middle inline-block min-w-full">
         <div class="shadow overflow-hidden border-b border-gray-200">
@@ -157,33 +157,33 @@
               <!-- More people... -->
             </tbody>
           </table>
-          <div
-            v-if="showInfo"
-            class="
-              fixed
-              left-0
-              bottom-0
-              bg-blue-700 bg-opacity-70
-              text-white
-              w-screen
-              py-6
-              block
-              md:hidden
-            "
-          >
-            <span
-              class="absolute top-2 right-6 cursor-pointer"
-              @click="showInfo = false"
-            >
-              <v-icon name="times" />
-            </span>
-            On mobile screens, we recomend you to use grid layout <br />
-            <a class="cursor-pointer" @click="$router.replace('/auth/profile')"
-              ><v-icon name="cogs" /> Go to configuration</a
-            >
-          </div>
         </div>
       </div>
+    </div>
+    <div
+      v-if="showInfo"
+      class="
+        absolute
+        left-0
+        bottom-0
+        bg-blue-700 bg-opacity-70
+        text-white
+        w-screen
+        py-6
+        block
+        md:hidden
+      "
+    >
+      <span
+        class="absolute top-2 right-6 cursor-pointer"
+        @click="showInfo = false"
+      >
+        <v-icon name="times" />
+      </span>
+      On mobile screens, we recomend you to use grid layout <br />
+      <a class="cursor-pointer" @click="$router.replace('/auth/profile')"
+        ><v-icon name="cogs" /> Go to configuration</a
+      >
     </div>
   </div>
 </template>
@@ -193,7 +193,7 @@ export default {
   name: "Table",
   data() {
     return {
-      showInfo: true,
+      showInfo: false,
     };
   },
   props: {

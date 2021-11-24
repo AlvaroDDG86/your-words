@@ -1,5 +1,5 @@
 <template>
-  <div style="background: #0f2b48">
+  <div v-if="showPage" style="background: #0f2b48">
     <div class="pt-24">
       <div
         class="
@@ -738,3 +738,9 @@
     </section>
   </div>
 </template>
+<script>
+import ControlFlowAuth from "@/mixins/ControlFlowAuth";
+export default {
+  mixins: [ControlFlowAuth],
+};
+</script>

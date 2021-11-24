@@ -2,6 +2,7 @@
   <nav
     :class="{ animated: open }"
     class="
+      relative
       flex
       items-center
       justify-between
