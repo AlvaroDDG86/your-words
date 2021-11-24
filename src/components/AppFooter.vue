@@ -10,12 +10,12 @@
           <ul class="list-reset mb-6">
             <li class="mt-2 inline-block mr-2 md:block md:mr-0">
               <a
-                href="#"
+                @click="$router.push('/landing/faqs')"
                 class="
                   no-underline
                   hover:underline
                   text-gray-200
-                  hover:text-pink-500
+                  hover:text-red-600
                 "
                 >FAQ</a
               >
@@ -27,7 +27,7 @@
                   no-underline
                   hover:underline
                   text-gray-200
-                  hover:text-pink-500
+                  hover:text-red-600
                 "
                 >Help</a
               >
@@ -39,7 +39,7 @@
                   no-underline
                   hover:underline
                   text-gray-200
-                  hover:text-pink-500
+                  hover:text-red-600
                 "
                 >Support</a
               >
@@ -56,7 +56,7 @@
                   no-underline
                   hover:underline
                   text-gray-200
-                  hover:text-pink-500
+                  hover:text-red-600
                 "
                 >Terms</a
               >
@@ -68,7 +68,7 @@
                   no-underline
                   hover:underline
                   text-gray-200
-                  hover:text-pink-500
+                  hover:text-red-600
                 "
                 >Privacy</a
               >
@@ -78,38 +78,48 @@
         <div class="flex-1">
           <p class="uppercase text-gray-200 font-bold md:mb-6">Social</p>
           <ul class="list-reset mb-6">
-            <li class="mt-2 inline-block mr-2 md:block md:mr-0">
+            <li
+              class="
+                mt-2
+                inline-block
+                mr-2
+                md:block md:mr-0
+                cursor-pointer cursor-pointer
+              "
+            >
               <a
                 href="#"
                 class="
                   no-underline
                   hover:underline
                   text-gray-200
-                  hover:text-pink-500
+                  hover:text-red-600
                 "
                 >Facebook</a
               >
             </li>
-            <li class="mt-2 inline-block mr-2 md:block md:mr-0">
+            <li class="mt-2 inline-block mr-2 md:block md:mr-0 cursor-pointer">
               <a
-                href="#"
+                href="https://www.linkedin.com/in/%C3%A1lvaro-de-dios-garc%C3%ADa/"
+                target="_blank"
                 class="
                   no-underline
                   hover:underline
                   text-gray-200
-                  hover:text-pink-500
+                  hover:text-red-600
                 "
                 >Linkedin</a
               >
             </li>
-            <li class="mt-2 inline-block mr-2 md:block md:mr-0">
+            <li class="mt-2 inline-block mr-2 md:block md:mr-0 cursor-pointer">
               <a
-                href="#"
+                href="https://twitter.com/AlvaroDDG86/"
+                target="_blank"
                 class="
                   no-underline
                   hover:underline
                   text-gray-200
-                  hover:text-pink-500
+                  hover:text-red-600
                 "
                 >Twitter</a
               >
@@ -117,7 +127,9 @@
           </ul>
         </div>
         <div class="flex-1">
-          <p class="uppercase text-gray-200 font-bold md:mb-6">Company</p>
+          <p class="uppercase text-gray-200 font-bold md:mb-6 cursor-pointer">
+            Company
+          </p>
           <ul class="list-reset mb-6">
             <li class="mt-2 inline-block mr-2 md:block md:mr-0">
               <a
@@ -126,31 +138,31 @@
                   no-underline
                   hover:underline
                   text-gray-200
-                  hover:text-pink-500
+                  hover:text-red-600
                 "
                 >Official Blog</a
               >
             </li>
-            <li class="mt-2 inline-block mr-2 md:block md:mr-0">
+            <li class="mt-2 inline-block mr-2 md:block md:mr-0 cursor-pointer">
               <a
                 href="#"
                 class="
                   no-underline
                   hover:underline
                   text-gray-200
-                  hover:text-pink-500
+                  hover:text-red-600
                 "
                 >About Us</a
               >
             </li>
-            <li class="mt-2 inline-block mr-2 md:block md:mr-0">
+            <li class="mt-2 inline-block mr-2 md:block md:mr-0 cursor-pointer">
               <a
-                href="#"
+                href="mailto:alvarod5d8os@gmail.com"
                 class="
                   no-underline
                   hover:underline
                   text-gray-200
-                  hover:text-pink-500
+                  hover:text-red-600
                 "
                 >Contact</a
               >

@@ -4,7 +4,7 @@ export default {
   wordsList: (state) => {
     let listFiltered = state.wordsList.filter((item) => {
       return (
-        item.list[0].word.includes(state.filterList.word) &&
+        item.list[0].word.includes(state.filterList.word.toLowerCase()) &&
         (!state.filterList.onlyFavs ||
           (state.filterList.onlyFavs && item.favourite))
       );
