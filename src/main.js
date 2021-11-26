@@ -63,6 +63,9 @@ Vue.use(VeeValidate, {
   events: "change",
 });
 
+import AppButton from "@/components/AppButton";
+Vue.component("AppButton", AppButton);
+
 Vue.use(VueAxios, axios);
 
 Vue.config.productionTip = false;

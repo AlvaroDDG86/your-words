@@ -52,56 +52,29 @@
       >
     </div>
     <div class="flex justify-between items-center">
-      <button
+      <AppButton
         @click="$modal.show('letters')"
-        :class="
-          filterList.letters.length > 0
-            ? 'text-white bg-blue-600'
-            : 'text-blue-900 bg-white'
-        "
-        class="
-          font-extrabold
-          text-sm
-          rounded
-          px-2
-          py-1
-          mt-1
-          mr-2
-          lg:mt-0
-          md:w-32
-          transition-all
-          duration-200
-        "
+        :classes="filterList.letters.length > 0 ? 'bg-yellow-100' : 'bg-white'"
       >
         <span class="text-xl font-mono inline text-gray-300">
           <v-icon name="search-plus"
         /></span>
         <span class="hidden md:inline-block ml-2">By letters</span>
-      </button>
-      <button
-        class="
-          text-blue-900
-          bg-white
-          font-extrabold
-          text-sm
-          rounded
-          px-2
-          py-1
-          mt-1
-          mr-2
-          lg:mt-0
-          md:w-36
-        "
+      </AppButton>
+      <AppButton
         @click="setFavFilter(!filterList.onlyFavs)"
-      >
-        <span
+        size="s"
+        classes="md:w-42"
+        ><span
           :class="{ 'text-green-600': filterList.onlyFavs }"
-          class="text-xl font-mono inline text-gray-300"
+          class="text-gray-300"
         >
           <v-icon name="bookmark"
         /></span>
-        <span class="hidden md:inline-block ml-2"> Marked words </span>
-      </button>
+        <span class="hidden md:inline-block ml-2">
+          Marked words
+        </span></AppButton
+      >
       <v-select
         class="w-56 bg-white mt-1 lg:mt-0 rounded"
         v-model="filterList.order"

@@ -38,7 +38,7 @@
         >/{{ word.phonetic }}/</small
       >
     </h1>
-    <Audio
+    <Phonetics
       v-if="word.phonetics.length > 0 && word.phonetics[0].text"
       :phonetics="word.phonetics"
     />
@@ -95,13 +95,13 @@
 </template>
 <script>
 import TitleWithBox from "@/modules/words/components/TitleWithBox";
-import Audio from "@/modules/words/components/Audio";
+import Phonetics from "@/modules/words/components/Phonetics";
 
 export default {
   name: "Word",
   components: {
     TitleWithBox,
-    Audio,
+    Phonetics,
   },
   props: {
     word: {

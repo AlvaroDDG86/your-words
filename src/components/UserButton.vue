@@ -1,20 +1,8 @@
 <template>
   <div class="flex justify-center items-center">
-    <button
-      class="
-        font-bold
-        text-blue-600
-        h-10
-        bg-white
-        rounded-xl
-        shadow-xl
-        px-3
-        mr-4
-      "
-      @click="logout"
-    >
+    <AppButton @click="logout">
       <v-icon name="sign-out-alt" /> Logout
-    </button>
+    </AppButton>
     <button
       @click="$router.replace('/auth/profile')"
       :style="{

@@ -49,7 +49,7 @@
           for="picture"
         >
           <v-icon
-            :name="updateValue ? 'spinner' : 'pen'"
+            :name="updateValue ? 'spinner' : 'camera-retro'"
             :spin="!!updateValue"
           />
         </label>

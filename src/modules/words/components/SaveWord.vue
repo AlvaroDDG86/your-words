@@ -10,65 +10,22 @@
       :id="_uid"
     />
     <div>
-      <button
-        v-if="word.id"
-        class="text-blue-900 bg-white font-extrabold text-lg rounded px-2 py-1"
-        @click="$router.replace('/words/list')"
-      >
+      <AppButton :show="!!word.id" @click="$router.replace('/words/list')">
         <v-icon name="arrow-circle-left" />
         <span class="hidden md:inline-block ml-2">List</span>
-      </button>
-      <button
-        v-if="word.id"
-        class="
-          text-red-600
-          bg-white
-          font-extrabold
-          text-lg
-          rounded
-          px-2
-          py-1
-          ml-4
-        "
-        @click="$modal.show('delete')"
-      >
+      </AppButton>
+      <AppButton :show="!!word.id" @click="$modal.show('delete')" type="danger">
         <v-icon name="trash-alt" />
         <span class="hidden md:inline-block ml-2">Remove Word</span>
-      </button>
-      <button
-        v-if="word.id"
-        class="
-          text-blue-900
-          bg-white
-          font-extrabold
-          text-lg
-          rounded
-          px-2
-          py-1
-          ml-4
-        "
-        @click="saveUpdateWord"
-      >
+      </AppButton>
+      <AppButton :show="!!word.id" @click="saveUpdateWord">
         <v-icon name="save" />
         <span class="hidden md:inline-block ml-2">Save Word</span>
-      </button>
-      <button
-        v-else
-        class="
-          text-blue-900
-          bg-white
-          font-extrabold
-          text-lg
-          rounded
-          px-2
-          py-1
-          ml-4
-        "
-        @click="addNewWord"
-      >
+      </AppButton>
+      <AppButton :show="!word.id" @click="addNewWord">
         <v-icon name="save" />
         <span class="hidden md:inline-block ml-2">Add Word</span>
-      </button>
+      </AppButton>
     </div>
     <modal
       name="delete"

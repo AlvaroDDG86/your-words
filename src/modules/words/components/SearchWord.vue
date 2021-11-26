@@ -44,34 +44,12 @@
         </div>
       </div>
       <div class="flex justify-between items-center mt-6">
-        <button
-          class="
-            bg-white
-            text-blue-900
-            font-extrabold
-            text-lg
-            rounded
-            px-2
-            py-1
-          "
-          @click="$router.replace('/words/list')"
-        >
+        <AppButton @click="$router.replace('/words/list')">
           <v-icon name="arrow-circle-left" /> List
-        </button>
-        <button
-          class="
-            bg-white
-            text-blue-900
-            font-extrabold
-            text-lg
-            rounded
-            px-2
-            py-1
-          "
-          @click="searchWord"
-        >
+        </AppButton>
+        <AppButton @click="searchWord">
           <v-icon name="search" /> Search
-        </button>
+        </AppButton>
         <div v-if="word.list" class="cursor-pointer">
           <span
             :class="{ 'text-green-600': isFavourite }"

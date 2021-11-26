@@ -42,6 +42,7 @@
         <div class="mb-4">
           <div class="flex items-center border-b border-teal-500 py-2">
             <input
+              @keyup.enter="addExample"
               class="
                 input
                 appearance-none
@@ -59,22 +60,14 @@
               type="text"
               placeholder="Type your example"
             />
-            <button
-              class="
-                bg-blue-600
-                text-white
-                font-extrabold
-                text-sm
-                rounded
-                px-2
-                py-1
-              "
+            <AppButton
               :disabled="exampleType === ''"
+              type="secondary"
+              size="s"
               @click="addExample"
-              type="button"
             >
-              Add
-            </button>
+              <v-icon name="plus" />
+            </AppButton>
           </div>
         </div>
         <div>
@@ -115,6 +108,7 @@ export default {
   },
   methods: {
     addExample() {
+      if (this.exampleType === "") return;
       this.examples.unshift(this.exampleType);
       this.exampleType = "";
     },
