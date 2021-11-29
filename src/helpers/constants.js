@@ -74,3 +74,18 @@ export const PAGINATION_OPTIONS = [
   { code: "50", label: "50" },
   { code: "100", label: "100" },
 ];
+
+export const MONTHS = [
+  "Jan",
+  "Feb",
+  "Mar",
+  "Apr",
+  "May",
+  "Jun",
+  "Jul",
+  "Aug",
+  "Sep",
+  "Oct",
+  "Nov",
+  "Dec",
+];

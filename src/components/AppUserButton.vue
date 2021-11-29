@@ -32,7 +32,7 @@
 import { mapActions } from "vuex";
 import firebase from "firebase/compat/app";
 export default {
-  name: "UserButton",
+  name: "AppUserButton",
   props: {
     image: {
       type: String,

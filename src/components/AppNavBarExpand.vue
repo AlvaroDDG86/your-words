@@ -72,7 +72,7 @@
           {{ link.name }}
         </router-link>
       </div>
-      <UserButton v-if="user.loggedIn" :image="getImage(user)" />
+      <AppUserButton v-if="user.loggedIn" :image="getImage(user)" />
       <div v-else>
         <router-link
           to="/auth/login"
@@ -131,11 +131,11 @@
 
 <script>
 import { mapGetters } from "vuex";
-import UserButton from "@/components/UserButton";
+import AppUserButton from "@/components/AppUserButton";
 export default {
   name: "AppNavbarExpand",
   components: {
-    UserButton,
+    AppUserButton,
   },
   data() {
     return {

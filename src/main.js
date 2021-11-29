@@ -57,14 +57,21 @@ Vue.use(Popover);
 
 // vee-validate
 import VeeValidate from "vee-validate";
-
 import "./registerServiceWorker";
 Vue.use(VeeValidate, {
   events: "change",
 });
 
+// app-charts
+import VueApexCharts from "vue-apexcharts";
+Vue.use(VueApexCharts);
+Vue.component("apexchart", VueApexCharts);
+
+// Not necesary to load all components for now
 import AppButton from "@/components/AppButton";
 Vue.component("AppButton", AppButton);
+import AppCard from "@/components/AppCard";
+Vue.component("AppCard", AppCard);
 
 Vue.use(VueAxios, axios);
 
