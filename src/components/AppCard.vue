@@ -12,10 +12,11 @@
       overflow-hidden
       h-96
       min-h-24
+      opacity-80
     "
   >
     <slot name="title" />
-    <div class="flex justify-center items-center h-full">
+    <div class="grid ustify-items-stretch items-center h-full">
       <slot />
     </div>
   </div>

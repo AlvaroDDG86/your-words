@@ -5,7 +5,7 @@
       dark:bg-gray-800
       transition-all
       duration-200
-      bg-opacity-20 bg-blue-900
+      bg-opacity-70 bg-blue-900
     "
   >
     <router-view></router-view>

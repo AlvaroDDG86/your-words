@@ -9,7 +9,7 @@
     "
   >
     <p v-if="showButtonSignup" class="mt-4">
-      Are you new here?
+      Don’t have an account yet?
       <span
         class="
           cursor-pointer
@@ -21,11 +21,11 @@
         "
         @click="$router.replace('/auth/signup')"
       >
-        Create account
+        Create
       </span>
     </p>
     <p v-else-if="showButtonLogin" class="mt-4">
-      Have you got an account?
+      Already have an account
       <span
         class="
           cursor-pointer
