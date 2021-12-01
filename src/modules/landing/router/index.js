@@ -1,19 +1,27 @@
-import Landing from "@/modules/landing/Landing";
-import Main from "@/modules/landing/pages/Main";
-import Faqs from "@/modules/landing/pages/Faqs";
-
 export default {
   path: "/landing",
-  component: Landing,
+  component: () =>
+    import(
+      /* webpackChunkName: 'Landing' */
+      "@/modules/landing/Landing"
+    ),
   redirect: "/landing/main",
   children: [
     {
       path: "main",
-      component: Main,
+      component: () =>
+        import(
+          /* webpackChunkName: 'Landing' */
+          "@/modules/landing/pages/Main"
+        ),
     },
     {
       path: "faqs",
-      component: Faqs,
+      component: () =>
+        import(
+          /* webpackChunkName: 'Landing' */
+          "@/modules/landing/pages/Faqs"
+        ),
     },
   ],
 };
