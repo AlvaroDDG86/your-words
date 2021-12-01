@@ -1,24 +1,38 @@
 <template>
-  <div class="flex flex-col lg:flex-row justify-around items-stretch">
-    <div class="flex-1 m-4">
-      <AppCard>
-        <apexchart
-          height="100%"
-          type="bar"
-          :options="optionsBars"
-          :series="seriesBars"
-        ></apexchart>
-      </AppCard>
+  <div class="w-full min-h-screen">
+    <div class="flex flex-col lg:flex-row justify-around items-stretch">
+      <div class="flex-1 m-4">
+        <AppCard>
+          <apexchart
+            height="100%"
+            type="donut"
+            :options="optionsDonut"
+            :series="seriesDonuts"
+          ></apexchart>
+        </AppCard>
+      </div>
+      <div class="flex-1 m-4">
+        <AppCard>
+          <apexchart
+            height="100%"
+            type="donut"
+            :options="optionsDonut"
+            :series="seriesDonuts"
+          ></apexchart>
+        </AppCard>
+      </div>
     </div>
-    <div class="flex-1 m-4">
-      <AppCard>
-        <apexchart
-          height="100%"
-          type="donut"
-          :options="optionsDonut"
-          :series="seriesDonuts"
-        ></apexchart>
-      </AppCard>
+    <div class="flex flex-col lg:flex-row justify-around items-stretch">
+      <div class="flex-1 m-4">
+        <AppCard>
+          <apexchart
+            height="100%"
+            type="bar"
+            :options="optionsBars"
+            :series="seriesBars"
+          ></apexchart>
+        </AppCard>
+      </div>
     </div>
   </div>
 </template>
