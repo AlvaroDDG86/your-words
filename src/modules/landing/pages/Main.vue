@@ -168,7 +168,7 @@
                 Once you have searched a word...
               </h3>
               <p class="text-gray-600 mb-8">
-                Save your annotations and examples. Incredible, it's it?.
+                Save your annotations and examples. Incredible, isn't it?.
                 <!-- <br />
                 <br />
                 Images from: -->

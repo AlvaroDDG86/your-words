@@ -23,5 +23,13 @@ export default {
           "@/modules/landing/pages/Faqs"
         ),
     },
+    {
+      path: "about",
+      component: () =>
+        import(
+          /* webpackChunkName: 'Landing' */
+          "@/modules/landing/pages/About"
+        ),
+    },
   ],
 };

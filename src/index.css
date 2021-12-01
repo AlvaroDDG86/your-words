@@ -121,3 +121,21 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
 }
+
+.bg-animated {
+  background: linear-gradient(-45deg, #52b5ee, #1771bb, #23a6d5, #2b81c7);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+}
+
+@keyframes gradient {
+  0% {
+      background-position: 0% 50%;
+  }
+  50% {
+      background-position: 100% 50%;
+  }
+  100% {
+      background-position: 0% 50%;
+  }
+}

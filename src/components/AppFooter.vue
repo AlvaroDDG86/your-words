@@ -145,7 +145,7 @@
             </li>
             <li class="mt-2 inline-block mr-2 md:block md:mr-0 cursor-pointer">
               <a
-                href="#"
+                @click="$router.push('/landing/about')"
                 class="
                   no-underline
                   hover:underline
