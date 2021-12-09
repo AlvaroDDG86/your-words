@@ -1,24 +1,13 @@
 <script>
-import { mapGetters } from "vuex";
+import firebase from "firebase/compat/app";
 export default {
-  data() {
-    return {
-      showPage: false,
-    };
-  },
-  computed: {
-    ...mapGetters("auth", ["user"]),
-  },
-  watch: {
-    user: {
-      handler: function (user) {
-        if (user) {
-          this.$router.push("/auth/dashboard").catch(() => {});
-        }
-        this.showPage = true;
-      },
-      immediate: true,
-    },
+  beforeRouteEnter(routeTo, routeFrom, next) {
+    const user = firebase.auth().currentUser;
+    if (user) {
+      next("/");
+    } else {
+      next();
+    }
   },
 };
 </script>

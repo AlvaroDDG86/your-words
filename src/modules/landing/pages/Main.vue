@@ -34,7 +34,9 @@
             more!
           </p>
           <button
-            @click="$router.replace('/auth/signup')"
+            @click="
+              $router.replace(user.loggedIn ? '/words/list' : '/auth/signup')
+            "
             class="
               mx-auto
               lg:mx-0
@@ -56,7 +58,7 @@
               z-10
             "
           >
-            Create accont now!
+            {{ user.loggedIn ? "Your collection" : "Create accont now!" }}
           </button>
         </div>
         <!--Right Col-->
@@ -458,9 +460,15 @@
           class="h-1 mx-auto bg-white w-1/6 opacity-25 my-0 py-0 rounded-t"
         ></div>
       </div>
-      <h3 class="my-4 text-3xl leading-tight">Create an account or login.</h3>
+      {{ user.loggedIn }}
+      <h3 v-if="user.loggedIn" class="my-4 text-3xl leading-tight">
+        Go to your words
+      </h3>
+      <h3 v-else class="my-4 text-3xl leading-tight">
+        Create an account or login.
+      </h3>
       <button
-        @click="$router.replace('/auth/signup')"
+        @click="$router.replace(user.loggedIn ? '/words/list' : '/auth/signup')"
         class="
           mx-auto
           lg:mx-0
@@ -481,8 +489,16 @@
           ease-in-out
         "
       >
-        Create a new account!
+        {{ user.loggedIn ? "Go!" : "Create a new account!" }}
       </button>
     </section>
   </div>
 </template>
+<script>
+import { mapGetters } from "vuex";
+export default {
+  computed: {
+    ...mapGetters("auth", ["user"]),
+  },
+};
+</script>

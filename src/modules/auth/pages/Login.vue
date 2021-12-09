@@ -180,11 +180,11 @@
 <script>
 import firebase from "firebase/compat/app";
 import WordsServices from "@/modules/auth/services/index";
-// import ControlFlowAuth from "@/mixins/ControlFlowAuth";
+import ControlFlowAuth from "@/mixins/ControlFlowAuth";
 import { mapActions } from "vuex";
 export default {
   name: "Login",
-  // mixins: [ControlFlowAuth],
+  mixins: [ControlFlowAuth],
   data() {
     return {
       form: {
