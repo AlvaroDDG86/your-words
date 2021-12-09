@@ -27,7 +27,26 @@ export default {
       ? returnList.splice(startFrom, state.filterList.paginator.length)
       : returnList;
   },
+  wordListByParts: (state) => {
+    const list = [...state.wordsList];
+    const parts = {};
+    list
+      .map((word) => {
+        return word.list
+          .map((word) => word.meanings.map((mean) => mean.partOfSpeech))
+          .flat()
+          .filter((part) => part);
+      })
+      .flat()
+      .forEach((part) => {
+        parts[part] = (parts[part] || 0) + 1;
+      });
+    return parts;
+  },
   wordFullList: (state) => state.wordsList,
+  wordLastFive: (state) => {
+    return OrderList([...state.wordsList], "new").splice(0, 4);
+  },
   word: (state) => state.word,
   notFound: (state) => state.notFound,
   filterList: (state) => state.filterList,

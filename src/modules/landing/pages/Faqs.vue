@@ -22,7 +22,7 @@ export default {
           title: "Main features",
           list: [
             {
-              question: "How does work?",
+              question: "How does it work?",
               answer:
                 "Easy! search a word, read the explanation, examples, synonyms and antonyms. Listen the audio, write your examples, annotations and traductions, if you don't know, only click in Translate button.",
             },

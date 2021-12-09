@@ -16,8 +16,8 @@
           <apexchart
             height="100%"
             type="donut"
-            :options="optionsDonut"
-            :series="seriesDonuts"
+            :options="optionsDonutParts"
+            :series="seriesDonutsParts"
           ></apexchart>
         </AppCard>
       </div>
@@ -34,13 +34,25 @@
         </AppCard>
       </div>
     </div>
+    <div class="flex flex-col lg:flex-row justify-around items-stretch">
+      <div class="flex-1 m-4">
+        <AppCard>
+          <h3>Last words</h3>
+          <Table :list="wordLastFive" />
+        </AppCard>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
+import Table from "@/modules/words/components/Table";
 import { mapGetters } from "vuex";
 import { MONTHS } from "@/helpers/constants";
 export default {
+  components: {
+    Table,
+  },
   data: function () {
     return {
       optionsBars: {
@@ -158,10 +170,48 @@ export default {
           },
         ],
       },
+      optionsDonutParts: {
+        legend: {
+          labels: {
+            colors: [
+              "white",
+              "white",
+              "white",
+              "white",
+              "white",
+              "white",
+              "white",
+            ],
+          },
+        },
+        title: {
+          text: "Parts of Speech",
+          style: {
+            fontSize: "14px",
+            fontWeight: "bold",
+            color: "white",
+          },
+        },
+        responsive: [
+          {
+            breakpoint: 630,
+            options: {
+              plotOptions: {
+                bar: {
+                  horizontal: false,
+                },
+              },
+              legend: {
+                position: "bottom",
+              },
+            },
+          },
+        ],
+      },
     };
   },
   computed: {
-    ...mapGetters("words", ["wordFullList"]),
+    ...mapGetters("words", ["wordFullList", "wordListByParts", "wordLastFive"]),
     seriesBars() {
       // Getting the possible years and the last 6 months, and find its words
       if (this.wordFullList.length === 0) {
@@ -221,6 +271,19 @@ export default {
         this.wordFullList.filter((item) => !item.favourite).length,
         this.wordFullList.filter((item) => item.favourite).length,
       ];
+    },
+    seriesDonutsParts() {
+      return Object.keys(this.wordListByParts).map((key) => {
+        return this.wordListByParts[key];
+      });
+    },
+  },
+  watch: {
+    wordListByParts: {
+      handler: function (newVal) {
+        this.optionsDonutParts.labels = Object.keys(newVal);
+      },
+      immediate: true,
     },
   },
 };
