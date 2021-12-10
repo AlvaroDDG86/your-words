@@ -36,9 +36,9 @@
     </div>
     <div class="flex flex-col lg:flex-row justify-around items-stretch">
       <div class="flex-1 m-4">
-        <AppCard>
+        <AppCard :scroll="true">
           <h3>Last words</h3>
-          <Table :list="wordLastFive" />
+          <GridLayout :list="wordLastList(5)" />
         </AppCard>
       </div>
     </div>
@@ -46,12 +46,12 @@
 </template>
 
 <script>
-import Table from "@/modules/words/components/Table";
+import GridLayout from "@/modules/words/components/GridLayout";
 import { mapGetters } from "vuex";
 import { MONTHS } from "@/helpers/constants";
 export default {
   components: {
-    Table,
+    GridLayout,
   },
   data: function () {
     return {
@@ -154,21 +154,21 @@ export default {
             color: "white",
           },
         },
-        responsive: [
-          {
-            breakpoint: 630,
-            options: {
-              plotOptions: {
-                bar: {
-                  horizontal: false,
-                },
-              },
-              legend: {
-                position: "bottom",
-              },
-            },
-          },
-        ],
+        // responsive: [
+        //   {
+        //     breakpoint: 630,
+        //     options: {
+        //       plotOptions: {
+        //         bar: {
+        //           horizontal: false,
+        //         },
+        //       },
+        //       legend: {
+        //         position: "bottom",
+        //       },
+        //     },
+        //   },
+        // ],
       },
       optionsDonutParts: {
         legend: {
@@ -192,26 +192,26 @@ export default {
             color: "white",
           },
         },
-        responsive: [
-          {
-            breakpoint: 630,
-            options: {
-              plotOptions: {
-                bar: {
-                  horizontal: false,
-                },
-              },
-              legend: {
-                position: "bottom",
-              },
-            },
-          },
-        ],
+        // responsive: [
+        //   {
+        //     breakpoint: 630,
+        //     options: {
+        //       plotOptions: {
+        //         bar: {
+        //           horizontal: false,
+        //         },
+        //       },
+        //       legend: {
+        //         position: "bottom",
+        //       },
+        //     },
+        //   },
+        // ],
       },
     };
   },
   computed: {
-    ...mapGetters("words", ["wordFullList", "wordListByParts", "wordLastFive"]),
+    ...mapGetters("words", ["wordFullList", "wordListByParts", "wordLastList"]),
     seriesBars() {
       // Getting the possible years and the last 6 months, and find its words
       if (this.wordFullList.length === 0) {
@@ -281,7 +281,10 @@ export default {
   watch: {
     wordListByParts: {
       handler: function (newVal) {
-        this.optionsDonutParts.labels = Object.keys(newVal);
+        this.optionsDonutParts = {
+          ...this.optionsDonutParts,
+          labels: [...Object.keys(newVal)],
+        };
       },
       immediate: true,
     },

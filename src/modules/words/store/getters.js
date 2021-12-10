@@ -44,8 +44,8 @@ export default {
     return parts;
   },
   wordFullList: (state) => state.wordsList,
-  wordLastFive: (state) => {
-    return OrderList([...state.wordsList], "new").splice(0, 4);
+  wordLastList: (state) => (num) => {
+    return OrderList([...state.wordsList], "new").splice(0, num);
   },
   word: (state) => state.word,
   notFound: (state) => state.notFound,

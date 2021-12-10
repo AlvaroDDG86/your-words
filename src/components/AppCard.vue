@@ -1,5 +1,6 @@
 <template>
   <div
+    :class="{ 'overflow-y-auto': scroll }"
     class="
       bg-gray-300
       dark:bg-gray-600
@@ -21,3 +22,13 @@
     </div>
   </div>
 </template>
+<script>
+export default {
+  props: {
+    scroll: {
+      type: Boolean,
+      default: false,
+    },
+  },
+};
+</script>
