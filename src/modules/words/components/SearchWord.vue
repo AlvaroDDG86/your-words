@@ -2,46 +2,19 @@
   <div class="inset-x-auto w-full">
     <div class="w-full mx-auto shadow-md p-4 bg-brand">
       <div class="flex gap-2 flex-col md:flex-row center">
-        <div class="relative flex-1">
-          <input
-            id="word"
-            @keyup.enter="searchWord"
-            v-model="wordSearch"
-            name="word"
-            type="text"
-            class="
-              peer
-              h-10
-              w-full
-              rounded-md
-              border border-1.5
-              placeholder-transparent
-              border-blue-300
-              text-blue-900
-              focus:outline-none focus:border-blue-600 focus:border-2
-              p-3
-            "
-            placeholder="Word to search"
-          />
-          <label
-            for="word"
-            class="
-              absolute
-              left-2
-              px-1
-              -top-2.5
-              bg-white
-              text-blue-600 text-sm
-              transition-all
-              peer-placeholder-shown:text-base
-              peer-placeholder-shown:text-blue-900
-              peer-placeholder-shown:top-2
-              peer-focus:-top-2.5 peer-focus:text-blue-600 peer-focus:text-sm
-              rounded
-            "
-            >Word or Expresion :</label
-          >
-        </div>
+        <v-select
+          class="bg-white mt-1 lg:mt-0 rounded w-full"
+          label="Word or Expresion"
+          v-model="wordSearch"
+          :filterable="false"
+          :options="options"
+          @search="onSearch"
+          @option:selected="searchWord"
+        >
+          <template slot="no-options">
+            type to search words or expressions.
+          </template>
+        </v-select>
       </div>
       <div class="flex justify-between items-center mt-6">
         <AppButton @click="$router.replace('/words/list')">
@@ -70,13 +43,29 @@ export default {
   data() {
     return {
       wordSearch: "",
+      options: [],
     };
   },
   methods: {
     ...mapActions("words", ["setFavourite"]),
     searchWord() {
-      this.$store.dispatch("words/setWord", null);
-      this.$store.dispatch("words/getWord", this.wordSearch);
+      this.wordSearch && this.$store.dispatch("words/getWord", this.wordSearch);
+    },
+    async onSearch(search, loading) {
+      if (!search) {
+        this.options = [];
+        return;
+      }
+      loading(true);
+      // Avoid axios in order to avoid global loader
+      fetch(`https://api.datamuse.com/words?sp=${escape(search)}*`).then(
+        (res) => {
+          res.json().then((json) => {
+            this.options = json.map((item) => item.word).slice(0, 15);
+          });
+          loading(false);
+        }
+      );
     },
   },
   computed: {
