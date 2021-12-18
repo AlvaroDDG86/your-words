@@ -1,5 +1,7 @@
 # your-words
 
+[LIVE APP](https://your-words.netlify.app)
+
 ## Project setup
 ```
 npm install

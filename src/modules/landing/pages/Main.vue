@@ -203,7 +203,7 @@
         </div>
       </div>
     </section>
-    <section class="bg-white border-b py-8">
+    <!-- <section class="bg-white border-b py-8">
       <div class="container mx-auto flex flex-wrap pt-4 pb-12">
         <h1
           class="
@@ -406,7 +406,7 @@
           </div>
         </div>
       </div>
-    </section>
+    </section> -->
     <svg
       class="wave-top"
       viewBox="0 0 1439 147"
