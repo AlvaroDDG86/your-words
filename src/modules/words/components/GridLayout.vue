@@ -1,5 +1,5 @@
 <template>
-  <div class="grid grid-autofit gap-x-4 p-2">
+  <div class="grid grid-cols-1 md:grid-cols-3 xl:grid-cols-5 gap-x-4 p-2">
     <WordItem
       :word="word"
       :key="`word-${index}`"
@@ -22,8 +22,3 @@ export default {
   },
 };
 </script>
-<style>
-.grid-autofit {
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-}
-</style>
