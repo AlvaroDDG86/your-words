@@ -21,7 +21,6 @@
         :value="annotations"
         :editor-toolbar="customToolbar"
         @input="updateVal"
-        placeholder="Type your annotations"
       ></vue-editor>
     </div>
   </div>
