@@ -19,6 +19,7 @@ import "./plugins/vue-toggle";
 import "./plugins/vue-popover";
 import "./plugins/vee-validate";
 import "./plugins/apex-charts";
+import "./plugins/vue-editor";
 
 // importing the helper
 import interceptorsSetup from "./helpers/interceptors";

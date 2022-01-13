@@ -47,7 +47,7 @@
           peer-focus:-top-2.5 peer-focus:text-blue-600 peer-focus:text-sm
           rounded
         "
-        >Search Word or Expresion :</label
+        >Search Word:</label
       >
     </div>
     <div class="flex justify-between items-center">

@@ -16,28 +16,55 @@
       class="text-s text-gray-900 dark:text-gray-200 block mb-2 font-bold"
       >Your annotations:</label
     >
-    <textarea
-      id="annotation"
-      rows="4"
-      :value="annotations"
-      @change="updateVal"
-      class="
-        bg-gray-50
-        border border-blue-300
-        text-gray-900
-        sm:text-sm
-        rounded-lg
-        focus:ring-blue500 focus:border-blue-500
-        block
-        w-full
-      "
-      placeholder="Leave your annotations..."
-    ></textarea>
+    <div class="bg-white">
+      <vue-editor
+        :value="annotations"
+        :editor-toolbar="customToolbar"
+        @input="updateVal"
+        placeholder="Type your annotations"
+      ></vue-editor>
+    </div>
   </div>
 </template>
 <script>
 export default {
   name: "Annotation",
+  data() {
+    return {
+      customToolbar: [
+        ["bold", "italic", "underline"],
+        ["blockquote", "code-block"],
+        [
+          {
+            color: [
+              "blue",
+              "red",
+              "green",
+              "orange",
+              "pink",
+              "chartreuse",
+              "yellow",
+            ],
+          },
+        ],
+        [
+          {
+            align: "",
+          },
+          {
+            align: "center",
+          },
+          {
+            align: "right",
+          },
+          {
+            align: "justify",
+          },
+        ],
+        [{ list: "ordered" }, { list: "bullet" }],
+      ],
+    };
+  },
   props: {
     annotations: {
       type: String,
@@ -46,7 +73,7 @@ export default {
   },
   methods: {
     updateVal(event) {
-      this.$emit("updateValue", event.target.value);
+      this.$emit("updateValue", event);
     },
   },
 };
