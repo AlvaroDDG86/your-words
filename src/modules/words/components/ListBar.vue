@@ -14,7 +14,6 @@
     <div class="relative">
       <input
         id="word"
-        value=""
         name="word"
         type="text"
         class="
@@ -52,11 +51,11 @@
       >
     </div>
     <div class="flex justify-between items-center">
-      <AppButton
-        @click="$modal.show('letters')"
-        :classes="filterList.letters.length > 0 ? 'bg-yellow-100' : 'bg-white'"
-      >
-        <span class="text-xl font-mono inline text-gray-300">
+      <AppButton @click="$modal.show('letters')">
+        <span
+          class="text-xl font-mono inline text-gray-300"
+          :class="{ 'text-green-600': filterList.letters.length > 0 }"
+        >
           <v-icon name="search-plus"
         /></span>
         <span class="hidden md:inline-block ml-2">By letters</span>
@@ -75,22 +74,10 @@
           Marked words
         </span></AppButton
       >
-      <v-select
-        class="w-56 bg-white mt-1 lg:mt-0 rounded"
-        v-model="filterList.order"
+      <app-select
         :options="orderOptions"
-        :reduce="(order) => order.code"
-        label="label"
-        :clearable="false"
-      >
-        <template
-          v-slot:option="option"
-          class="flex justify-around items-center"
-        >
-          <v-icon small x-small :name="option.icon" />
-          {{ option.label }}
-        </template>
-      </v-select>
+        v-model="filterList.order"
+      ></app-select>
     </div>
     <modal name="letters" :adaptive="true" :height="'auto'">
       <div class="mx-2">
@@ -131,7 +118,6 @@
 <script>
 import { mapGetters, mapActions } from "vuex";
 import { ORDER_OPTIONS, LETTERS } from "@/helpers/constants";
-
 // icon: "brands/vuejs",
 export default {
   name: "ListBar",

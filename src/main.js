@@ -29,7 +29,9 @@ import "@/helpers/firebase.js";
 
 // Not necesary to load all components for now
 import AppButton from "@/components/AppButton";
+import AppSelect from "@/components/AppSelect.vue";
 Vue.component("AppButton", AppButton);
+Vue.component("AppSelect", AppSelect);
 import AppCard from "@/components/AppCard";
 Vue.component("AppCard", AppCard);
 

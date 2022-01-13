@@ -47,12 +47,12 @@ export const ORDER_OPTIONS = [
     icon: "sort-amount-down",
   },
   {
-    label: "Alphabetical desc",
+    label: "Alph. desc",
     code: "desc",
     icon: "sort-alpha-up",
   },
   {
-    label: "Alphabetical asc",
+    label: "Alph. asc",
     code: "asc",
     icon: "sort-alpha-up-alt",
   },
