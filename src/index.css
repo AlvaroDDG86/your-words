@@ -14,7 +14,7 @@ body {
   --animate-repeat: 1;
 }
 
-[type=email], [type=month], [type=password], [type=search], [type=text], [type=time], [type=url], select, textarea {
+.v-select [type=search] {
   border-color: transparent !important;
   padding-top: 0 !important;
   padding-right: 0 !important;
